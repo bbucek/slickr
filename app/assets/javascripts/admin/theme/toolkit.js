@@ -3556,6 +3556,8 @@ $(document).ready(function () {
   $(html_responsive).prependTo('#header');
 
   $(".header-item").wrapAll("<div class='navbar-collapse mr-auto collapse' id='navbarResponsive' aria-expanded='false'>");
+
+  $(".dropdown_menu_button").attr("data-toggle", "dropdown");
 });
 
 /* ========================================================================
