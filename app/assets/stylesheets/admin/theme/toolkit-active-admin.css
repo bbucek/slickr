@@ -2026,7 +2026,15 @@ fieldset[disabled] a {
     background-color: #33b5e5;
     border-color: #33b5e5; }
   .btn-primary:active, #header .header-item #logout a:active, #title_bar .action_item a:active, #active_admin_content .action_item a:active, .filter_form .buttons input[type="submit"]:active, ul.scopes li.scope.selected a:active, form .actions li input[type="submit"]:active, .btn-primary.active, #header .header-item#tabs li.current a.btn-primary, #header .header-item#tabs li.current #logout a, #header .header-item#tabs #logout li.current a, #header .header-item#tabs li.current #title_bar .action_item a, #title_bar .action_item #header .header-item#tabs li.current a, #header .header-item#tabs li.current #active_admin_content .action_item a, #active_admin_content .action_item #header .header-item#tabs li.current a, #header .header-item#tabs li.current ul.scopes li.scope.selected a, ul.scopes li.scope.selected #header .header-item#tabs li.current a, #header .header-item #logout a.active, #header .header-item #logout .breadcrumb a:nth-last-child(2), .breadcrumb #header .header-item #logout a:nth-last-child(2), .breadcrumb a.btn-primary:nth-last-child(2), .breadcrumb #title_bar .action_item a:nth-last-child(2), #title_bar .action_item .breadcrumb a:nth-last-child(2), .breadcrumb #active_admin_content .action_item a:nth-last-child(2), #active_admin_content .action_item .breadcrumb a:nth-last-child(2), .breadcrumb ul.scopes li.scope.selected a:nth-last-child(2), ul.scopes li.scope.selected .breadcrumb a:nth-last-child(2), #title_bar .action_item a.active, #active_admin_content .action_item a.active, .filter_form .buttons input.active[type="submit"], ul.scopes li.scope.selected a.active, form .actions li input.active[type="submit"],
-  .show > .btn-primary.dropdown-toggle, .batch_actions_selector > .btn-primary.dropdown-toggle, #header .header-item #logout
+  .show > .btn-primary.dropdown-toggle, .batch_actions_selector > .btn-primary.dropdown-toggle, #header .header-item
+  li.has_nested.show > a.btn-primary, #header .header-item li.has_nested.batch_actions_selector > a.btn-primary, #header .header-item #logout
+  li.has_nested.show > a, #header .header-item #logout li.has_nested.batch_actions_selector > a, #header .header-item #title_bar .action_item
+  li.has_nested.show > a, #header .header-item #title_bar .action_item li.has_nested.batch_actions_selector > a, #title_bar .action_item #header .header-item
+  li.has_nested.show > a, #title_bar .action_item #header .header-item li.has_nested.batch_actions_selector > a, #header .header-item #active_admin_content .action_item
+  li.has_nested.show > a, #header .header-item #active_admin_content .action_item li.has_nested.batch_actions_selector > a, #active_admin_content .action_item #header .header-item
+  li.has_nested.show > a, #active_admin_content .action_item #header .header-item li.has_nested.batch_actions_selector > a, #header .header-item ul.scopes li.scope.selected
+  li.has_nested.show > a, #header .header-item ul.scopes li.scope.selected li.has_nested.batch_actions_selector > a, ul.scopes li.scope.selected #header .header-item
+  li.has_nested.show > a, ul.scopes li.scope.selected #header .header-item li.has_nested.batch_actions_selector > a, #header .header-item #logout
   .show > a.dropdown-toggle, #header .header-item #logout .batch_actions_selector > a.dropdown-toggle, #header .header-item #logout .batch_actions_selector
   .show > a.dropdown_menu_button, #header .header-item #logout .batch_actions_selector > a.dropdown_menu_button, .batch_actions_selector #header .header-item #logout
   .show > a.dropdown_menu_button, #title_bar .action_item
@@ -2065,7 +2073,14 @@ fieldset[disabled] a {
     background-color: #fff;
     border-color: #ccc; }
   .btn-secondary:active, .filter_form .buttons input:active, .filter_form .buttons a:active, ul.scopes li.scope a:active, form .actions li input:active, form .actions li a:active, .btn-secondary.active, #header .header-item#tabs li.current a.btn-secondary, #header .header-item#tabs li.current .filter_form .buttons a, .filter_form .buttons #header .header-item#tabs li.current a, #header .header-item#tabs li.current ul.scopes li.scope a, ul.scopes li.scope #header .header-item#tabs li.current a, #header .header-item#tabs form .actions li.current a, form .actions #header .header-item#tabs li.current a, .breadcrumb a.btn-secondary:nth-last-child(2), .breadcrumb .filter_form .buttons a:nth-last-child(2), .filter_form .buttons .breadcrumb a:nth-last-child(2), .breadcrumb ul.scopes li.scope a:nth-last-child(2), ul.scopes li.scope .breadcrumb a:nth-last-child(2), .breadcrumb form .actions li a:nth-last-child(2), form .actions li .breadcrumb a:nth-last-child(2), .filter_form .buttons input.active, .filter_form .buttons a.active, ul.scopes li.scope a.active, form .actions li input.active, form .actions li a.active,
-  .show > .btn-secondary.dropdown-toggle, .batch_actions_selector > .btn-secondary.dropdown-toggle, .batch_actions_selector
+  .show > .btn-secondary.dropdown-toggle, .batch_actions_selector > .btn-secondary.dropdown-toggle, #header .header-item
+  li.has_nested.show > a.btn-secondary, #header .header-item li.has_nested.batch_actions_selector > a.btn-secondary, #header .header-item .filter_form .buttons
+  li.has_nested.show > a, #header .header-item .filter_form .buttons li.has_nested.batch_actions_selector > a, .filter_form .buttons #header .header-item
+  li.has_nested.show > a, .filter_form .buttons #header .header-item li.has_nested.batch_actions_selector > a, #header .header-item ul.scopes li.scope
+  li.has_nested.show > a, #header .header-item ul.scopes li.scope li.has_nested.batch_actions_selector > a, ul.scopes li.scope #header .header-item
+  li.has_nested.show > a, ul.scopes li.scope #header .header-item li.has_nested.batch_actions_selector > a, #header .header-item form .actions
+  li.has_nested.show > a, #header .header-item form .actions li.has_nested.batch_actions_selector > a, form .actions #header .header-item
+  li.has_nested.show > a, form .actions #header .header-item li.has_nested.batch_actions_selector > a, .batch_actions_selector
   .show > .btn-secondary.dropdown_menu_button, .batch_actions_selector > .btn-secondary.dropdown_menu_button, .batch_actions_selector .filter_form .buttons
   .show > input.dropdown_menu_button, .filter_form .buttons .batch_actions_selector
   .show > input.dropdown_menu_button, .filter_form .buttons .batch_actions_selector > input.dropdown_menu_button, .batch_actions_selector .filter_form .buttons
@@ -2101,7 +2116,8 @@ fieldset[disabled] a {
     background-color: #5bc0de;
     border-color: #5bc0de; }
   .btn-info:active, .btn-info.active, #header .header-item#tabs li.current a.btn-info, .breadcrumb a.btn-info:nth-last-child(2),
-  .show > .btn-info.dropdown-toggle, .batch_actions_selector > .btn-info.dropdown-toggle, .batch_actions_selector
+  .show > .btn-info.dropdown-toggle, .batch_actions_selector > .btn-info.dropdown-toggle, #header .header-item
+  li.has_nested.show > a.btn-info, #header .header-item li.has_nested.batch_actions_selector > a.btn-info, .batch_actions_selector
   .show > .btn-info.dropdown_menu_button, .batch_actions_selector > .btn-info.dropdown_menu_button {
     color: #fff;
     background-color: #31b0d5;
@@ -2122,7 +2138,8 @@ fieldset[disabled] a {
     background-color: #00C851;
     border-color: #00C851; }
   .btn-success:active, .btn-success.active, #header .header-item#tabs li.current a.btn-success, .breadcrumb a.btn-success:nth-last-child(2),
-  .show > .btn-success.dropdown-toggle, .batch_actions_selector > .btn-success.dropdown-toggle, .batch_actions_selector
+  .show > .btn-success.dropdown-toggle, .batch_actions_selector > .btn-success.dropdown-toggle, #header .header-item
+  li.has_nested.show > a.btn-success, #header .header-item li.has_nested.batch_actions_selector > a.btn-success, .batch_actions_selector
   .show > .btn-success.dropdown_menu_button, .batch_actions_selector > .btn-success.dropdown_menu_button {
     color: #fff;
     background-color: #00953c;
@@ -2143,7 +2160,10 @@ fieldset[disabled] a {
     background-color: #f0ad4e;
     border-color: #f0ad4e; }
   .btn-warning:active, .batch_actions_selector .dropdown_menu_button:active, .btn-warning.active, #header .header-item#tabs li.current a.btn-warning, #header .header-item#tabs li.current .batch_actions_selector a.dropdown_menu_button, .batch_actions_selector #header .header-item#tabs li.current a.dropdown_menu_button, .breadcrumb a.btn-warning:nth-last-child(2), .breadcrumb .batch_actions_selector a.dropdown_menu_button:nth-last-child(2), .batch_actions_selector .breadcrumb a.dropdown_menu_button:nth-last-child(2), .batch_actions_selector .active.dropdown_menu_button,
-  .show > .btn-warning.dropdown-toggle, .batch_actions_selector > .btn-warning.dropdown-toggle, .batch_actions_selector
+  .show > .btn-warning.dropdown-toggle, .batch_actions_selector > .btn-warning.dropdown-toggle, #header .header-item
+  li.has_nested.show > a.btn-warning, #header .header-item li.has_nested.batch_actions_selector > a.btn-warning, #header .header-item .batch_actions_selector
+  li.has_nested.show > a.dropdown_menu_button, #header .header-item .batch_actions_selector li.has_nested.batch_actions_selector > a.dropdown_menu_button, .batch_actions_selector #header .header-item
+  li.has_nested.show > a.dropdown_menu_button, .batch_actions_selector #header .header-item li.has_nested.batch_actions_selector > a.dropdown_menu_button, .batch_actions_selector
   .show > .dropdown_menu_button, .batch_actions_selector > .dropdown_menu_button {
     color: #fff;
     background-color: #ec971f;
@@ -2164,7 +2184,8 @@ fieldset[disabled] a {
     background-color: #ff4444;
     border-color: #ff4444; }
   .btn-danger:active, .btn-danger.active, #header .header-item#tabs li.current a.btn-danger, .breadcrumb a.btn-danger:nth-last-child(2),
-  .show > .btn-danger.dropdown-toggle, .batch_actions_selector > .btn-danger.dropdown-toggle, .batch_actions_selector
+  .show > .btn-danger.dropdown-toggle, .batch_actions_selector > .btn-danger.dropdown-toggle, #header .header-item
+  li.has_nested.show > a.btn-danger, #header .header-item li.has_nested.batch_actions_selector > a.btn-danger, .batch_actions_selector
   .show > .btn-danger.dropdown_menu_button, .batch_actions_selector > .btn-danger.dropdown_menu_button {
     color: #fff;
     background-color: #ff1111;
@@ -2186,7 +2207,10 @@ fieldset[disabled] a {
     color: #33b5e5;
     background-color: transparent; }
   .btn-outline-primary:active, .breadcrumb a:active, .btn-outline-primary.active, #header .header-item#tabs li.current a.btn-outline-primary, #header .header-item#tabs li.current .breadcrumb a, .breadcrumb #header .header-item#tabs li.current a, .breadcrumb a.active, .breadcrumb a:nth-last-child(2),
-  .show > .btn-outline-primary.dropdown-toggle, .batch_actions_selector > .btn-outline-primary.dropdown-toggle, .breadcrumb
+  .show > .btn-outline-primary.dropdown-toggle, .batch_actions_selector > .btn-outline-primary.dropdown-toggle, #header .header-item
+  li.has_nested.show > a.btn-outline-primary, #header .header-item li.has_nested.batch_actions_selector > a.btn-outline-primary, #header .header-item .breadcrumb
+  li.has_nested.show > a, #header .header-item .breadcrumb li.has_nested.batch_actions_selector > a, .breadcrumb #header .header-item
+  li.has_nested.show > a, .breadcrumb #header .header-item li.has_nested.batch_actions_selector > a, .breadcrumb
   .show > a.dropdown-toggle, .breadcrumb .batch_actions_selector > a.dropdown-toggle, .breadcrumb .batch_actions_selector
   .show > a.dropdown_menu_button, .breadcrumb .batch_actions_selector > a.dropdown_menu_button, .batch_actions_selector .breadcrumb
   .show > a.dropdown_menu_button, .batch_actions_selector
@@ -2210,7 +2234,8 @@ fieldset[disabled] a {
     color: #ccc;
     background-color: transparent; }
   .btn-outline-secondary:active, .btn-outline-secondary.active, #header .header-item#tabs li.current a.btn-outline-secondary, .breadcrumb a.btn-outline-secondary:nth-last-child(2),
-  .show > .btn-outline-secondary.dropdown-toggle, .batch_actions_selector > .btn-outline-secondary.dropdown-toggle, .batch_actions_selector
+  .show > .btn-outline-secondary.dropdown-toggle, .batch_actions_selector > .btn-outline-secondary.dropdown-toggle, #header .header-item
+  li.has_nested.show > a.btn-outline-secondary, #header .header-item li.has_nested.batch_actions_selector > a.btn-outline-secondary, .batch_actions_selector
   .show > .btn-outline-secondary.dropdown_menu_button, .batch_actions_selector > .btn-outline-secondary.dropdown_menu_button {
     color: #fff;
     background-color: #ccc;
@@ -2231,7 +2256,8 @@ fieldset[disabled] a {
     color: #5bc0de;
     background-color: transparent; }
   .btn-outline-info:active, .btn-outline-info.active, #header .header-item#tabs li.current a.btn-outline-info, .breadcrumb a.btn-outline-info:nth-last-child(2),
-  .show > .btn-outline-info.dropdown-toggle, .batch_actions_selector > .btn-outline-info.dropdown-toggle, .batch_actions_selector
+  .show > .btn-outline-info.dropdown-toggle, .batch_actions_selector > .btn-outline-info.dropdown-toggle, #header .header-item
+  li.has_nested.show > a.btn-outline-info, #header .header-item li.has_nested.batch_actions_selector > a.btn-outline-info, .batch_actions_selector
   .show > .btn-outline-info.dropdown_menu_button, .batch_actions_selector > .btn-outline-info.dropdown_menu_button {
     color: #fff;
     background-color: #5bc0de;
@@ -2252,7 +2278,8 @@ fieldset[disabled] a {
     color: #00C851;
     background-color: transparent; }
   .btn-outline-success:active, .btn-outline-success.active, #header .header-item#tabs li.current a.btn-outline-success, .breadcrumb a.btn-outline-success:nth-last-child(2),
-  .show > .btn-outline-success.dropdown-toggle, .batch_actions_selector > .btn-outline-success.dropdown-toggle, .batch_actions_selector
+  .show > .btn-outline-success.dropdown-toggle, .batch_actions_selector > .btn-outline-success.dropdown-toggle, #header .header-item
+  li.has_nested.show > a.btn-outline-success, #header .header-item li.has_nested.batch_actions_selector > a.btn-outline-success, .batch_actions_selector
   .show > .btn-outline-success.dropdown_menu_button, .batch_actions_selector > .btn-outline-success.dropdown_menu_button {
     color: #fff;
     background-color: #00C851;
@@ -2273,7 +2300,8 @@ fieldset[disabled] a {
     color: #f0ad4e;
     background-color: transparent; }
   .btn-outline-warning:active, .btn-outline-warning.active, #header .header-item#tabs li.current a.btn-outline-warning, .breadcrumb a.btn-outline-warning:nth-last-child(2),
-  .show > .btn-outline-warning.dropdown-toggle, .batch_actions_selector > .btn-outline-warning.dropdown-toggle, .batch_actions_selector
+  .show > .btn-outline-warning.dropdown-toggle, .batch_actions_selector > .btn-outline-warning.dropdown-toggle, #header .header-item
+  li.has_nested.show > a.btn-outline-warning, #header .header-item li.has_nested.batch_actions_selector > a.btn-outline-warning, .batch_actions_selector
   .show > .btn-outline-warning.dropdown_menu_button, .batch_actions_selector > .btn-outline-warning.dropdown_menu_button {
     color: #fff;
     background-color: #f0ad4e;
@@ -2294,7 +2322,8 @@ fieldset[disabled] a {
     color: #ff4444;
     background-color: transparent; }
   .btn-outline-danger:active, .btn-outline-danger.active, #header .header-item#tabs li.current a.btn-outline-danger, .breadcrumb a.btn-outline-danger:nth-last-child(2),
-  .show > .btn-outline-danger.dropdown-toggle, .batch_actions_selector > .btn-outline-danger.dropdown-toggle, .batch_actions_selector
+  .show > .btn-outline-danger.dropdown-toggle, .batch_actions_selector > .btn-outline-danger.dropdown-toggle, #header .header-item
+  li.has_nested.show > a.btn-outline-danger, #header .header-item li.has_nested.batch_actions_selector > a.btn-outline-danger, .batch_actions_selector
   .show > .btn-outline-danger.dropdown_menu_button, .batch_actions_selector > .btn-outline-danger.dropdown_menu_button {
     color: #fff;
     background-color: #ff4444;
@@ -2370,10 +2399,11 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
 
 .dropup,
 .dropdown,
+#header .header-item li.has_nested,
 .batch_actions_selector {
   position: relative; }
 
-.dropdown-toggle::after, .batch_actions_selector .dropdown_menu_button::after {
+.dropdown-toggle::after, #header .header-item li.has_nested > a::after, .batch_actions_selector .dropdown_menu_button::after {
   display: inline-block;
   width: 0;
   height: 0;
@@ -2384,14 +2414,14 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
   border-right: 0.3em solid transparent;
   border-left: 0.3em solid transparent; }
 
-.dropdown-toggle:focus, .batch_actions_selector .dropdown_menu_button:focus {
+.dropdown-toggle:focus, #header .header-item li.has_nested > a:focus, .batch_actions_selector .dropdown_menu_button:focus {
   outline: 0; }
 
-.dropup .dropdown-toggle::after, .dropup .batch_actions_selector .dropdown_menu_button::after, .batch_actions_selector .dropup .dropdown_menu_button::after {
+.dropup .dropdown-toggle::after, .dropup #header .header-item li.has_nested > a::after, #header .header-item .dropup li.has_nested > a::after, .dropup .batch_actions_selector .dropdown_menu_button::after, .batch_actions_selector .dropup .dropdown_menu_button::after {
   border-top: 0;
   border-bottom: 0.3em solid; }
 
-.dropdown-menu, .batch_actions_selector .dropdown_menu_list {
+.dropdown-menu, #header .header-item li.has_nested li, .batch_actions_selector .dropdown_menu_list {
   position: absolute;
   top: 100%;
   left: 0;
@@ -2416,7 +2446,7 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
   overflow: hidden;
   background-color: #eceeef; }
 
-.dropdown-item, .batch_actions_selector .dropdown_menu_list .batch_action {
+.dropdown-item, #header .header-item li.has_nested li a, .batch_actions_selector .dropdown_menu_list .batch_action {
   display: block;
   width: 100%;
   padding: 3px 1.5rem;
@@ -2427,20 +2457,20 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
   white-space: nowrap;
   background: none;
   border: 0; }
-  .dropdown-item:focus, .batch_actions_selector .dropdown_menu_list .batch_action:focus, .dropdown-item:hover, .batch_actions_selector .dropdown_menu_list .batch_action:hover {
+  .dropdown-item:focus, #header .header-item li.has_nested li a:focus, .batch_actions_selector .dropdown_menu_list .batch_action:focus, .dropdown-item:hover, #header .header-item li.has_nested li a:hover, .batch_actions_selector .dropdown_menu_list .batch_action:hover {
     color: #1d1e1f;
     text-decoration: none;
     background-color: #f7f7f9; }
-  .dropdown-item.active, #header .header-item#tabs li.current a.dropdown-item, #header .header-item#tabs li.current .batch_actions_selector .dropdown_menu_list a.batch_action, .batch_actions_selector .dropdown_menu_list #header .header-item#tabs li.current a.batch_action, .breadcrumb a.dropdown-item:nth-last-child(2), .breadcrumb .batch_actions_selector .dropdown_menu_list a.batch_action:nth-last-child(2), .batch_actions_selector .dropdown_menu_list .breadcrumb a.batch_action:nth-last-child(2), .batch_actions_selector .dropdown_menu_list .active.batch_action, .dropdown-item:active, .batch_actions_selector .dropdown_menu_list .batch_action:active {
+  .dropdown-item.active, #header .header-item li.has_nested li a.active, #header .header-item#tabs li.has_nested li.current a, #header .header-item li.has_nested li .breadcrumb a:nth-last-child(2), .breadcrumb #header .header-item li.has_nested li a:nth-last-child(2), #header .header-item#tabs li.current a.dropdown-item, #header .header-item#tabs li.current .batch_actions_selector .dropdown_menu_list a.batch_action, .batch_actions_selector .dropdown_menu_list #header .header-item#tabs li.current a.batch_action, .breadcrumb a.dropdown-item:nth-last-child(2), .breadcrumb .batch_actions_selector .dropdown_menu_list a.batch_action:nth-last-child(2), .batch_actions_selector .dropdown_menu_list .breadcrumb a.batch_action:nth-last-child(2), .batch_actions_selector .dropdown_menu_list .active.batch_action, .dropdown-item:active, #header .header-item li.has_nested li a:active, .batch_actions_selector .dropdown_menu_list .batch_action:active {
     color: #fff;
     text-decoration: none;
     background-color: #33b5e5; }
-  .dropdown-item.disabled, .batch_actions_selector .dropdown_menu_list .disabled.batch_action, .dropdown-item:disabled, .batch_actions_selector .dropdown_menu_list .batch_action:disabled {
+  .dropdown-item.disabled, #header .header-item li.has_nested li a.disabled, .batch_actions_selector .dropdown_menu_list .disabled.batch_action, .dropdown-item:disabled, #header .header-item li.has_nested li a:disabled, .batch_actions_selector .dropdown_menu_list .batch_action:disabled {
     color: #636c72;
     cursor: not-allowed;
     background-color: transparent; }
 
-.show > .dropdown-menu, .batch_actions_selector > .dropdown-menu, .batch_actions_selector .show > .dropdown_menu_list, .batch_actions_selector > .dropdown_menu_list {
+.show > .dropdown-menu, .batch_actions_selector > .dropdown-menu, #header .header-item li.has_nested .show > li, #header .header-item li.has_nested .batch_actions_selector > li, .batch_actions_selector .show > .dropdown_menu_list, .batch_actions_selector > .dropdown_menu_list {
   display: block; }
 
 .show > a, .batch_actions_selector > a {
@@ -2470,7 +2500,7 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
   left: 0;
   z-index: 990; }
 
-.dropup .dropdown-menu, .dropup .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .dropup .dropdown_menu_list {
+.dropup .dropdown-menu, .dropup #header .header-item li.has_nested li, #header .header-item li.has_nested .dropup li, .dropup .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .dropup .dropdown_menu_list {
   top: auto;
   bottom: 100%;
   margin-bottom: 0.125rem; }
@@ -3180,17 +3210,18 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
   .btn-toolbar .input-group {
     width: auto; }
 
-.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #header .header-item #logout .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #header .header-item #logout .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #title_bar .action_item .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #title_bar .action_item .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #active_admin_content .action_item .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #active_admin_content .action_item .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .batch_actions_selector .btn-group > .dropdown_menu_button:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .batch_actions_selector .breadcrumb > .dropdown_menu_button:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .btn-group > input:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .breadcrumb > input:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), ul.scopes li.scope .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), ul.scopes li.scope .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), form .actions li .btn-group > input:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), form .actions li .breadcrumb > input:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), form .actions li .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), form .actions li .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button) {
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #header .header-item #logout .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #header .header-item #logout .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #title_bar .action_item .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #title_bar .action_item .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #active_admin_content .action_item .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #active_admin_content .action_item .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .batch_actions_selector .btn-group > .dropdown_menu_button:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .batch_actions_selector .breadcrumb > .dropdown_menu_button:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .btn-group > input:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .breadcrumb > input:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), ul.scopes li.scope .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), ul.scopes li.scope .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), form .actions li .btn-group > input:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), form .actions li .breadcrumb > input:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), form .actions li .btn-group > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), form .actions li .breadcrumb > a:not(:first-child):not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button) {
   border-radius: 0; }
 
 .btn-group > .btn:first-child, .breadcrumb > .btn:first-child, #header .header-item #logout .btn-group > a:first-child, #header .header-item #logout .breadcrumb > a:first-child, .breadcrumb .btn-group > a:first-child, .breadcrumb > a:first-child, #title_bar .action_item .btn-group > a:first-child, #title_bar .action_item .breadcrumb > a:first-child, #active_admin_content .action_item .btn-group > a:first-child, #active_admin_content .action_item .breadcrumb > a:first-child, .batch_actions_selector .btn-group > .dropdown_menu_button:first-child, .batch_actions_selector .breadcrumb > .dropdown_menu_button:first-child, .filter_form .buttons .btn-group > input:first-child, .filter_form .buttons .breadcrumb > input:first-child, .filter_form .buttons .btn-group > a:first-child, .filter_form .buttons .breadcrumb > a:first-child, ul.scopes li.scope .btn-group > a:first-child, ul.scopes li.scope .breadcrumb > a:first-child, form .actions li .btn-group > input:first-child, form .actions li .breadcrumb > input:first-child, form .actions li .btn-group > a:first-child, form .actions li .breadcrumb > a:first-child {
   margin-left: 0; }
-  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb > .btn:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #header .header-item #logout .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #header .header-item #logout .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #title_bar .action_item .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #title_bar .action_item .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #active_admin_content .action_item .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #active_admin_content .action_item .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .batch_actions_selector .btn-group > .dropdown_menu_button:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .batch_actions_selector .breadcrumb > .dropdown_menu_button:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .btn-group > input:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .breadcrumb > input:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), ul.scopes li.scope .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), ul.scopes li.scope .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), form .actions li .btn-group > input:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), form .actions li .breadcrumb > input:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), form .actions li .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), form .actions li .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button) {
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb > .btn:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #header .header-item #logout .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #header .header-item #logout .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #title_bar .action_item .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #title_bar .action_item .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #active_admin_content .action_item .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #active_admin_content .action_item .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .batch_actions_selector .btn-group > .dropdown_menu_button:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .batch_actions_selector .breadcrumb > .dropdown_menu_button:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .btn-group > input:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .breadcrumb > input:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), ul.scopes li.scope .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), ul.scopes li.scope .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), form .actions li .btn-group > input:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), form .actions li .breadcrumb > input:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), form .actions li .btn-group > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), form .actions li .breadcrumb > a:first-child:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button) {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0; }
 
 .btn-group > .btn:last-child:not(:first-child), .breadcrumb > .btn:last-child:not(:first-child), #header .header-item #logout .btn-group > a:last-child:not(:first-child), #header .header-item #logout .breadcrumb > a:last-child:not(:first-child), .breadcrumb .btn-group > a:last-child:not(:first-child), .breadcrumb > a:last-child:not(:first-child), #title_bar .action_item .btn-group > a:last-child:not(:first-child), #title_bar .action_item .breadcrumb > a:last-child:not(:first-child), #active_admin_content .action_item .btn-group > a:last-child:not(:first-child), #active_admin_content .action_item .breadcrumb > a:last-child:not(:first-child), .batch_actions_selector .btn-group > .dropdown_menu_button:last-child:not(:first-child), .batch_actions_selector .breadcrumb > .dropdown_menu_button:last-child:not(:first-child), .filter_form .buttons .btn-group > input:last-child:not(:first-child), .filter_form .buttons .breadcrumb > input:last-child:not(:first-child), .filter_form .buttons .btn-group > a:last-child:not(:first-child), .filter_form .buttons .breadcrumb > a:last-child:not(:first-child), ul.scopes li.scope .btn-group > a:last-child:not(:first-child), ul.scopes li.scope .breadcrumb > a:last-child:not(:first-child), form .actions li .btn-group > input:last-child:not(:first-child), form .actions li .breadcrumb > input:last-child:not(:first-child), form .actions li .btn-group > a:last-child:not(:first-child), form .actions li .breadcrumb > a:last-child:not(:first-child),
-.btn-group > .dropdown-toggle:not(:first-child), .breadcrumb > .dropdown-toggle:not(:first-child), .batch_actions_selector
+.btn-group > .dropdown-toggle:not(:first-child), .breadcrumb > .dropdown-toggle:not(:first-child), #header .header-item
+li.has_nested.btn-group > a:not(:first-child), #header .header-item li.has_nested.breadcrumb > a:not(:first-child), .batch_actions_selector
 .btn-group > .dropdown_menu_button:not(:first-child), .batch_actions_selector .breadcrumb > .dropdown_menu_button:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
@@ -3203,7 +3234,9 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
 
 .btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child, .breadcrumb > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group > .breadcrumb:first-child:not(:last-child) > .btn:last-child, .breadcrumb > .breadcrumb:first-child:not(:last-child) > .btn:last-child, #header .header-item #logout .btn-group > .btn-group:first-child:not(:last-child) > a:last-child, #header .header-item #logout .breadcrumb > .btn-group:first-child:not(:last-child) > a:last-child, #header .header-item #logout .btn-group > .breadcrumb:first-child:not(:last-child) > a:last-child, #header .header-item #logout .breadcrumb > .breadcrumb:first-child:not(:last-child) > a:last-child, .breadcrumb .btn-group > .btn-group:first-child:not(:last-child) > a:last-child, .breadcrumb > .btn-group:first-child:not(:last-child) > a:last-child, .btn-group > .breadcrumb:first-child:not(:last-child) > a:last-child, .breadcrumb > .breadcrumb:first-child:not(:last-child) > a:last-child, #title_bar .action_item .btn-group > .btn-group:first-child:not(:last-child) > a:last-child, #title_bar .action_item .breadcrumb > .btn-group:first-child:not(:last-child) > a:last-child, #title_bar .action_item .btn-group > .breadcrumb:first-child:not(:last-child) > a:last-child, #title_bar .action_item .breadcrumb > .breadcrumb:first-child:not(:last-child) > a:last-child, #active_admin_content .action_item .btn-group > .btn-group:first-child:not(:last-child) > a:last-child, #active_admin_content .action_item .breadcrumb > .btn-group:first-child:not(:last-child) > a:last-child, #active_admin_content .action_item .btn-group > .breadcrumb:first-child:not(:last-child) > a:last-child, #active_admin_content .action_item .breadcrumb > .breadcrumb:first-child:not(:last-child) > a:last-child, .batch_actions_selector .btn-group > .btn-group:first-child:not(:last-child) > .dropdown_menu_button:last-child, .batch_actions_selector .breadcrumb > .btn-group:first-child:not(:last-child) > .dropdown_menu_button:last-child, .batch_actions_selector .btn-group > .breadcrumb:first-child:not(:last-child) > .dropdown_menu_button:last-child, .batch_actions_selector .breadcrumb > .breadcrumb:first-child:not(:last-child) > .dropdown_menu_button:last-child, .filter_form .buttons .btn-group > .btn-group:first-child:not(:last-child) > input:last-child, .filter_form .buttons .breadcrumb > .btn-group:first-child:not(:last-child) > input:last-child, .filter_form .buttons .btn-group > .breadcrumb:first-child:not(:last-child) > input:last-child, .filter_form .buttons .breadcrumb > .breadcrumb:first-child:not(:last-child) > input:last-child, .filter_form .buttons .btn-group > .btn-group:first-child:not(:last-child) > a:last-child, .filter_form .buttons .breadcrumb > .btn-group:first-child:not(:last-child) > a:last-child, .filter_form .buttons .btn-group > .breadcrumb:first-child:not(:last-child) > a:last-child, .filter_form .buttons .breadcrumb > .breadcrumb:first-child:not(:last-child) > a:last-child, ul.scopes li.scope .btn-group > .btn-group:first-child:not(:last-child) > a:last-child, ul.scopes li.scope .breadcrumb > .btn-group:first-child:not(:last-child) > a:last-child, ul.scopes li.scope .btn-group > .breadcrumb:first-child:not(:last-child) > a:last-child, ul.scopes li.scope .breadcrumb > .breadcrumb:first-child:not(:last-child) > a:last-child, form .actions li .btn-group > .btn-group:first-child:not(:last-child) > input:last-child, form .actions li .breadcrumb > .btn-group:first-child:not(:last-child) > input:last-child, form .actions li .btn-group > .breadcrumb:first-child:not(:last-child) > input:last-child, form .actions li .breadcrumb > .breadcrumb:first-child:not(:last-child) > input:last-child, form .actions li .btn-group > .btn-group:first-child:not(:last-child) > a:last-child, form .actions li .breadcrumb > .btn-group:first-child:not(:last-child) > a:last-child, form .actions li .btn-group > .breadcrumb:first-child:not(:last-child) > a:last-child, form .actions li .breadcrumb > .breadcrumb:first-child:not(:last-child) > a:last-child,
 .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle, .breadcrumb > .btn-group:first-child:not(:last-child) > .dropdown-toggle,
-.btn-group > .breadcrumb:first-child:not(:last-child) > .dropdown-toggle, .breadcrumb > .breadcrumb:first-child:not(:last-child) > .dropdown-toggle, .batch_actions_selector
+.btn-group > .breadcrumb:first-child:not(:last-child) > .dropdown-toggle, .breadcrumb > .breadcrumb:first-child:not(:last-child) > .dropdown-toggle, #header .header-item
+.btn-group > li.has_nested.btn-group:first-child:not(:last-child) > a, #header .header-item .breadcrumb > li.has_nested.btn-group:first-child:not(:last-child) > a, #header .header-item
+.btn-group > li.has_nested.breadcrumb:first-child:not(:last-child) > a, #header .header-item .breadcrumb > li.has_nested.breadcrumb:first-child:not(:last-child) > a, .batch_actions_selector
 .btn-group > .btn-group:first-child:not(:last-child) > .dropdown_menu_button, .batch_actions_selector .breadcrumb > .btn-group:first-child:not(:last-child) > .dropdown_menu_button, .batch_actions_selector
 .btn-group > .breadcrumb:first-child:not(:last-child) > .dropdown_menu_button, .batch_actions_selector .breadcrumb > .breadcrumb:first-child:not(:last-child) > .dropdown_menu_button {
   border-bottom-right-radius: 0;
@@ -3213,8 +3246,10 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
-.btn-group .dropdown-toggle:active, .breadcrumb .dropdown-toggle:active, .btn-group .batch_actions_selector .dropdown_menu_button:active, .batch_actions_selector .btn-group .dropdown_menu_button:active, .breadcrumb .batch_actions_selector .dropdown_menu_button:active, .batch_actions_selector .breadcrumb .dropdown_menu_button:active,
+.btn-group .dropdown-toggle:active, .breadcrumb .dropdown-toggle:active, .btn-group #header .header-item li.has_nested > a:active, #header .header-item .btn-group li.has_nested > a:active, .breadcrumb #header .header-item li.has_nested > a:active, #header .header-item .breadcrumb li.has_nested > a:active, .btn-group .batch_actions_selector .dropdown_menu_button:active, .batch_actions_selector .btn-group .dropdown_menu_button:active, .breadcrumb .batch_actions_selector .dropdown_menu_button:active, .batch_actions_selector .breadcrumb .dropdown_menu_button:active,
 .btn-group.open .dropdown-toggle, .open.breadcrumb .dropdown-toggle,
+.btn-group.open #header .header-item li.has_nested > a, #header .header-item
+.btn-group.open li.has_nested > a, .open.breadcrumb #header .header-item li.has_nested > a, #header .header-item .open.breadcrumb li.has_nested > a,
 .btn-group.open .batch_actions_selector .dropdown_menu_button, .batch_actions_selector
 .btn-group.open .dropdown_menu_button, .open.breadcrumb .batch_actions_selector .dropdown_menu_button, .batch_actions_selector .open.breadcrumb .dropdown_menu_button {
   outline: 0; }
@@ -3319,7 +3354,9 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
 
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child, .btn-group-vertical > .breadcrumb:first-child:not(:last-child) > .btn:last-child, #header .header-item #logout .btn-group-vertical > .btn-group:first-child:not(:last-child) > a:last-child, #header .header-item #logout .btn-group-vertical > .breadcrumb:first-child:not(:last-child) > a:last-child, .breadcrumb .btn-group-vertical > .btn-group:first-child:not(:last-child) > a:last-child, .btn-group-vertical > .breadcrumb:first-child:not(:last-child) > a:last-child, #title_bar .action_item .btn-group-vertical > .btn-group:first-child:not(:last-child) > a:last-child, #title_bar .action_item .btn-group-vertical > .breadcrumb:first-child:not(:last-child) > a:last-child, #active_admin_content .action_item .btn-group-vertical > .btn-group:first-child:not(:last-child) > a:last-child, #active_admin_content .action_item .btn-group-vertical > .breadcrumb:first-child:not(:last-child) > a:last-child, .batch_actions_selector .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown_menu_button:last-child, .batch_actions_selector .btn-group-vertical > .breadcrumb:first-child:not(:last-child) > .dropdown_menu_button:last-child, .filter_form .buttons .btn-group-vertical > .btn-group:first-child:not(:last-child) > input:last-child, .filter_form .buttons .btn-group-vertical > .breadcrumb:first-child:not(:last-child) > input:last-child, .filter_form .buttons .btn-group-vertical > .btn-group:first-child:not(:last-child) > a:last-child, .filter_form .buttons .btn-group-vertical > .breadcrumb:first-child:not(:last-child) > a:last-child, ul.scopes li.scope .btn-group-vertical > .btn-group:first-child:not(:last-child) > a:last-child, ul.scopes li.scope .btn-group-vertical > .breadcrumb:first-child:not(:last-child) > a:last-child, form .actions li .btn-group-vertical > .btn-group:first-child:not(:last-child) > input:last-child, form .actions li .btn-group-vertical > .breadcrumb:first-child:not(:last-child) > input:last-child, form .actions li .btn-group-vertical > .btn-group:first-child:not(:last-child) > a:last-child, form .actions li .btn-group-vertical > .breadcrumb:first-child:not(:last-child) > a:last-child,
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle,
-.btn-group-vertical > .breadcrumb:first-child:not(:last-child) > .dropdown-toggle, .batch_actions_selector
+.btn-group-vertical > .breadcrumb:first-child:not(:last-child) > .dropdown-toggle, #header .header-item
+.btn-group-vertical > li.has_nested.btn-group:first-child:not(:last-child) > a, #header .header-item
+.btn-group-vertical > li.has_nested.breadcrumb:first-child:not(:last-child) > a, .batch_actions_selector
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown_menu_button, .batch_actions_selector
 .btn-group-vertical > .breadcrumb:first-child:not(:last-child) > .dropdown_menu_button {
   border-bottom-right-radius: 0;
@@ -3531,19 +3568,20 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
 .input-group-btn:not(:last-child) > .breadcrumb > input, form .actions li
 .input-group-btn:not(:last-child) > .btn-group > a, form .actions li
 .input-group-btn:not(:last-child) > .breadcrumb > a,
-.input-group-btn:not(:last-child) > .dropdown-toggle, .batch_actions_selector
+.input-group-btn:not(:last-child) > .dropdown-toggle, #header .header-item
+li.has_nested.input-group-btn:not(:last-child) > a, .batch_actions_selector
 .input-group-btn:not(:last-child) > .dropdown_menu_button,
-.input-group-btn:not(:first-child) > .btn:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #header .header-item #logout
-.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb
-.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #title_bar .action_item
-.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), #active_admin_content .action_item
-.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .batch_actions_selector
-.input-group-btn:not(:first-child) > .dropdown_menu_button:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons
-.input-group-btn:not(:first-child) > input:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons
-.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), ul.scopes li.scope
-.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), form .actions li
-.input-group-btn:not(:first-child) > input:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button), form .actions li
-.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(.batch_actions_selector .dropdown_menu_button),
+.input-group-btn:not(:first-child) > .btn:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #header .header-item #logout
+.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .breadcrumb
+.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #title_bar .action_item
+.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), #active_admin_content .action_item
+.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .batch_actions_selector
+.input-group-btn:not(:first-child) > .dropdown_menu_button:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons
+.input-group-btn:not(:first-child) > input:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), .filter_form .buttons
+.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), ul.scopes li.scope
+.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), form .actions li
+.input-group-btn:not(:first-child) > input:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button), form .actions li
+.input-group-btn:not(:first-child) > a:not(:last-child):not(.dropdown-toggle):not(#header .header-item li.has_nested > a):not(.batch_actions_selector .dropdown_menu_button),
 .input-group-btn:not(:first-child) > .btn-group:not(:last-child) > .btn,
 .input-group-btn:not(:first-child) > .breadcrumb:not(:last-child) > .btn, #header .header-item #logout
 .input-group-btn:not(:first-child) > .btn-group:not(:last-child) > a, #header .header-item #logout
@@ -3607,7 +3645,8 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
 .input-group-btn:not(:first-child) > .breadcrumb > input, form .actions li
 .input-group-btn:not(:first-child) > .btn-group > a, form .actions li
 .input-group-btn:not(:first-child) > .breadcrumb > a,
-.input-group-btn:not(:first-child) > .dropdown-toggle, .batch_actions_selector
+.input-group-btn:not(:first-child) > .dropdown-toggle, #header .header-item
+li.has_nested.input-group-btn:not(:first-child) > a, .batch_actions_selector
 .input-group-btn:not(:first-child) > .dropdown_menu_button,
 .input-group-btn:not(:last-child) > .btn:not(:first-child), #header .header-item #logout
 .input-group-btn:not(:last-child) > a:not(:first-child), .breadcrumb
@@ -3888,7 +3927,7 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
     color: #464a4c;
     background-color: #fff;
     border-color: #ddd #ddd #fff; }
-  .nav-tabs .dropdown-menu, .nav-tabs .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .nav-tabs .dropdown_menu_list {
+  .nav-tabs .dropdown-menu, .nav-tabs #header .header-item li.has_nested li, #header .header-item li.has_nested .nav-tabs li, .nav-tabs .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .nav-tabs .dropdown_menu_list {
     margin-top: -1px;
     border-top-right-radius: 0;
     border-top-left-radius: 0; }
@@ -4005,7 +4044,7 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
   right: 1rem; }
 
 @media (max-width: 575px) {
-  .navbar-toggleable .navbar-nav .dropdown-menu, .navbar-toggleable #header .header-item .dropdown-menu, #header .navbar-toggleable .header-item .dropdown-menu, .navbar-toggleable .navbar-nav .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable .navbar-nav .dropdown_menu_list, .navbar-toggleable #header .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable #header .header-item .dropdown_menu_list, #header .navbar-toggleable .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector #header .navbar-toggleable .header-item .dropdown_menu_list {
+  .navbar-toggleable .navbar-nav .dropdown-menu, .navbar-toggleable #header .header-item .dropdown-menu, #header .navbar-toggleable .header-item .dropdown-menu, #header .header-item li.has_nested .navbar-toggleable .navbar-nav li, .navbar-toggleable #header .header-item li.has_nested li, #header .navbar-toggleable .header-item li.has_nested li, .navbar-toggleable .navbar-nav .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable .navbar-nav .dropdown_menu_list, .navbar-toggleable #header .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable #header .header-item .dropdown_menu_list, #header .navbar-toggleable .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector #header .navbar-toggleable .header-item .dropdown_menu_list {
     position: static;
     float: none; }
   .navbar-toggleable > .container {
@@ -4049,7 +4088,7 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
       display: none; } }
 
 @media (max-width: 767px) {
-  .navbar-toggleable-sm .navbar-nav .dropdown-menu, #header .navbar-nav .dropdown-menu, #header .header-item .dropdown-menu, .navbar-toggleable-sm .navbar-nav .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-sm .navbar-nav .dropdown_menu_list, #header .navbar-nav .batch_actions_selector .dropdown_menu_list, .batch_actions_selector #header .navbar-nav .dropdown_menu_list, #header .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector #header .header-item .dropdown_menu_list {
+  .navbar-toggleable-sm .navbar-nav .dropdown-menu, #header .navbar-nav .dropdown-menu, #header .header-item .dropdown-menu, #header .header-item li.has_nested li, .navbar-toggleable-sm .navbar-nav .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-sm .navbar-nav .dropdown_menu_list, #header .navbar-nav .batch_actions_selector .dropdown_menu_list, .batch_actions_selector #header .navbar-nav .dropdown_menu_list, #header .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector #header .header-item .dropdown_menu_list {
     position: static;
     float: none; }
   .navbar-toggleable-sm > .container, #header > .container {
@@ -4093,7 +4132,7 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
       display: none; } }
 
 @media (max-width: 991px) {
-  .navbar-toggleable-md .navbar-nav .dropdown-menu, .navbar-toggleable-md #header .header-item .dropdown-menu, #header .navbar-toggleable-md .header-item .dropdown-menu, .navbar-toggleable-md .navbar-nav .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-md .navbar-nav .dropdown_menu_list, .navbar-toggleable-md #header .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-md #header .header-item .dropdown_menu_list, #header .navbar-toggleable-md .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector #header .navbar-toggleable-md .header-item .dropdown_menu_list {
+  .navbar-toggleable-md .navbar-nav .dropdown-menu, .navbar-toggleable-md #header .header-item .dropdown-menu, #header .navbar-toggleable-md .header-item .dropdown-menu, #header .header-item li.has_nested .navbar-toggleable-md .navbar-nav li, .navbar-toggleable-md #header .header-item li.has_nested li, #header .navbar-toggleable-md .header-item li.has_nested li, .navbar-toggleable-md .navbar-nav .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-md .navbar-nav .dropdown_menu_list, .navbar-toggleable-md #header .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-md #header .header-item .dropdown_menu_list, #header .navbar-toggleable-md .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector #header .navbar-toggleable-md .header-item .dropdown_menu_list {
     position: static;
     float: none; }
   .navbar-toggleable-md > .container {
@@ -4137,7 +4176,7 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
       display: none; } }
 
 @media (max-width: 1199px) {
-  .navbar-toggleable-lg .navbar-nav .dropdown-menu, .navbar-toggleable-lg #header .header-item .dropdown-menu, #header .navbar-toggleable-lg .header-item .dropdown-menu, .navbar-toggleable-lg .navbar-nav .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-lg .navbar-nav .dropdown_menu_list, .navbar-toggleable-lg #header .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-lg #header .header-item .dropdown_menu_list, #header .navbar-toggleable-lg .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector #header .navbar-toggleable-lg .header-item .dropdown_menu_list {
+  .navbar-toggleable-lg .navbar-nav .dropdown-menu, .navbar-toggleable-lg #header .header-item .dropdown-menu, #header .navbar-toggleable-lg .header-item .dropdown-menu, #header .header-item li.has_nested .navbar-toggleable-lg .navbar-nav li, .navbar-toggleable-lg #header .header-item li.has_nested li, #header .navbar-toggleable-lg .header-item li.has_nested li, .navbar-toggleable-lg .navbar-nav .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-lg .navbar-nav .dropdown_menu_list, .navbar-toggleable-lg #header .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-lg #header .header-item .dropdown_menu_list, #header .navbar-toggleable-lg .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector #header .navbar-toggleable-lg .header-item .dropdown_menu_list {
     position: static;
     float: none; }
   .navbar-toggleable-lg > .container {
@@ -4190,7 +4229,7 @@ tbody.collapse.show, tbody.collapse.batch_actions_selector {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center; }
-  .navbar-toggleable-xl .navbar-nav .dropdown-menu, .navbar-toggleable-xl #header .header-item .dropdown-menu, #header .navbar-toggleable-xl .header-item .dropdown-menu, .navbar-toggleable-xl .navbar-nav .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-xl .navbar-nav .dropdown_menu_list, .navbar-toggleable-xl #header .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-xl #header .header-item .dropdown_menu_list, #header .navbar-toggleable-xl .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector #header .navbar-toggleable-xl .header-item .dropdown_menu_list {
+  .navbar-toggleable-xl .navbar-nav .dropdown-menu, .navbar-toggleable-xl #header .header-item .dropdown-menu, #header .navbar-toggleable-xl .header-item .dropdown-menu, #header .header-item li.has_nested .navbar-toggleable-xl .navbar-nav li, .navbar-toggleable-xl #header .header-item li.has_nested li, #header .navbar-toggleable-xl .header-item li.has_nested li, .navbar-toggleable-xl .navbar-nav .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-xl .navbar-nav .dropdown_menu_list, .navbar-toggleable-xl #header .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector .navbar-toggleable-xl #header .header-item .dropdown_menu_list, #header .navbar-toggleable-xl .header-item .batch_actions_selector .dropdown_menu_list, .batch_actions_selector #header .navbar-toggleable-xl .header-item .dropdown_menu_list {
     position: static;
     float: none; }
   .navbar-toggleable-xl > .container {
@@ -7893,6 +7932,15 @@ body {
       transition: all .15s ease-in; }
       #header .header-item li a:hover {
         color: #33b5e5 !important; }
+    #header .header-item li.has_nested.show li, #header .header-item li.has_nested.batch_actions_selector li {
+      display: block; }
+      #header .header-item li.has_nested.show li a, #header .header-item li.has_nested.batch_actions_selector li a {
+        border-bottom: none !important;
+        text-align: center;
+        color: #33b5e5 !important;
+        background-color: white !important; }
+        #header .header-item li.has_nested.show li a:hover, #header .header-item li.has_nested.batch_actions_selector li a:hover {
+          background-color: #f7f7f9 !important; }
   #header .header-item#tabs li a {
     color: white; }
   #header .header-item#tabs li.current a {

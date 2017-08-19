@@ -74,6 +74,37 @@ body {
           color: $brand-primary !important;
         }
       }
+
+      &.has_nested {
+        @extend .dropdown;
+
+        > a {
+          @extend .dropdown-toggle;
+        }
+
+        li {
+          @extend .dropdown-menu;
+
+          a {
+            @extend .dropdown-item;
+          }
+        }
+
+        &.show {
+          li {
+            display: block;
+
+            a {
+              border-bottom: none !important; text-align: center;
+              color: $brand-primary !important; background-color: white !important;
+
+              &:hover {
+                background-color: $gray-lightest !important;
+              }
+            }
+          }
+        }
+      }
     }
 
     &#tabs {

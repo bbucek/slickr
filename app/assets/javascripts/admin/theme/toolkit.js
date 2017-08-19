@@ -3558,6 +3558,8 @@ $(document).ready(function () {
   $(".header-item").wrapAll("<div class='navbar-collapse mr-auto collapse' id='navbarResponsive' aria-expanded='false'>");
 
   $(".dropdown_menu_button").attr("data-toggle", "dropdown");
+
+  $(".has_nested a:first").attr("data-toggle", "dropdown");
 });
 
 /* ========================================================================

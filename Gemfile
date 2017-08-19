@@ -34,6 +34,7 @@ gem 'devise'
 gem 'tether-rails'
 gem 'entypo-rails'
 gem 'google-webfonts-rails', github: 'masarakki/google-webfonts-rails', branch: 'for-rails5'
+gem 'active_admin_role'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -41,6 +42,7 @@ gem 'google-webfonts-rails', github: 'masarakki/google-webfonts-rails', branch: 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
