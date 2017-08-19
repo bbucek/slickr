@@ -1,7 +1,9 @@
-@import "./variables.scss";
+@import "./admin-variables.scss";
 @import "./components.scss";
 
-body { @extend .with-top-navbar; }
+body {
+  overflow-x: hidden;
+}
 
 #wrapper {
   @extend .container-fluid;
@@ -45,8 +47,7 @@ body { @extend .with-top-navbar; }
 
   .navbar-collapse.mr-auto.collapse.show, .navbar-collapse.mr-auto.collapsing {
     #tabs {
-      @extend .nav-stacked,
-              .flex-md-column;
+      @extend .flex-md-column;
 
       li.current {
         a {
@@ -68,11 +69,15 @@ body { @extend .with-top-navbar; }
       a {
         @extend .nav-link;
         transition: all .15s ease-in;
+
+        &:hover {
+          color: $brand-primary !important;
+        }
       }
     }
 
     &#tabs {
-      @extend .nav-bordered;
+      // @extend .nav-bordered;
 
       li {
         a {
@@ -82,7 +87,13 @@ body { @extend .with-top-navbar; }
       li.current {
         a {
           @extend .active;
-          color: $brand-primary; border-bottom: 4px solid $brand-primary;
+          padding-left: $spacer;
+          color: $brand-primary;
+
+          @media (min-width: 769px) {
+            padding-left: 0;
+            border-bottom: 4px solid $brand-primary;
+          }
         }
       }
 
@@ -92,7 +103,7 @@ body { @extend .with-top-navbar; }
     }
 
     &#utility_nav {
-      margin-top: $spacer;
+      margin-top: 2*$spacer;
 
       li {
         position: relative;
@@ -139,9 +150,7 @@ body { @extend .with-top-navbar; }
 }
 
 .breadcrumb {
-  @extend .btn-group,
-          .dashhead-toolbar-item,
-          .btn-group-thirds;
+  @extend .btn-group;
   padding-left: 0;
   background: white;
 
@@ -159,14 +168,12 @@ body { @extend .with-top-navbar; }
 
 #title_bar, #active_admin_content {
   @extend .clearfix,
-          .container-fluid,
-          .container-fluid-spacious,
-          .dashhead,
-          .mt-4;
-  // margin-top: $spacer;
+          .container-fluid;
 
   #titlebar_left {
-    @extend .float-left;
+    @media (min-width: 769px) {
+      float: left !important;
+    }
   }
 
   #titlebar_right {
@@ -176,6 +183,14 @@ body { @extend .with-top-navbar; }
   .action_item a {
     @extend .btn, .btn-primary;
   }
+}
+
+#title_bar {
+  margin-top: 5*$spacer;
+}
+
+#active_admin_content {
+  margin-top: $spacer;
 }
 
 .batch_actions_selector {
@@ -350,12 +365,34 @@ ul.scopes {
   thead {
     @extend .thead-inverse;
     tr {
-      th { width: auto; }
+      th {
+        width: auto;
+        vertical-align: middle;
+        a {
+          color: white;
+          text-transform: uppercase; font-weight: bold;
+          transition: all .15s ease-in;
+          text-decoration: none;
+
+          &:hover {
+            color: $brand-primary;
+          }
+        }
+      }
     }
   }
   tbody {
     tr {
-      td { width: auto; }
+      td {
+        width: auto;
+
+        .view_link, .edit_link, .delete_link {
+          @extend .badge, .badge-pill;
+        }
+        .view_link { @extend .badge-info; }
+        .edit_link { @extend .badge-warning; }
+        .delete_link { @extend .badge-danger; }
+      }
     }
   }
 }
