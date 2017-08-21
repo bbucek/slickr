@@ -110,14 +110,29 @@ $gray-light:                #636c72 !default;
 $gray-lighter:              #eceeef !default;
 $gray-lightest:             #f7f7f9 !default;
 
-// Reassign color vars to semantic color scheme
-$brand-primary:             $blue !default;
-$brand-success:             $green !default;
-$brand-info:                $teal !default;
-$brand-warning:             $orange !default;
-$brand-danger:              $red !default;
-$brand-inverse:             $gray-dark !default;
+// // Reassign color vars to semantic color scheme
+// $brand-primary:             $blue !default;
+// $brand-success:             $green !default;
+// $brand-info:                $teal !default;
+// $brand-warning:             $orange !default;
+// $brand-danger:              $red !default;
+// $brand-inverse:             $gray-dark !default;
 
+$default-color:              #B8B8B8 !default;
+$primary-color:              #f96332 !default;
+$success-color:              #18ce0f !default;
+$info-color:                 #2CA8FF !default;
+$warning-color:              #FFB236 !default;
+$danger-color:               #FF3636 !default;
+$black-color:                #2c2c2c !default;
+
+/*     brand Colors              */
+$brand-primary:              $primary-color !default;
+$brand-info:                 $info-color !default;
+$brand-success:              $success-color !default;
+$brand-warning:              $warning-color !default;
+$brand-danger:               $danger-color !default;
+$brand-inverse:              $black-color !default;
 
 // Options
 //
