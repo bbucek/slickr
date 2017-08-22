@@ -1,5 +1,5 @@
-@import "./admin-variables.scss";
-@import "./components.scss";
+@import "./bootstrap.scss";
+@import "./now-ui-kit.scss";
 
 body {
   overflow-x: hidden;
@@ -16,63 +16,46 @@ body {
 }
 
 .navbar-toggler-right {
-  right: 2rem;
+  top: 50% !important;
+  transform: translateY(-50%);
+  z-index: 9999;
 }
 
 #header {
   @extend .navbar,
-          .navbar-toggleable-sm,
+          .navbar-toggleable-md,
           .fixed-top,
-          .navbar-inverse,
-          .bg-inverse;
+          .bg-primary;
+
   border-radius: 0px;
 
   .mobile {
     display: block;
   }
 
-  .button_mobile_burger {
-    margin-top: 0;
-  }
-
   #site_title {
     @extend .navbar-brand;
-    float: left;
     margin-top: 0; margin-bottom: 0;
-
-    @media (min-width: 769px) {
-      border-bottom: 7px solid transparent;
-    }
-  }
-
-  .navbar-collapse.mr-auto.collapse.show, .navbar-collapse.mr-auto.collapsing {
-    #tabs {
-      @extend .flex-md-column;
-
-      li.current {
-        a {
-          border-left: 4px solid $brand-primary;
-        }
-      }
-    }
+    float: left;
+    font-weight: bold;
   }
 
   .header-item {
-    @extend .nav,
-            .navbar-nav;
+    @extend .navbar-nav;
 
     li {
       @extend .nav-item;
-      margin-left: 0;
-      float: left;
+
+      &.current { @extend .active; }
 
       a {
         @extend .nav-link;
+        font-weight: bold;
         transition: all .15s ease-in;
+      }
 
-        &:hover {
-          color: $brand-primary !important;
-        }
+      &:hover {
+        @extend .active;
       }
 
       &.has_nested {
@@ -82,89 +65,73 @@ body {
           @extend .dropdown-toggle;
         }
 
-        li {
+        ul {
           @extend .dropdown-menu;
-
-          a {
-            @extend .dropdown-item;
-          }
-        }
-
-        &.show {
+          padding: 0;
           li {
-            display: block;
+            @extend .dropdown-item;
+            background-color: white;
 
-            a {
-              border-bottom: none !important; text-align: center;
-              color: $brand-primary !important; background-color: white !important;
+            &:hover {
+              background-color: $gray-lightest;
 
-              &:hover {
-                background-color: $gray-lightest !important;
-              }
+              a { background-color: $gray-lightest; }
+            }
+
+            a { color: $black-color; background-color: white; }
+
+            &.current {
+              background-color: $gray-lightest;
+
+              a { background-color: $gray-lightest; }
             }
           }
         }
       }
     }
 
-    &#tabs {
-      // @extend .nav-bordered;
-
-      li {
-        a {
-          color: white;
-        }
-      }
-      li.current {
-        a {
-          @extend .active;
-          padding-left: $spacer;
-          color: $brand-primary;
-
-          @media (min-width: 769px) {
-            padding-left: 0;
-            border-bottom: 4px solid $brand-primary;
-          }
-        }
-      }
-
-      > li + li {
-        margin-left: 0;
-      }
-    }
-
     &#utility_nav {
-      margin-top: 2*$spacer;
-
-      li {
-        position: relative;
-        top: 50%;
-        transform: translateY(-44%);
-      }
-
-      @media (min-width: 769px) {
-        margin-left: auto; margin-top: 0 !important;
-      }
-    }
-    #current_user {
-      a {
-        color: white;
-
-        &:hover {
-          color: $brand-primary;
-        }
-      }
       @media (min-width: 769px) {
         margin-left: auto;
       }
     }
+
+    #current_user {
+      @media (min-width: 769px) {
+        margin-left: auto;
+      }
+    }
+
     #logout {
       a {
-        @extend .btn-primary,
+        @extend .btn-danger,
                 .btn;
+        font-weight: bold;
       }
       @media (min-width: 769px) {
         margin-left: 0;
+      }
+    }
+
+    &.collapse {
+      li {
+        ul {
+          display: none;
+
+          li {
+            padding: 0;
+            &.current {
+              background-color: $gray-lightest !important;
+
+              a { background-color: $gray-lightest !important; }
+            }
+
+            a{ color: $black-color !important; }
+          }
+        }
+        &.show {
+          ul { display: block; }
+        }
       }
     }
   }
@@ -189,7 +156,10 @@ body {
 
   a {
     @extend .btn,
-            .btn-outline-primary;
+            .btn-default,
+            .btn-simple;
+
+    border-radius: 0;
 
     &:nth-last-child(2) {
       @extend .active;
@@ -197,9 +167,10 @@ body {
   }
 }
 
-#title_bar, #active_admin_content {
+#title_bar {
   @extend .clearfix,
           .container-fluid;
+  margin-top: 5*$spacer;
 
   #titlebar_left {
     @media (min-width: 769px) {
@@ -213,14 +184,16 @@ body {
 
   .action_item a {
     @extend .btn, .btn-primary;
+    font-weight: bold;
+    background-color: $brand-warning;
+
+    &:hover { background-color: $warning-states-color; }
   }
 }
 
-#title_bar {
-  margin-top: 5*$spacer;
-}
-
 #active_admin_content {
+  @extend .clearfix,
+          .container-fluid;
   margin-top: $spacer;
 }
 
@@ -307,21 +280,31 @@ body {
   }
 
   .buttons {
-    input, a { @extend .btn; @extend .btn-secondary; }
+    input, a {
+      @extend .btn, .btn-secondary;
+      font-weight: bold;
+    }
     input[type="submit"] { @extend .btn-primary; }
   }
 }
 
 /* Main Content */
 #active_admin_content {
-  @extend .row;
 
   &.without_sidebar {
-    #main_content_wrapper { @extend .col-md-6; }
+    #main_content_wrapper { @extend .col-md-9; }
   }
 
   &.with_sidebar {
-    #main_content_wrapper { @extend .col-md-9; }
+    #main_content_wrapper, #sidebar { display: inline-block; }
+    #main_content_wrapper {
+      @extend .col-md-9;
+
+      @media (min-width: 769px) {
+        vertical-align: top;
+        max-width: 74%;
+      }
+    }
     #sidebar {
       @extend .col-md-3;
       input {
@@ -353,38 +336,9 @@ ul.scopes {
   li.scope.selected a { @extend .btn-primary; }
 }
 
-#ui-datepicker-div {
-  background: white;
-  padding: 5px;
-  border: 1px solid rgba(0,0,0,0.15);
-  border-radius: 5px;
-  .ui-datepicker-calendar {
-    th, td {
-      width: 30px;
-      height: 30px;
-      text-align: center;
-      &:hover {
-        background: #eeeeee;
-        cursor: pointer;
-      }
-    }
-  }
-
-  .ui-datepicker-prev {
-    float: left;
-  }
-
-  .ui-datepicker-next {
-    float: right;
-  }
-
-  .ui-datepicker-today {
-    font-weight: bold;
-  }
-
-  .ui-datepicker-title {
-    text-align: center;
-    font-weight: bold;
+.index .datepicker {
+  &.datepicker-orient-top {
+    margin-top: 80px;
   }
 }
 
@@ -400,13 +354,13 @@ ul.scopes {
         width: auto;
         vertical-align: middle;
         a {
-          color: white;
-          text-transform: uppercase; font-weight: bold;
+          color: $brand-primary;
+          text-transform: uppercase; font-weight: bold; font-size: $font-size-small;
           transition: all .15s ease-in;
           text-decoration: none;
 
           &:hover {
-            color: $brand-primary;
+            color: white;
           }
         }
       }
@@ -418,16 +372,40 @@ ul.scopes {
         width: auto;
 
         .view_link, .edit_link, .delete_link {
-          @extend .badge, .badge-pill;
+          @extend .badge, .badge-default;
+          transition: all .15s ease-in;
+          font-size: 0.55em;
+
+          &:hover { background-color: white !important; }
         }
-        .view_link { @extend .badge-info; }
-        .edit_link { @extend .badge-warning; }
-        .delete_link { @extend .badge-danger; }
+        .view_link {
+          &:hover {
+            border-color: $brand-success !important; color: $brand-success !important;
+          }
+        }
+        .edit_link {
+          &:hover {
+            border-color: $brand-warning !important; color: $brand-warning !important;
+          }
+        }
+        .delete_link {
+          &:hover {
+            border-color: $brand-danger !important; color: $brand-danger !important;
+          }
+        }
       }
     }
   }
 }
-.attributes_table table { @extend .table; }
+.attributes_table table {
+  @extend .table;
+
+  tbody tr {
+    margin: 0;
+
+    th { width: 200px;}
+  }
+}
 
 /* Forms */
 form {
@@ -445,6 +423,8 @@ form {
       @extend .form-group;
 
       input,select,textarea { @extend .form-control; }
+
+      textarea { background-color: $gray-lightest; }
     }
   }
 
@@ -452,7 +432,10 @@ form {
     li {
       display: inline-block;
 
-      input, a { @extend .btn; @extend .btn-secondary; }
+      input, a {
+        @extend .btn, .btn-secondary;
+        font-weight: bold;
+      }
       input[type="submit"] { @extend .btn-primary; }
     }
   }

@@ -37,8 +37,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'tether-rails'
-gem 'entypo-rails'
-gem 'google-webfonts-rails', github: 'masarakki/google-webfonts-rails', branch: 'for-rails5'
 gem 'active_admin_role'
 
 # Use Capistrano for deployment
