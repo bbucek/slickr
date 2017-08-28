@@ -1,11 +1,28 @@
 class AdminUser < ApplicationRecord
-  role_based_authorizable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  ROLES = [:admin, :editor, :author]
+
+  def name
+    [first_name, last_name].join(" ")
+  end
+
+  def admin?
+    role == 'admin'
+  end
+
+  def editor?
+    role == 'editor'
+  end
+
+  def author?
+    role == 'author'
+  end
 end

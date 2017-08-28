@@ -13,6 +13,8 @@
 
 @import "tether";
 @import "admin/theme/toolkit-active-admin";
+@import "megadraft/megadraft";
+#page_edit_content { margin-left: 3em; }
 
 
 // Overriding any non-variable SASS must be done after the fact.

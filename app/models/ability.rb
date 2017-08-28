@@ -1,14 +1,17 @@
 class Ability
   include CanCan::Ability
-  include ActiveAdminRole::CanCan::Ability
 
   def initialize(user)
     user ||= AdminUser.new
 
-    if user.super_user?
+    if user.admin?
       can :manage, :all
-    else
-      register_role_based_abilities(user)
+    elsif user.editor?
+      can :manage, AdminUser, id: user.id
+    elsif user.author?
+      can :manage, Page
+      cannot :publish, Page
+      cannot :unpublish, Page
     end
 
     # NOTE: Everyone can read the page of Permission Deny

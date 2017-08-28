@@ -884,6 +884,12 @@ babylon@^6.18.0:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.18.0.tgz#af2f3b88fa6f5c1e4c634d1a0f8eac4f55b395e3"
 
+backstage-modal@^0.2.5:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/backstage-modal/-/backstage-modal-0.2.6.tgz#acdf202fcc7c0e9242e2c9f4b798ebd482ed1c0c"
+  dependencies:
+    react-portal "^3.0.0"
+
 balanced-match@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-0.1.0.tgz#b504bd05869b39259dd0c5efc35d843176dccc4a"
@@ -1917,7 +1923,7 @@ domain-browser@^1.1.1:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
 
-draft-js@^0.10.1:
+draft-js@0.10.1, draft-js@^0.10.1:
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/draft-js/-/draft-js-0.10.1.tgz#6f1219d8095729691429ca6fd7a58d2a8be5cb67"
   dependencies:
@@ -3764,6 +3770,17 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
 
+megadraft@^0.4.27:
+  version "0.4.27"
+  resolved "https://registry.yarnpkg.com/megadraft/-/megadraft-0.4.27.tgz#6141e659e61c3d501c443a70074ef411e8d597f4"
+  dependencies:
+    backstage-modal "^0.2.5"
+    classnames "^2.2.5"
+    draft-js "0.10.1"
+    immutable "~3.7.4"
+    prop-types "^15.5.10"
+    setimmediate "^1.0.4"
+
 mem@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mem/-/mem-1.1.0.tgz#5edd52b485ca1d900fe64895505399a0dfa45f76"
@@ -5213,6 +5230,12 @@ react-draft-wysiwyg@^1.10.8:
     classnames "^2.2.5"
     draftjs-utils "^0.8.06"
     prop-types "^15.5.10"
+
+react-portal@^3.0.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/react-portal/-/react-portal-3.1.0.tgz#865c44fb72a1da106c649206936559ce891ee899"
+  dependencies:
+    prop-types "^15.5.8"
 
 react-sortable-tree@^1.2.0:
   version "1.2.0"
