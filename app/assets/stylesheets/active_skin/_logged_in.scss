@@ -1,0 +1,199 @@
+.logged_in {
+  #wrapper {
+    display: grid;
+    align-content: stretch;
+    grid-template-columns: [sidebar] 14em [main-content] 100fr;
+    grid-template-rows: [header] 8em [content] 100fr [footer] 50px;
+    grid-template-areas:
+      "sidebar content-header"
+      "sidebar content-main"
+      "sidebar footer"
+  }
+  #active_admin_content {
+    grid-column: main-content;
+    grid-row: content;
+    display: grid;
+    grid-template-rows: [content] 100fr;
+    &.with_sidebar {
+      display: grid;
+      grid-template-rows: [sidebar] auto [content] 100fr;
+    }
+  }
+  #main_content_wrapper {
+    background: $grey_lightest;
+  }
+  #collection_selection, .formtastic   { padding: 2em; }
+  #main_content {
+    form {
+      @extend %admin_form_basics;
+      .actions {
+        a {
+          @extend %breadcrumb_link;
+        }
+      }
+    }
+  }
+  #filters_sidebar_section, #resource_tabs {
+    background: $blue;
+    padding: 1em 2em;
+    h3 { display: none; }
+    a {
+      @extend %tab_link;
+      text-decoration: none;
+      margin-right:20px;
+    }
+  }
+  #search-status-_sidebar_section {
+    padding: 1em 2em;
+    h3 {
+      @extend .h3;
+      margin: 0 0 .5em;
+      grid-area: header;
+    }
+    .panel_contents {
+      span {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas:
+          "scope filters";
+        h4, b {
+          grid-area: scope;
+        }
+        h4 { margin: 0 }
+        & > div {
+          grid-area: filters;
+          margin-top: -10px;
+        }
+      }
+
+    }
+  }
+  .table_tools {
+    display: grid;
+    grid: auto/1fr 1fr;
+    justify-content: space-between;
+    .batch_actions_selector {
+      align-items: flex-end;
+      position: relative;
+      .dropdown_menu_button {
+        @extend %breadcrumb_link;
+        display: inline-block;
+        background: $white;
+        padding: .5em 1em;
+        flex: 0 1 6.5em;
+      }
+      .dropdown_menu_list {
+        margin: 0; padding: 0; list-style-type: none;
+        position: absolute;
+        padding: .5em 1em;
+        background: $white;
+        box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.3);
+        a {
+          @extend %breadcrumb_link;
+        }
+      }
+    }
+  }
+  #index_footer {
+    margin-top: 1em;
+
+    .pagination_information, .download_links {
+      @extend .para_small_style;
+      a { @extend %breadcrumb_link; }
+    }
+    .pagination {
+      @extend .para_small_style;
+      margin-bottom: .5em;
+      .page {
+        color: $blue;
+        margin-right: .25em;
+        &.current {
+          display: inline-block; padding: .5em .75em;
+          background: $blue;
+          color: $white;
+        }
+        a {
+          background: $white;
+          text-decoration: none; color: inherit; padding: .5em .75em; display: inline-block;
+        }
+      }
+      .next a, .last a, .prev a, .first a {
+        @extend %breadcrumb_link;
+      }
+    }
+
+  }
+  .table_actions {
+    display: flex;
+    justify-content: space-around;
+    a { @extend %breadcrumb_link; }
+  }
+  .scopes {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    list-style-type: none;
+    .scope {
+      a {
+        @extend %breadcrumb_link;
+        background: $white;
+        display: block;
+        padding: .5em 1em;
+        margin-left: .5em;
+        text-decoration: none;
+      }
+      &.selected a {
+        @extend %breadcrumb_link;
+        background: $blue;
+        color: $white;
+      }
+
+    }
+  }
+  .index_as_table {
+    table {
+      width: 100%;
+      tbody {
+        td {
+          @extend .para_small_style;
+          padding: .75em .65em;
+          a {
+            @extend %breadcrumb_link;
+          }
+        }
+        tr {
+          background: $grey_lighter;
+          &:nth-child(odd) {
+            background: $white;
+          }
+        }
+      }
+      thead {
+        th {
+          padding: .25em .5em;
+          background: $blue;
+          color: $white;
+          text-align: left;
+          a {
+            @extend .para_style;
+            color: inherit;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  #resource_tabs {
+    grid-row: sidebar/content;
+  }
+  #footer {
+    padding: 1em 2em;
+    p {
+      @extend .para_small;
+      margin: 0;
+    }
+    a {
+      @extend %breadcrumb_link;
+    }
+  }
+}

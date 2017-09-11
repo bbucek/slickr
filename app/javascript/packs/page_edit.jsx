@@ -3,25 +3,29 @@
 // of the page.
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 import PropTypes from 'prop-types'
-import Editor from './page_edit/editor'
+import PageEditor from './page_edit/containers/page_editor'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
+import reducers from './page_edit/reducers';
+import thunk from 'redux-thunk';
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
 
-Hello.defaultProps = {
-  name: 'David'
+const pageData = document.getElementById("page-data").dataset.page_data
+
+const initialState = {
+  pageState: JSON.parse(pageData),
+  activeTab: 'content'
 }
 
-Hello.propTypes = {
-  name: PropTypes.string
-}
+const store = createStore(reducers, initialState, applyMiddleware(thunk))
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Editor />,
+  render(
+    <Provider store={store}>
+      <PageEditor />
+    </Provider>,
     document.getElementById("page_edit_content")
   )
 })

@@ -1,0 +1,15 @@
+<% if @page.new_record? %>
+  <%= semantic_form_for [:admin, @page], builder: ActiveAdmin::FormBuilder do |f| %>
+    <%= f.inputs do %>
+      <%= f.input :title %>
+      <%= f.input :layout, collection: options_for_select(Page::Layouts) %>
+    <% end %>
+    <%= f.actions %>
+  <% end %>
+
+<% else %>
+  <div id="page-data" data-page_data="<%= @page.to_json(methods: [:admin_publish_path, :admin_unpublish_path, :admin_page_path]) %>"></div>
+  <div id='page_edit_content' ></div>
+  <%= javascript_pack_tag 'page_edit' %>
+<% end %>
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828091548) do
+ActiveRecord::Schema.define(version: 20170906203222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,12 @@ ActiveRecord::Schema.define(version: 20170828091548) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "images", force: :cascade do |t|
+    t.string "attachment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pages", force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -61,6 +67,17 @@ ActiveRecord::Schema.define(version: 20170828091548) do
     t.integer "page_id"
     t.integer "active_draft_id"
     t.integer "published_draft_id"
+    t.text "page_header"
+    t.text "page_intro"
+    t.string "layout"
+    t.string "meta_title"
+    t.text "meta_description"
+    t.text "og_title"
+    t.text "og_title_2"
+    t.text "og_description"
+    t.text "og_description_2"
+    t.text "og_image"
+    t.text "og_image_2"
     t.index ["ancestry"], name: "index_pages_on_ancestry"
     t.index ["slug"], name: "index_pages_on_slug", unique: true
   end

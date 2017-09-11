@@ -5,6 +5,7 @@ class Page < ApplicationRecord
   has_ancestry
   has_paper_trail only: [:title, :aasm_state, :content, :published_content, :drafts],
                   meta: { content_changed: :content_changed? }
+  Layouts = ["standard", "contact", "landing"]
   friendly_id :title, use: [:slugged, :finders]
   has_many :drafts, dependent: :destroy
   has_one :active_draft, class_name: "Page::Draft"
@@ -35,6 +36,18 @@ class Page < ApplicationRecord
 
   def activate_draft
     drafts.first.activate
+  end
+
+  def admin_unpublish_path
+    Rails.application.routes.url_helpers.unpublish_admin_page_path(self.id)
+  end
+
+  def admin_publish_path
+    Rails.application.routes.url_helpers.publish_admin_page_path(self.id)
+  end
+
+  def admin_page_path
+    Rails.application.routes.url_helpers.admin_page_path(self.id)
   end
 
   def content_areas

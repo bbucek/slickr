@@ -1,0 +1,188 @@
+///// ELEMENTS /////
+%container {
+  padding: 30px; margin-bottom: 10px;
+  border-radius: 3px;
+}
+%narrow_container {
+  padding: 10px; margin-bottom: 10px;
+  border-radius: 3px;
+}
+%container_blue {
+  @extend %container;
+  background: $blue;
+}
+%container_black {
+  @extend %container;
+  background: $grey_darkest;
+}
+%container_grey {
+  @extend %container;
+  background: $grey_lightest;
+}
+%container_alert {
+  @extend %narrow_container;
+  background: $alert;
+  color: $white;
+}
+%text_input_field {
+  box-sizing: border-box;
+  padding: 8px 12px; height: 40px;
+  font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700;
+  color: $grey_darkest;
+  background: $white;
+  border: 1px solid $grey_lighter; border-radius: 3px;
+  transition: .2s;
+
+  &:hover {
+    border-color: $blue;
+  }
+}
+.page_entry {
+  @extend %text_input_field;
+}
+
+
+%button {
+  box-sizing: border-box; display: inline-block;
+  padding: 8px 12px; height: 40px;
+  font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 400; color: $blue;
+  background: white; text-decoration: none;
+  border: 2px solid $blue; border-radius: 3px;
+  cursor: pointer;
+
+  transition: .2s;
+
+  &:hover {
+    color: white;
+    background: $blue;
+  }
+
+}
+%small_button {
+  @extend %button;
+  padding: 6px 10px; height: 34px;
+  font-size: 14px;
+}
+
+.button {
+  @extend %button;
+  &.small {
+    @extend %small_button;
+  }
+}
+
+
+.container.blue {
+  .button {
+    padding: 8px 12px;
+    color: white;
+    border: none;
+    background: $blue_dark;
+
+    &:hover {
+      background: darken($blue_dark, 10%);
+    }
+  }
+}
+
+
+%breadcrumb_link {
+  @extend .para_small_style;
+  color: $blue; text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.breadcrumb_link {
+  @extend %breadcrumb_link;
+}
+
+.nav_header {
+  font-family: 'Lato', sans-serif; font-size: 16px; line-height: 1.2em; font-weight: 400; color: $white;
+}
+%nav_link {
+  box-sizing: border-box;
+  padding: 8px 12px; height: 40px;
+  font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 400; color: white; text-decoration: none;
+
+  transition: .2s;
+
+  &:hover {
+    color: white;
+    background: $grey_darkest;
+  }
+}
+%nav_link_active {
+  @extend %nav_link;
+  color: $blue;
+  background: $grey_darkest;
+}
+
+.nav_link {
+  @extend %nav_link;
+}
+.nav_link_active {
+  @extend %nav_link_active;
+}
+
+%user_link {
+  font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 400; color: $blue;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+%sign_out_link {
+  font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 400; color: $grey;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.user_link {
+  @extend %user_link;
+}
+
+.sign_out_link {
+  @extend %sign_out_link;
+}
+
+.filter_label {
+  font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 400; color: $white;
+}
+
+.filter_dropdown {
+  box-sizing: border-box; display: inline-block;
+  padding: 6px 10px; height: 34px;
+  font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 400; color: $white;
+  border: 1px solid $white; border-radius: 3px;
+}
+
+.filter_field {
+  box-sizing: border-box; display: inline-block;
+  padding: 6px 10px; height: 34px;
+  font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 400; color: $grey;
+  background: $white; border: 2px solid $white; border-radius: 3px;
+
+  &.active {
+    color: $grey_darker;
+    border-color: $blue_dark;
+  }
+}
+
+%tab_link {
+  font-family: 'Lato', sans-serif; font-size: 14px; font-weight: 400; color: $blue_dark;
+
+  &.active {
+    color: $white;
+  }
+}
+
+
+.tab_link {
+  @extend %tab_link;
+}
+
+

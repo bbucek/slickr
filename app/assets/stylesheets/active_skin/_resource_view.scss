@@ -1,0 +1,42 @@
+.logged_in {
+  .panel { padding: 2em; }
+  .attributes_table {
+    table { text-align: left }
+    th { color: $blue; font-weight: normal}
+    th, td { padding: .75em }
+    tr {
+      &:nth-child(odd) td, &:nth-child(odd) th {
+        background: $white;
+      }
+      &:nth-child(even) td, &:nth-child(even) th {
+        background: $grey_lighter;
+      }
+    }
+  }
+  .comments {
+    h3 { @extend .subtitle; }
+    .active_admin_comment {
+      margin-bottom: 1em;
+      border-bottom: 1px solid $grey_lighter;
+      p { margin: .75em 0; }
+    }
+    .active_admin_comment_meta {
+      & > span, & > a {
+        @extend .para_small_style;
+      }
+      & > span { display: inline-block; margin-right: 1em }
+      a {
+        color: $blue; text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .active_admin_comment_author {
+        @extend .h4;
+        margin: .25em 0;
+      }
+    }
+    form { padding: 0; }
+  }
+}
+

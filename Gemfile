@@ -40,6 +40,10 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'cancancan'
 gem 'tether-rails'
+gem 'draper'
+gem 'paper_trail-globalid'
+gem 'carrierwave'
+gem 'esvg'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

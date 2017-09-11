@@ -1,0 +1,70 @@
+import request from 'superagent';
+let _csrf_param = () => { return document.getElementsByName("csrf-param")[0].content }
+let _csrf_token = () => { return document.getElementsByName("csrf-token")[0].content }
+
+export const setPageTitle = text => {
+  return function(dispatch, getState) {
+    let params = {};
+    params[_csrf_param()] = _csrf_token()
+    params["page"] = {}
+    params["page"]["title"] = text
+
+    request.put(getState().pageState.admin_page_path).type('json').accept('json').send(params).end(function(err,resp){
+      if(err) {
+        console.error(err)
+      } else {
+        console.log(resp.body.title)
+        dispatch({
+          type: 'SET_PAGE_TITLE',
+          title: resp.body.title
+        })
+      }
+    })
+
+  }
+}
+
+export const pageUnpublish = () => {
+  return function(dispatch, getState) {
+    let params = {};
+    params[_csrf_param()] = _csrf_token()
+
+    request.put(getState().pageState.admin_unpublish_path).type('json').accept('json').send(params).end(function(err,resp){
+      if(err) {
+        console.error(err)
+      } else {
+        dispatch({
+          type: 'UNPUBLISH_PAGE',
+          aasm_state: resp.body.aasm_state
+        })
+      }
+    })
+  }
+}
+
+export const pagePublish = () => {
+  return function(dispatch, getState) {
+    let params = {};
+    params[_csrf_param()] = _csrf_token()
+
+    request.put(getState().pageState.admin_publish_path).type('json').accept('json').send(params).end(function(err,resp){
+      if(err) {
+        console.error(err)
+      } else {
+        dispatch({
+          type: 'PUBLISH_PAGE',
+          aasm_state: resp.body.aasm_state
+        })
+      }
+    })
+  }
+}
+
+export const changeTab = (tab) => {
+  return function(dispatch, getState) {
+    dispatch({
+      type: "CHANGE_TAB",
+      payload: tab
+    })
+  }
+}

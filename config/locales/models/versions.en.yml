@@ -1,0 +1,18 @@
+en:
+  activerecord:
+    models:
+      page:
+        one: "Page"
+        other: "Pages"
+        versions:
+          one: "version"
+          other: "versions"
+          aasm_state:
+            one: "State"
+            other: "States"
+            published_draft: "%{actor} unpublished page"
+            draft_published: "%{actor} published page"
+          title: "%{actor} changed title"
+
+
+

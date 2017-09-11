@@ -2,9 +2,13 @@ ActiveAdmin.register Page do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
+  config.per_page = 10
+
+  config.filters = false
+  decorate_with PageDecorator
   before_action :set_paper_trail_whodunnit
-  permit_params :title, content_areas: [:content]
-  form :partial => "form"
+  permit_params :title, :intro, :layout, content_areas: [:content]
+  form :partial => "edit"
   controller do
     def find_resource
       scoped_collection.friendly.find(params[:id])
@@ -13,12 +17,18 @@ ActiveAdmin.register Page do
 
   member_action :publish, method: :put do
     resource.publish!
-    redirect_to edit_resource_path, notice: "Published"
+    respond_to do |format|
+      format.html { redirect_to edit_resource_path, notice: "Published" }
+      format.json { render json: @page.as_json }
+    end
   end
 
   member_action :unpublish, method: :put do
     resource.unpublish!
-    redirect_to edit_resource_path, notice: "Unpublished"
+    respond_to do |format|
+      format.html { redirect_to edit_resource_path, notice: "Unpublished" }
+      format.json { render json: @page.as_json }
+    end
   end
 
   member_action :create_draft, method: :post do
@@ -35,6 +45,7 @@ ActiveAdmin.register Page do
     def update
       update! do |format|
         format.html { redirect_to edit_admin_page_path(resource) }
+        format.json { render json: @page.as_json(methods: [:admin_page_path]) }
       end
     end
 

@@ -10,7 +10,11 @@ class AdminUser < ApplicationRecord
 
   ROLES = [:admin, :editor, :author]
 
-  def name
+  def display_name
+    first_name || email
+  end
+
+  def full_name
     [first_name, last_name].join(" ")
   end
 
