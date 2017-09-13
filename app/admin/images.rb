@@ -1,9 +1,9 @@
 ActiveAdmin.register Image do
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
+  
 config.filters = false
 config.batch_actions = false
+
+permit_params :attachment
 
 # permit_params :attachment
 # index as: :grid do |image|
@@ -13,15 +13,13 @@ config.batch_actions = false
 index download_links: false do
   render 'gallery'
 end
-# index :partial => 'gallery'
-form :partial => "form"
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
 
+form :partial => "form"
+
+# form do |f|
+#   f.inputs do
+#     f.input :attachment, as: :file
+#   end
+#   f.actions
+# end
 end
