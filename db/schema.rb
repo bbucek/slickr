@@ -29,6 +29,20 @@ ActiveRecord::Schema.define(version: 20170906203222) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
+  create_table "active_admin_managed_resources", force: :cascade do |t|
+    t.string "class_name", null: false
+    t.string "action", null: false
+    t.string "name"
+    t.index ["class_name", "action", "name"], name: "active_admin_managed_resources_index", unique: true
+  end
+
+  create_table "active_admin_permissions", force: :cascade do |t|
+    t.integer "managed_resource_id", null: false
+    t.integer "role", limit: 2, default: 0, null: false
+    t.integer "state", limit: 2, default: 0, null: false
+    t.index ["managed_resource_id", "role"], name: "active_admin_permissions_index", unique: true
+  end
+
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
