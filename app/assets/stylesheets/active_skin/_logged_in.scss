@@ -22,7 +22,7 @@
   #main_content_wrapper {
     background: $grey_lightest;
   }
-  #collection_selection, .formtastic   { padding: 2em; }
+  #collection_selection, .formtastic   { padding: 2em 5vw; }
   #main_content {
     form {
       @extend %admin_form_basics;

@@ -47,7 +47,7 @@
     }
     form {
       @extend %container;
-      @extend %admin_form_basics;
+      @extend %login_form_basics;
       background: $white;
       min-width: 430px;
     }

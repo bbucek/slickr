@@ -24,6 +24,25 @@
   background: $alert;
   color: $white;
 }
+%admin_text_input_field {
+  box-sizing: border-box;
+  padding: 8px 8px 8px .5em; height: 40px;
+  font-family: 'Lato', sans-serif; font-size: 16px; font-weight: 700;
+  color: $grey_darkest;
+  background: $grey_lightest;
+  border: none;
+  border-bottom: 1px solid $grey_lighter;
+  transition: .2s;
+  &:focus {
+    outline: none;
+    background: rgba($blue,.1);
+    border-color: $blue;
+  }
+
+  &:hover {
+    border-color: $blue;
+  }
+}
 %text_input_field {
   box-sizing: border-box;
   padding: 8px 12px; height: 40px;

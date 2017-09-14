@@ -2,10 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Editor from "../components/editor.jsx";
-import PageForm from "../components/page_form.jsx";
-import PageLog from "../components/page_log.jsx";
-import PublishingComponent from "../components/publishing.jsx";
+import ContentTab from "../components/content/content_tab.jsx";
 import * as PageActions from '../actions'
 
 const changeTab = function(tab, actions) {
@@ -21,13 +18,7 @@ const MyEditor = ({store, page, active_tab, actions}) => (
         </div>
         <div id='collection_selection'>
           { active_tab == 'content' ?
-             <div>
-              <div>{page.title}</div>
-              <PublishingComponent actions={actions} page={page} />
-              <PageLog actions={actions} changes={page.changes} />
-              <PageForm actions={actions} page={page} />
-              <Editor />
-              </div>
+            <ContentTab page={page} actions={actions} />
           : null }
           { active_tab == 'meta' ?
             <div>Meta editor</div>

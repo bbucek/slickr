@@ -1,4 +1,4 @@
-%admin_form_basics {
+%login_form_basics {
   fieldset {
     padding: 0; margin: 0;
     border: none;
@@ -39,6 +39,78 @@
             min-height: 30px;
           }
           input, select {
+            @extend %text_input_field;
+          }
+        }
+        textarea {
+          @extend %text_input_field;
+          height: 10em;
+        }
+        .field_with_errors {
+          &:nth-child(1) {
+            flex: 1 0 120px;
+            max-width: 150px;
+            margin-right: 1em;
+          }
+          &:nth-child(2) {
+            flex: 1 0 150px;
+          }
+          label { color: $alert; }
+          input { border-color: $alert; width: 100%;}
+        }
+        .inline-errors {
+          flex-basis: 100%;
+          color: $alert;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+%admin_form_basics {
+  fieldset {
+    padding: 0; margin: 0;
+    border: none;
+    &.actions {
+      margin-top: 1em;
+      ol {
+        display: flex;
+        .input_action {
+          margin-right: 1em;
+        }
+      }
+    }
+    ol {
+      list-style-type: none;
+      padding: 0; margin: 0;
+      li {
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: column;
+        margin-bottom: 1.5em;
+        &.error { flex-wrap: wrap; }
+        &.boolean label {}
+        &.input_action input { @extend %button; }
+        &.password, &.email, &.string, &.select {
+          & > label {
+            width: 100%;
+          }
+          label {
+            @extend .para_style;
+            color: $blue;
+            padding-left: .5em;
+            margin-bottom: .25em;
+            abbr {
+              text-decoration: none;
+            }
+          }
+          & > input {
+            width: 100%;
+          }
+          input {
+            @extend %admin_text_input_field;
+          }
+          select {
             @extend %text_input_field;
           }
         }
