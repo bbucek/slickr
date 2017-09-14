@@ -23,6 +23,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :store_dimensions
   end
 
+  def extension_white_list
+    %w(jpg jpeg png)
+  end
+
   private
 
   def store_dimensions
