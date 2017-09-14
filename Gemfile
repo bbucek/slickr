@@ -44,6 +44,7 @@ gem 'draper'
 gem 'paper_trail-globalid'
 gem 'carrierwave'
 gem 'esvg'
+gem 'rmagick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

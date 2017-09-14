@@ -1,0 +1,3 @@
+<div id="image-data-array" data-image_data_array="<%= @images.map { |image| image.build_for_gallery }.to_json %>"></div>
+<div id='image-gallery'></div>
+<%= javascript_pack_tag 'image_gallery' %>
