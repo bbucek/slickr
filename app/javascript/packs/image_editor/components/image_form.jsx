@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import Yup from 'yup';
 
 const ImageForm = ({page, values, touched, errors, dirty, isSubmitting, handleChange, handleBlur, handleSubmit, handleReset}) => {
+  console.log(JSON.stringify(values.crop_data))
   var buttonText = JSON.stringify(values.crop_data) === JSON.stringify({x: null, y: null, width: null, height: null}) ? "Submit" : "Crop & Submit"
   return(
     <form onSubmit={handleSubmit}>

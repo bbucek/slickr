@@ -10,7 +10,7 @@ import * as ImageActions from '../actions'
 const ImageEditor = ({store, image, actions}) => (
     <div>
       <Cropper actions={actions} image={image} />
-      <ImageForm actions={actions} image={image} key={image.timestamped_image_url}/>
+      <ImageForm actions={actions} image={image} key={image.timestamped_image_url + JSON.stringify(image.crop_data)}/>
     </div>
   );
 
