@@ -33,8 +33,7 @@ export default class Cropper extends React.Component {
       this.props.actions.updateCropData(pixelCrop)
   }
 
-  render(){
-    console.log('render')
+  render() {
     return(
       <ReactCrop
         {...this.state}
