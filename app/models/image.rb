@@ -22,7 +22,12 @@ class Image < ApplicationRecord
     Rails.application.routes.url_helpers.admin_image_path(id)
   end
 
+  def timestamped_image_url
+    "#{attachment.url}?timestamp=#{DateTime.now.to_s}"
+  end
+
   def crop(x, y, w, h)
+    return if (x || y || w || h) == nil
     image =  Magick::ImageList.new(attachment.current_path)
     cropped_image = image.crop(x, y, w, h)
     cropped_image.write(attachment.current_path)

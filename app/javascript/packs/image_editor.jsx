@@ -16,7 +16,6 @@ const imageData = document.getElementById("image-data").dataset.image_data
 
 const initialState = {
   imageState: Object.assign({}, JSON.parse(imageData), {crop_data: {x: null, y: null, width: null, height: null}})
-  // imageState: JSON.parse(imageData)
 }
 
 const middlewares = [thunk];

@@ -33,16 +33,12 @@ export default class Cropper extends React.Component {
       this.props.actions.updateCropData(pixelCrop)
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('should it')
-    return true
-  }
-
   render(){
+    console.log('render')
     return(
       <ReactCrop
         {...this.state}
-        src={this.props.image.attachment.url}
+        src={this.props.image.timestamped_image_url}
         onImageLoaded={this.onImageLoaded}
         onComplete={this.onCropComplete}
       />
