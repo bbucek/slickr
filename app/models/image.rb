@@ -10,7 +10,22 @@ class Image < ApplicationRecord
       thumbnailHeight: dimensions['thumbnail']['height'],
       caption: attachment.file.filename,
       isSelected: false,
-      editPath: Rails.application.routes.url_helpers.edit_admin_image_path(id)
+      editPath: admin_edit_path
     }
+  end
+
+  def admin_edit_path
+    Rails.application.routes.url_helpers.edit_admin_image_path(id)
+  end
+
+  def admin_update_path
+    Rails.application.routes.url_helpers.admin_image_path(id)
+  end
+
+  def crop(x, y, w, h)
+    image =  Magick::ImageList.new(attachment.current_path)
+    cropped_image = image.crop(x, y, w, h)
+    cropped_image.write(attachment.current_path)
+    attachment.recreate_versions!
   end
 end

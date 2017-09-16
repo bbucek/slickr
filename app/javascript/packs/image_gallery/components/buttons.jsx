@@ -6,29 +6,27 @@ export default class Buttons extends React.Component {
     if (this.props.selectedImages.length === 1) {
       var href = this.props.selectedImages[0].editPath
       return (
-        <span className="action_item"><a href={href}>Edit Image</a></span>
+        <a href={href} className="active">Edit</a>
       )
+    } else {
+      return <a href="#" className="">Edit</a>
     }
   }
 
-  showDeleteButton() {
-    if (this.props.selectedImages.length === 1)
+  showTopButtons() {
+    if (this.props.selectedImages.length > 0)
       return (
-        <span className="action_item"><a href="/admin/images/new">Delete Image</a></span>
-      )
-    else if (this.props.selectedImages.length > 1)
-      return (
-        <span className="action_item"><a href="/admin/images/new">Delete Images</a></span>
+        <div id="resource_tabs">
+          {this.showEditButton()}
+          <a href="#" className="active">Delete</a>
+        </div>
       )
   }
 
   render(){
     return(
-      <div className="title_bar" id="title_bar">
-        <div className="action_items">
-          {this.showEditButton()}
-          {this.showDeleteButton()}
-        </div>
+      <div>
+        {this.showTopButtons()}
       </div>
     )
   }

@@ -32,9 +32,6 @@ export const removeSelectedImage = selectedImageId => {
 export const createImage = formData => {
   return function(dispatch, getState) {
     formData.append(_csrf_param(), _csrf_token())
-    // let params = {};
-    // params[_csrf_param()] = _csrf_token()
-    // params["data"] = formData
 
     request.post('/admin/images').send(formData).set('Accept', 'application/json').end(function(err,resp){
       if(err) {

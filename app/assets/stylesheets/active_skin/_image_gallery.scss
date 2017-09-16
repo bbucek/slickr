@@ -1,0 +1,28 @@
+#image-gallery {
+  .tile {
+    div:nth-child(3) {
+      opacity: 1 !important;
+
+      div div:first-child {
+        opacity: 0;
+        transition: opacity 0.15s ease-in-out;
+      }
+    }
+
+    &:hover {
+      div:nth-child(3) {
+        div div:first-child {
+          opacity: 1;
+        }
+      }
+    }
+
+    .alt_text_missing {
+      &:after {
+        position: absolute; padding: 6px; top: 0; right: 0;
+        content: "\2205"; font-size: 32px; color: red; text-align: right; line-height: 18px;
+        opacity: 0.5;
+      }
+    }
+  }
+}

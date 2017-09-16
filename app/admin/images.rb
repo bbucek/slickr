@@ -1,16 +1,9 @@
-require 'open-uri'
-
 ActiveAdmin.register Image do
-
+  actions :all, :except => [:new]
   config.filters = false
   config.batch_actions = false
 
-  permit_params :attachment
-
-  # permit_params :attachment
-  # index as: :grid do |image|
-  #   link_to image_tag(image.attachment_url), admin_image_path(image)
-  # end
+  permit_params :attachment, :crop_data, data: {}
 
   index download_links: false do
     render 'gallery'
@@ -18,20 +11,29 @@ ActiveAdmin.register Image do
 
   form :partial => "form"
 
-  # form do |f|
-  #   f.inputs do
-  #     f.input :attachment, as: :file
-  #   end
-  #   f.actions
-  # end
-
   controller do
     def create
-      @image = Image.new(attachment: params[:image][:attachment][0])
-      if @image.save
-        respond_to do |format|
-          format.json { render :json => @image.build_for_gallery }
-        end
+      create! do |format|
+        format.html { redirect_to admin_images_path }
+        format.json { render :json => @image.to_json(
+          methods: [:build_for_gallery, :admin_edit_path, :admin_update_path]
+        )}
+      end
+    end
+
+    def update
+
+      @image = Image.find(params[:image][:id])
+      @image.crop(params[:image][:crop_data][:x],params[:image][:crop_data][:y],params[:image][:crop_data][:width],params[:image][:crop_data][:height])
+      # @image.save
+      # attachment = File.new(@image.attachment.current_path)
+      # new_image = Image.new(attachment: attachment, data: @image.data)
+      # new_image.save
+      # @image = new_image
+
+      update! do |format|
+        format.html { redirect_to edit_admin_image_path(resource) }
+        format.json { render json: @image.to_json(methods: [:admin_update_path]) }
       end
     end
   end

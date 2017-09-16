@@ -4,6 +4,8 @@ const imageState = (state = {}, action) => {
       return Object.assign({},state, { url: action.url })
     case 'CHANGE_CROP':
       return Object.assign({}, state, {crop_data: action.payload} )
+    case 'UPDATE_IMAGE':
+      return action.payload
 
     default:
       return state
@@ -11,4 +13,3 @@ const imageState = (state = {}, action) => {
 }
 
 export default imageState
-
