@@ -13,6 +13,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
+    "browser-image-size": "^1.1.0",
     "classnames": "^2.2.5",
     "coffee-loader": "^0.7.3",
     "coffee-script": "^1.12.7",
