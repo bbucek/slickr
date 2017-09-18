@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import CroppingElement from '../components/cropping_element.jsx';
+import Cropper from '../components/cropper.jsx';
+import ImageForm from '../components/image_form.jsx';
 import React, { Component } from 'react';
 import * as ImageActions from '../actions'
 
 
 const ImageEditor = ({store, image, actions}) => (
     <div>
-      <div>Crop data: {image.crop_data.x}, {image.crop_data.y}, {image.crop_data.width}, {image.crop_data.height}</div>
-      <div id='preview-crop'></div>
-      <CroppingElement actions={actions} image={image}/>
+      <Cropper actions={actions} image={image} />
+      <ImageForm actions={actions} image={image} key={image.timestamped_image_url + JSON.stringify(image.crop_data)}/>
     </div>
   );
 

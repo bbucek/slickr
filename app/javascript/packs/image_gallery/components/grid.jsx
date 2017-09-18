@@ -21,10 +21,14 @@ export default class Grid extends React.Component {
 
   render () {
     var images = this.props.images.map((i) => {
-      i.customOverlay = (
-        <div style={captionStyle}>
-          <div>{i.caption}</div>
-          { i.hasOwnProperty('tags') && this.setCustomTags(i) }
+      var altClass = i.data.alt_text == "" ? "alt_text_missing" : ""
+      i.build_for_gallery.customOverlay = (
+        <div>
+          <div style={captionStyle}>
+            <div>{i.build_for_gallery.caption}</div>
+            { i.build_for_gallery.hasOwnProperty('tags') && this.setCustomTags(i.build_for_gallery) }
+          </div>
+          <div className={altClass}></div>
         </div>
       );
       return i;
@@ -39,7 +43,7 @@ export default class Grid extends React.Component {
         overflow: "auto"
       }}>
         <Gallery
-          images={images}
+          images={images.map(function(a) {return a.build_for_gallery})}
           onSelectImage={this.onSelectImage}
           lightboxWidth={1536}
         />
@@ -78,15 +82,17 @@ const customTagStyle = {
 Grid.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      src: PropTypes.string.isRequired,
-      thumbnail: PropTypes.string.isRequired,
-      srcset: PropTypes.array,
-      caption: PropTypes.string.isRequired,
-      thumbnailWidth: PropTypes.number.isRequired,
-      thumbnailHeight: PropTypes.number.isRequired,
-      isSelected: PropTypes.bool.isRequired,
-      editPath: PropTypes.string.isRequired
+      build_for_gallery: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        src: PropTypes.string.isRequired,
+        thumbnail: PropTypes.string.isRequired,
+        srcset: PropTypes.array,
+        caption: PropTypes.string.isRequired,
+        thumbnailWidth: PropTypes.number.isRequired,
+        thumbnailHeight: PropTypes.number.isRequired,
+        isSelected: PropTypes.bool.isRequired,
+        editPath: PropTypes.string.isRequired
+      })
     })
   ).isRequired
 };
