@@ -16,7 +16,8 @@ const ImageGallery = ({store, images, selectedImages, actions}) => (
   );
 
 ImageGallery.propTypes = {
-  images: PropTypes.array.isRequired
+  images: PropTypes.array.isRequired,
+  selectedImages: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({

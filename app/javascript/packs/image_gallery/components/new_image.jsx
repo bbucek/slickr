@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Dropzone from 'react-dropzone';
-import browserImageSize from 'browser-image-size'
 
 export default class NewImage extends React.Component {
   constructor() {
@@ -15,13 +14,9 @@ export default class NewImage extends React.Component {
     files.forEach((file)=> {
       const formData = new FormData();
       formData.append('image[attachment]', file);
-      var propsCopy = this.props
-      browserImageSize(file.preview)
-        .then(function (size) {
-          propsCopy.actions.createImage({
-            formData: formData, preview: file.preview, upload: true, previewImgSize: size
-          })
-        })
+      this.props.actions.createImage({
+        formData: formData, file: file, upload: true
+      })
     });
   }
 

@@ -6,39 +6,21 @@ const loadedImages = (state = [], action) => {
       return  state;
     case 'ADD_UPLOAD':
       var newArray = state.slice();
-      newArray.unshift(newArrayObject(action.payload));
-      return newArray;
-    case 'ADD_TO_LOADED_IMAGES':
-      var newArray = state.slice();
       newArray.unshift(action.payload);
+      return newArray;
+    case 'UPDATE_UPLOAD_PROGRESS':
+      return action.payload
+    case 'UPDATE_UPLOAD_STATE':
+      return action.payload
+    case 'ADD_TO_LOADED_IMAGES':
+      var img = state[state.findIndex(x => x.id == action.payload.id)];
+      var newArray = state.slice();
+      newArray.splice(newArray.findIndex(x => x.id == action.payload.id), 1);
+      newArray.unshift(action.payload.body);
       return newArray;
 
     default:
       return state
-  }
-}
-
-export function newArrayObject(payload) {
- return {
-   id: payload.id,
-   progress: payload.progress,
-   state: payload.state,
-   upload: payload.upload,
-   build_for_gallery : buildForGallery(payload),
-   data: {"alt_text": ""}
- }
-}
-
-export function buildForGallery(payload) {
-  return {
-    id: Math.floor(Math.random() * 1000000000),
-    src: payload.preview,
-    thumbnail: payload.preview,
-    caption: "",
-    thumbnailWidth: payload.previewImgSize.width,
-    thumbnailHeight: payload.previewImgSize.height,
-    isSelected: false,
-    editPath: ""
   }
 }
 
