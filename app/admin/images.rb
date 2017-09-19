@@ -5,7 +5,7 @@ ActiveAdmin.register Image do
 
   permit_params :attachment, :crop_data, data: {}
 
-  index download_links: false do
+  index title: 'Image library', download_links: false do
     render 'gallery'
   end
 

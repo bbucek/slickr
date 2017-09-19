@@ -2,7 +2,7 @@ ActiveAdmin.register Page do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  menu priority: 2
+  menu priority: 2, label: 'Site map'
 
   config.filters = false
   config.batch_actions = false
@@ -39,7 +39,7 @@ ActiveAdmin.register Page do
     end
   end
 
-  index download_links: false do |page|
+  index title: 'Site map', download_links: false do |page|
     render partial: 'dashboard'
   end
 

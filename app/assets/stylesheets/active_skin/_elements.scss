@@ -241,11 +241,12 @@
   }
 }
 %large_cta {
+  box-sizing: border-box;
   padding: 3em;
   border-radius: 3px; background: white;
   position: relative;
   border: 5px solid white;
-  max-width: 50vw;
+  max-width: 60vw;
   margin: 2em auto;
   &:before {
     content: ' ';
