@@ -17,6 +17,16 @@ ActiveAdmin.register Book do
 
   config.clear_action_items!
 
+  index do
+    selectable_column
+    column :author
+    column :title
+    column :isbn
+    column :publisher
+    column :publishing_year
+    actions
+  end
+
   show do
     render 'show'
     active_admin_comments

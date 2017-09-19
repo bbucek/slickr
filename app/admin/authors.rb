@@ -17,6 +17,15 @@ ActiveAdmin.register Author do
   filter :name
   config.clear_action_items!
 
+  index do
+    selectable_column
+    column :name
+    column :email
+    column :languages
+    column :local_authority
+    actions
+  end
+
   show do
     render 'show'
     active_admin_comments
