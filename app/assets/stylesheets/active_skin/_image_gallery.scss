@@ -1,3 +1,10 @@
+.dropzone {
+  @extend %large_cta;
+  &.dropzone-active {
+    border-color: $blue;
+    background-color: lighten($blue, 80%);
+  }
+}
 #image-gallery {
   .tile {
     div:nth-child(3) {
@@ -53,7 +60,7 @@
       background-color: rgba(#ea111c, 0.5);
 
       &:after {
-        position: relative; padding: 6px; 
+        position: relative; padding: 6px;
         content: "Error - Try again";
         text-transform: capitalize; text-align: center;
         color: white;

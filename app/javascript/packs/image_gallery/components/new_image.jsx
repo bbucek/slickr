@@ -23,13 +23,15 @@ export default class NewImage extends React.Component {
   render() {
     return (
       <section>
-        <div className="dropzone">
+        <div>
           <Dropzone
-            accept="image/jpeg, image/png"
+            className='dropzone'
+            activeClassName='dropzone-acive'
+            accept="image/jpeg, image/png, image/jpg"
             onDrop={this.onDrop}
           >
-            <p>Try dropping some files here, or click to select files to upload.</p>
-            <p>Only *.jpeg and *.png images will be accepted</p>
+            <p className='main_text'>Drag and drop images here, <span className='alternative_text'>or select files from your computer</span>.</p>
+            <p className='large-cta__hint'>Maximum size 10mb | .jpeg, .jpg and .png images only</p>
           </Dropzone>
         </div>
       </section>

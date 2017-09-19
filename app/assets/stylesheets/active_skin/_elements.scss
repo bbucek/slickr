@@ -253,17 +253,27 @@
     top: 3px; right: 3px; bottom: 3px; left: 3px;
     border: 2px solid $grey_lighter;
   }
-  span {
+  span, .main_text {
     @extend .h4;
     display: block;
     position: relative;
     text-align: center;
   }
-  a {
+  span.alternative_text {
+    display: inline;
+    cursor: pointer;
+  }
+  a, .alternative_text {
     color: $blue;
     text-decoration: none;
 
   }
+  .large-cta__hint {
+    @extend .para;
+    text-align: center;
+    color: $grey_light;
+  }
+
 }
 .svg-icon {
   fill: $blue;

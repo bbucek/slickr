@@ -55,8 +55,8 @@ export default class Grid extends React.Component {
       <div style={{
         display: "block",
         minHeight: "1px",
-        width: "100%",
-        border: "1px solid #ddd",
+        maxWidth: "50vw",
+        margin: "0 auto",
         overflow: "auto"
       }}>
         <Gallery
