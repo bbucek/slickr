@@ -75,6 +75,7 @@
       margin-top: 1em;
       ol {
         display: flex;
+        align-items: center;
         .input_action {
           margin-right: 1em;
         }
@@ -96,13 +97,7 @@
             width: 100%;
           }
           label {
-            @extend .para_style;
-            color: $blue;
-            padding-left: .5em;
-            margin-bottom: .25em;
-            abbr {
-              text-decoration: none;
-            }
+            @extend %label;
           }
           & > input {
             width: 100%;

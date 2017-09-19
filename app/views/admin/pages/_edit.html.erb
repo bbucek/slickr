@@ -2,6 +2,7 @@
   <%= semantic_form_for [:admin, @page], builder: ActiveAdmin::FormBuilder do |f| %>
     <%= f.inputs do %>
       <%= f.input :title %>
+      <%= f.input :parent_id, collection: options_for_select(Page.root_subtree_for_views, params[:parent]) %>
       <%= f.input :layout, collection: options_for_select(Page::Layouts) %>
     <% end %>
     <%= f.actions %>

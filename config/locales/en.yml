@@ -33,3 +33,6 @@ en:
   hello: "Hello world"
   active_admin:
     powered_by: "Site by <a href='https://www.primate.co.ul'>Primate</a>. Powered by ActiveAdmin."
+    filters:
+      buttons:
+        filter: "Apply"

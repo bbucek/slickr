@@ -1,6 +1,6 @@
-ActiveAdmin.register AdminUser do
-  menu parent: 'Data', priority: 1
+ActiveAdmin.register AdminUser, as: "Users" do
 
+  menu priority: 10
   permit_params :email, :password, :password_confirmation, :first_name, :last_name, :role
 
   scope :all, default: true
@@ -14,6 +14,11 @@ ActiveAdmin.register AdminUser do
     column :sign_in_count
     column :created_at
     actions
+  end
+
+  show do
+    render 'show'
+    active_admin_comments
   end
 
   filter :email

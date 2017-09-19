@@ -1,16 +1,19 @@
 .logged_in {
   .panel { padding: 2em; }
-  .attributes_table {
-    table { text-align: left }
-    th { color: $blue; font-weight: normal}
-    th, td { padding: .75em }
-    tr {
-      &:nth-child(odd) td, &:nth-child(odd) th {
-        background: $white;
-      }
-      &:nth-child(even) td, &:nth-child(even) th {
-        background: $grey_lighter;
-      }
+  .attributes_list {
+    list-style-type: none;
+    padding: 0; margin: 0;
+    li {
+      display: flex;
+      justify-content: flex-start;
+      flex-flow: column;
+      margin-bottom: 1.5em;
+    }
+    .attributes_list_attr_name {
+      @extend %label;
+    }
+    .attributes_list_attr_value {
+      @extend %admin_text_input_field;
     }
   }
   .comments {

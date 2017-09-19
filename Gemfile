@@ -25,6 +25,7 @@ gem 'ancestry'
 gem 'friendly_id', '~> 5.1.0'
 gem 'aasm'
 gem 'paper_trail', '7.0.0'
+gem 'acts-as-taggable-on', '~> 4.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

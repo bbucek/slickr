@@ -34,11 +34,28 @@
 .rst__rowContents {
   box-shadow: none;
   border-color: $grey_lighter;
+  padding: 0 1em 0 1em;
 }
 .rst__toolbarButton button {
   @extend %sign_out_link;
+  padding: 0; margin-left: 2em;
   background: none;
   border: none;
   cursor: pointer;
   color: $blue;
+  display: flex;
+  align-items: center;
+  .svg-icon {
+    fill: currentColor;
+  }
+}
+
+.rst__row.unpublished .rst__rowContents {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba($grey_lightest, .2),
+    rgba($grey_lightest, .2) 10px,
+    white 10px,
+    white 20px
+  );
 }

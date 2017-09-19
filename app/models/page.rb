@@ -12,6 +12,7 @@ class Page < ApplicationRecord
   has_one :published_draft, class_name: "Page::Draft"
   after_initialize :create_content_areas
   after_create :create_draft, :activate_draft
+  scope :not_draft, -> {where(type: nil)}
 
   aasm(:status, column: :aasm_state) do
     state :draft, initial: true
@@ -23,6 +24,31 @@ class Page < ApplicationRecord
 
     event :unpublish do
       transitions from: :published, to: :draft
+    end
+  end
+
+  def expanded
+    root?
+  end
+
+  def self.root_subtree_for_views
+    Page.subtree_of(Page.roots.first).map{|p| Array({"#{Array.new(p.depth, '-').join('')}#{p.title}".to_sym => p.id}).flatten }
+  end
+
+  def published
+    published?
+  end
+
+  def tree_children
+    children.decorate.map do |p|
+      { id: p.id,
+        title: p.title,
+        add_child_path: p.add_child_path,
+        edit_page_path: p.edit_page_path,
+        published: p.published?,
+        subtitle: p.subtitle,
+        children: p.tree_children
+      }
     end
   end
 
@@ -38,12 +64,20 @@ class Page < ApplicationRecord
     drafts.first.activate
   end
 
+  def add_child_path
+    Rails.application.routes.url_helpers.new_admin_page_path(parent: self.id)
+  end
+
   def admin_unpublish_path
     Rails.application.routes.url_helpers.unpublish_admin_page_path(self.id)
   end
 
   def admin_publish_path
     Rails.application.routes.url_helpers.publish_admin_page_path(self.id)
+  end
+
+  def edit_page_path
+    Rails.application.routes.url_helpers.edit_admin_page_path(self.id)
   end
 
   def admin_page_path

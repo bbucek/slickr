@@ -13,6 +13,14 @@ class PageDecorator < Draper::Decorator
     end
   end
 
+  def children
+    tree_children
+  end
+
+  def subtitle
+    "Current layout: #{layout}, #{drafts.count} Drafts"
+  end
+
   protected
 
   def change_translation(key, value, actor)

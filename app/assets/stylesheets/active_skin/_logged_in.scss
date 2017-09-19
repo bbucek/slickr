@@ -1,5 +1,9 @@
 .logged_in {
+  .blank_slate_container {
+    @extend %large_cta;
+  }
   #wrapper {
+    min-height: 100vh;
     display: grid;
     align-content: stretch;
     grid-template-columns: [sidebar] 14em [main-content] 100fr;
@@ -22,7 +26,7 @@
   #main_content_wrapper {
     background: $grey_lightest;
   }
-  #collection_selection, .formtastic   { padding: 2em 5vw; }
+  #collection_selection, .formtastic   { padding: 2em; }
   #main_content {
     form {
       @extend %admin_form_basics;
@@ -33,14 +37,32 @@
       }
     }
   }
-  #filters_sidebar_section, #resource_tabs {
-    background: $blue;
-    padding: 1em 2em;
+
+  #resource_tabs {
+    @extend %blue_section;
+    padding: 0 2em;
+    display: flex;
+    align-items: stretch;
+    height: 4em;
     h3 { display: none; }
-    a {
+    .links {
       @extend %tab_link;
+      height: 1em;
+      padding: 1.8em 0;
+      margin-right: 3em;
       text-decoration: none;
-      margin-right:20px;
+      position: relative;
+      &.active:after {
+        content: ' ';
+        position: absolute;
+        bottom: 0;
+        left: calc(50% - 4px);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 8px 8px 8px;
+        border-color: transparent transparent $grey_lightest transparent;
+      }
     }
   }
   #search-status-_sidebar_section {

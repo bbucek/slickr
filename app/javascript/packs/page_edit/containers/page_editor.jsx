@@ -4,17 +4,26 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import ContentTab from "../components/content/content_tab.jsx";
 import * as PageActions from '../actions'
+import cx from 'classnames';
 
 const changeTab = function(tab, actions) {
   actions.changeTab(tab)
 }
 
+const tabClasses = (tabName, active_tab) => {
+  let tab = {}
+  tab[tabName] = true
+  tab['active'] = active_tab == tabName
+  tab['links'] = true
+  return cx(tab)
+}
+
 const MyEditor = ({store, page, active_tab, actions}) => (
       <div>
         <div id="resource_tabs">
-          <a href='#' onClick={changeTab.bind(this, 'content', actions)} className={active_tab == 'content' ? 'active' : '' }>Page content</a>
-          <a href='#' onClick={changeTab.bind(this, 'meta', actions)} className={active_tab == 'meta' ? 'active' : '' }>Page meta</a>
-          <a href='#' onClick={changeTab.bind(this, 'social', actions)} className={active_tab == 'social' ? 'active' : '' }>Page social</a>
+          <a href='#' onClick={changeTab.bind(this, 'content', actions)} className={tabClasses('content', active_tab)}>Page content</a>
+          <a href='#' onClick={changeTab.bind(this, 'meta', actions)} className={tabClasses('meta', active_tab)}>Page meta</a>
+          <a href='#' onClick={changeTab.bind(this, 'social', actions)} className={tabClasses('social', active_tab)}>Page social</a>
         </div>
         <div id='collection_selection'>
           { active_tab == 'content' ?

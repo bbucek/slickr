@@ -2,16 +2,62 @@ ActiveAdmin.register Page do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  config.per_page = 10
+  menu priority: 2
 
   config.filters = false
+  config.batch_actions = false
   decorate_with PageDecorator
   before_action :set_paper_trail_whodunnit
-  permit_params :title, :intro, :layout, content_areas: [:content]
+  permit_params :title, :intro, :layout, :parent_id, content_areas: [:content]
   form :partial => "edit"
+  config.clear_action_items!
+
+  action_item :new_page, only: :index do
+    link_to new_admin_page_path do
+      raw("<svg class='svg-icon'><use xlink:href='#svg-plus' /></svg>Add page")
+    end
+  end
+
+  action_item :new_page, only: :edit do
+    link_to new_admin_page_path do
+      raw("<svg class='svg-icon'><use xlink:href='#svg-plus' /></svg>Preview")
+    end
+  end
+  action_item :new_page, only: :edit do
+    link_to new_admin_page_path do
+      raw("<svg class='svg-icon'><use xlink:href='#svg-plus' /></svg>Save draft")
+    end
+  end
+  action_item :new_page, only: :edit do
+    link_to new_admin_page_path do
+      raw("<svg class='svg-icon'><use xlink:href='#svg-plus' /></svg>Schedule")
+    end
+  end
+  action_item :new_page, only: :edit do
+    link_to new_admin_page_path do
+      raw("<svg class='svg-icon'><use xlink:href='#svg-plus' /></svg>Publish now")
+    end
+  end
+
+  index download_links: false do |page|
+    render partial: 'dashboard'
+  end
+
+
   controller do
     def find_resource
       scoped_collection.friendly.find(params[:id])
+    end
+    def create
+      super do |format|
+        redirect_to edit_resource_url and return if resource.valid?
+      end
+    end
+
+    def update
+      super do |format|
+        redirect_to edit_resource_url and return if resource.valid?
+      end
     end
   end
 

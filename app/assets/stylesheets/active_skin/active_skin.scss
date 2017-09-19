@@ -11,6 +11,8 @@
 @import "./resource_view";
 @import "./image_gallery";
 @import "./image_cropper";
+@import "./filter_bar";
+@import "./header";
 
 @import "../megadraft/megadraft";
 @import "../cropperjs/cropper";
@@ -37,7 +39,7 @@ body { margin: 0; padding: 0; font-family: 'Lato', sans-serif;}
   grid-row: title/account-info;
   justify-self: center;
   width: 80%;
-  margin: 0; padding: 0;
+  margin: 0 0 .5em; padding: 0;
   img { display: block; width: 100%; }
 }
 #utility_nav {
@@ -47,11 +49,27 @@ body { margin: 0; padding: 0; font-family: 'Lato', sans-serif;}
   width: 80%;
   padding: 0;
   margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   li {
     display: inline-block;
   }
   a {
     color: inherit; text-decoration: none;
+  }
+}
+li#current_user {
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
+  &:before {
+    content: ' ';
+    background: image-url('svgs/user.svg') no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: .25em;
   }
 }
 #tabs {
@@ -109,36 +127,6 @@ body { margin: 0; padding: 0; font-family: 'Lato', sans-serif;}
   grid-row: content/footer;
 }
 
-.filter_form {
-  display: grid;
-  grid-template-columns: [filters] auto [buttons] 15em;
-  grid-auto-flow: row;
-  .buttons {
-    grid-column: buttons;
-    align-self: start;
-    input {
-      @extend %action-button-alt;
-      font-size: 1.1em;
-      margin-right: 1em;
-    }
-  }
-  .filter_fields {
-    grid-column: filters/buttons;
-    display: flex;
-    flex-wrap: wrap;
-    .input {
-      label {
-        color: white; margin-right: 1em;
-      }
-      & > select { margin-right: 1em; }
-      input {
-        padding: .5em;
-        border: none; border-radius: .4em;
-        font-size: 1.1em;
-      }
-    }
-  }
-}
 #main_content_wrapper {
   grid-row: content;
 }
@@ -146,18 +134,12 @@ body { margin: 0; padding: 0; font-family: 'Lato', sans-serif;}
   grid-column: footer;
   grid-row: footer;
 }
-%action-button-alt {
-  display: inline-block;
-  padding: .5em .75em;
-  border: none;
-  border-radius: .3em;
-  color: white;
-  background: #1964C2;
-  text-decoration: none;
-}
 #title_bar .action_items span.action_item > a {
   @extend %button;
-
+  display: flex;
+  align-items: center;
+  svg { transition: .2s;  fill: $blue;}
+  &:hover svg { fill: white;}
 }
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
