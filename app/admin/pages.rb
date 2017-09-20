@@ -18,24 +18,24 @@ ActiveAdmin.register Page do
     end
   end
 
-  action_item :new_page, only: :edit do
+  action_item :preview_page, only: :edit do
     link_to new_admin_page_path do
-      raw("<svg class='svg-icon'><use xlink:href='#svg-plus' /></svg>Preview")
+      raw("<svg class='svg-icon'><use xlink:href='#svg-preview' /></svg>Preview")
+    end
+  end
+  action_item :draft_page, only: :edit do
+    link_to new_admin_page_path do
+      raw("<svg class='svg-icon'><use xlink:href='#svg-draft' /></svg>Save draft")
     end
   end
   action_item :new_page, only: :edit do
     link_to new_admin_page_path do
-      raw("<svg class='svg-icon'><use xlink:href='#svg-plus' /></svg>Save draft")
+      raw("<svg class='svg-icon'><use xlink:href='#svg-calendar' /></svg>Schedule")
     end
   end
   action_item :new_page, only: :edit do
     link_to new_admin_page_path do
-      raw("<svg class='svg-icon'><use xlink:href='#svg-plus' /></svg>Schedule")
-    end
-  end
-  action_item :new_page, only: :edit do
-    link_to new_admin_page_path do
-      raw("<svg class='svg-icon'><use xlink:href='#svg-plus' /></svg>Publish now")
+      raw("<svg class='svg-icon'><use xlink:href='#svg-publish' /></svg>Publish now")
     end
   end
 
