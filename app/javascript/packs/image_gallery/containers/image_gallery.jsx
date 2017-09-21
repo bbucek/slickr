@@ -9,7 +9,7 @@ import * as ImageActions from '../actions'
 
 const ImageGallery = ({store, images, selectedImages, actions}) => (
     <div>
-      <Buttons selectedImages={selectedImages} />
+      <Buttons selectedImages={selectedImages} actions={actions} />
       <NewImage actions={actions} />
       <Grid images={images} actions={actions} />
     </div>

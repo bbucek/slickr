@@ -22,6 +22,10 @@ class Image < ApplicationRecord
     Rails.application.routes.url_helpers.admin_image_path(id)
   end
 
+  def admin_batch_delete_path
+    Rails.application.routes.url_helpers.batch_action_admin_images_path
+  end
+
   def timestamped_image_url
     "#{attachment.url}?timestamp=#{DateTime.now.to_s}"
   end
