@@ -8,6 +8,12 @@
   #image-gallery-bar {
     background-color: $blue;
     padding: 0 2em;
+    opacity: 0;
+    transition: opacity .1s;
+
+    &.visible {
+      opacity: 1;
+    }
 
     .image-gallery-actions {
       display: grid;

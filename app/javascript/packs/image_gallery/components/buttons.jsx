@@ -29,20 +29,20 @@ export default class Buttons extends React.Component {
   }
 
   showTopBar() {
-    if (this.props.selectedImages.length > 0)
-      return (
-        <div id="image-gallery-bar">
-          <div className="image-gallery-actions">
-            <div className="number-selected">
-              <div className="number-selected-info" onClick={this.onSelectClearAll}>{`${this.props.selectedImages.length} Selected`}</div>
-            </div>
-            <div className="buttons">
-              {this.showEditButton()}
-              <a href="#" className="active actions" onClick={this.DeleteSelectedImages}>Delete</a>
-            </div>
+    var barClass = this.props.selectedImages.length > 0 ? 'visible' : ''
+    return (
+      <div id="image-gallery-bar" className={barClass}>
+        <div className="image-gallery-actions">
+          <div className="number-selected">
+            <div className="number-selected-info" onClick={this.onSelectClearAll}>{`${this.props.selectedImages.length} Selected`}</div>
+          </div>
+          <div className="buttons">
+            {this.showEditButton()}
+            <a href="#" className="active actions" onClick={this.DeleteSelectedImages}>Delete</a>
           </div>
         </div>
-      )
+      </div>
+    )
   }
 
   render(){
