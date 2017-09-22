@@ -32,7 +32,8 @@ const PageForm = ({page, values, touched, errors, dirty, isSubmitting, handleCha
 
 export default Formik({
   mapPropsToValues: (props) => ({
-    title: props.page.title
+    title: props.page.title,
+    editorState: props.editorState
   }),
   handleSubmit: (values, { props, setErrors, setSubmitting }) => {
     // do stuff with your payload

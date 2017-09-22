@@ -18,7 +18,7 @@ const tabClasses = (tabName, active_tab) => {
   return cx(tab)
 }
 
-const MyEditor = ({store, page, active_tab, actions}) => (
+const MyEditor = ({store, page, active_tab, actions, modalIsOpen}) => (
       <div>
         <div id="resource_tabs">
           <a href='#' onClick={changeTab.bind(this, 'content', actions)} className={tabClasses('content', active_tab)}>Page content</a>
@@ -41,12 +41,14 @@ const MyEditor = ({store, page, active_tab, actions}) => (
 
 MyEditor.propTypes = {
   page: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  modalIsOpen: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = state => ({
   page: state.pageState,
-  active_tab: state.activeTab
+  active_tab: state.activeTab,
+  modalIsOpen: state.modalIsOpen
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -57,4 +59,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MyEditor)
-

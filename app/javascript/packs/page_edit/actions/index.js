@@ -68,3 +68,11 @@ export const changeTab = (tab) => {
     })
   }
 }
+
+export const toggleImagePicker = () => {
+  return function(dispatch, getState) {
+    dispatch({
+      type: "TOGGLE_MODAL"
+    })
+  }
+}

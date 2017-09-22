@@ -10,16 +10,21 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import reducers from './page_edit/reducers';
 import thunk from 'redux-thunk';
-
+import logger from 'redux-logger';
 
 const pageData = document.getElementById("page-data").dataset.page_data
 
 const initialState = {
   pageState: JSON.parse(pageData),
-  activeTab: 'content'
+  activeTab: 'content',
+  modalIsOpen: false
 }
 
-const store = createStore(reducers, initialState, applyMiddleware(thunk))
+const middlewares = [thunk];
+if (process.env.NODE_ENV === `development`) {
+  middlewares.push(logger);
+}
+const store = createStore(reducers, initialState, applyMiddleware(...middlewares))
 
 document.addEventListener('DOMContentLoaded', () => {
   render(
@@ -29,3 +34,5 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("page_edit_content")
   )
 })
+
+export default store

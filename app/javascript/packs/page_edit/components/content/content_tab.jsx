@@ -9,10 +9,10 @@ export default class ContentTab extends React.Component {
     const actions = this.props.actions
     return (
         <div>
-          <PageForm actions={actions} page={page} />
-          <Editor />
+          <PageForm actions={actions}
+                    page={page}
+          />
         </div>
       );
     }
 }
-
