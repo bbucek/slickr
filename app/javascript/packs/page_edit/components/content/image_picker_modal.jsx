@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
+import Grid from './grid.jsx';
 
 export default class ImagePickerModal extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ export default class ImagePickerModal extends React.Component {
         contentLabel="onRequestClose Example"
         onRequestClose={this.closeImagePicker}
       >
+        <Grid actions={this.props.actions} images={this.props.loadedImages} />
         <p>Modal text!</p>
         <button onClick={this.closeImagePicker}>Close Modal</button>
       </ReactModal>

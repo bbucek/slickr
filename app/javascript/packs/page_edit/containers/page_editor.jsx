@@ -42,13 +42,15 @@ const MyEditor = ({store, page, active_tab, actions, modalIsOpen}) => (
 MyEditor.propTypes = {
   page: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
-  modalIsOpen: PropTypes.bool.isRequired
+  modalIsOpen: PropTypes.bool.isRequired,
+  loadedImages: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({
   page: state.pageState,
   active_tab: state.activeTab,
-  modalIsOpen: state.modalIsOpen
+  modalIsOpen: state.modalIsOpen,
+  loadedImages: state.loadedImages
 })
 
 const mapDispatchToProps = dispatch => ({

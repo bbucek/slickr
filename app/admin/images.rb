@@ -20,6 +20,18 @@ ActiveAdmin.register Image do
   end
 
   controller do
+    def index
+      if params[:type] == 'page_edit'
+        index! do |format|
+          format.html { render :json => @images.to_json(
+            methods: [:build_for_gallery]
+          )}
+        end
+      else
+        index!
+      end
+    end
+
     def create
       create! do |format|
         format.html { redirect_to admin_images_path }

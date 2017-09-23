@@ -17,7 +17,8 @@ const pageData = document.getElementById("page-data").dataset.page_data
 const initialState = {
   pageState: JSON.parse(pageData),
   activeTab: 'content',
-  modalIsOpen: false
+  modalIsOpen: false,
+  loadedImages: []
 }
 
 const middlewares = [thunk];

@@ -7,22 +7,25 @@ import cx from 'classnames';
 import store from '../../../page_edit.jsx'
 import ImageButton from "./ImageButton.jsx";
 
-const ImageButtonContainer = ({store, modalIsOpen, actions}) => (
+const ImageButtonContainer = ({store, modalIsOpen, actions, loadedImages}) => (
       <div>
         <ImageButton modalIsOpen={modalIsOpen}
                      actions={actions}
+                     loadedImages={loadedImages}
         />
       </div>
     )
 
 ImageButtonContainer.propTypes = {
   actions: PropTypes.object.isRequired,
-  modalIsOpen: PropTypes.bool.isRequired
+  modalIsOpen: PropTypes.bool.isRequired,
+  loadedImages: PropTypes.array.isRequired
 }
 
 const mapStateToProps = state => ({
   active_tab: state.activeTab,
-  modalIsOpen: state.modalIsOpen
+  modalIsOpen: state.modalIsOpen,
+  loadedImages: state.loadedImages
 })
 
 const mapDispatchToProps = dispatch => ({
