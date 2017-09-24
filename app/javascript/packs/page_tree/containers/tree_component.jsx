@@ -31,7 +31,7 @@ const getClasses = (node, depth) => {
   return node.published ? 'published' : 'unpublished'
 }
 const Tree = ({store, pages, actions}) => (
-  <div style={{ height: 400 }}>
+  <div style={{height: "100vh"}}>
     <SortableTree
       treeData={pages}
       canDrag={canDrag}
