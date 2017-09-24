@@ -4,7 +4,7 @@ import Editor from "./editor.jsx";
 import { Formik } from 'formik';
 import Yup from 'yup';
 
-const PageForm = ({page, values, touched, errors, dirty, isSubmitting, handleChange, handleBlur, handleSubmit, handleReset}) => {
+const PageForm = ({editorState, page, values, touched, errors, dirty, isSubmitting, handleChange, handleBlur, handleSubmit, handleReset}) => {
   return(
     <form onSubmit={handleSubmit}>
       <fieldset>
@@ -20,7 +20,7 @@ const PageForm = ({page, values, touched, errors, dirty, isSubmitting, handleCha
           </li>
           <li className="input string">
             <label htmlFor="content">Page content</label>
-            <Editor />
+            <Editor editorState={editorState}/>
             <p className='hint_text'></p>
           </li>
         </ol>
@@ -32,8 +32,7 @@ const PageForm = ({page, values, touched, errors, dirty, isSubmitting, handleCha
 
 export default Formik({
   mapPropsToValues: (props) => ({
-    title: props.page.title,
-    editorState: props.editorState
+    title: props.page.title
   }),
   handleSubmit: (values, { props, setErrors, setSubmitting }) => {
     // do stuff with your payload

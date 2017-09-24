@@ -10,30 +10,13 @@ export default class Grid extends React.Component {
     this.onClickThumbnail = this.onClickThumbnail.bind(this);
   }
 
-  onClickThumbnail (index, image) {
-    // if(image.isSelected === false)
-    //   this.props.actions.addSelectedImage(image)
-    // else
-    //   this.props.actions.removeSelectedImage(image.id)
-    //
-    // this.props.actions.toggleIsSelected(image.id)
+  onClickThumbnail(index, event) {
+    this.props.actions.addImageToEditorState({imageIndex: index})
   }
 
   render () {
     var images = this.props.images.map((i) => {
       var altClass = i.data.alt_text == "" ? "alt_text_missing" : ""
-      var progressState
-      switch (i.state) {
-        case undefined:
-          progressState = "progress_uploaded";
-          break;
-        case "started":
-          progressState = "progress_uploading";
-          break;
-        case "error":
-          progressState = "progress_error";
-          break;
-      }
       i.build_for_gallery.customOverlay = (
         <div>
           <div style={captionStyle}>
@@ -41,11 +24,6 @@ export default class Grid extends React.Component {
             { i.build_for_gallery.hasOwnProperty('tags') && this.setCustomTags(i.build_for_gallery) }
           </div>
           <div className={altClass}></div>
-          <div className={progressState}>
-            <div className={progressState === "progress_uploading" ? "progress_container" : ""}>
-              <div className={progressState === "progress_uploading" ? "progress_bar" : ""} style={{width: i.uploadProgressValue + '%'}}>&nbsp;</div>
-            </div>
-          </div>
         </div>
       );
       return i;

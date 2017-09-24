@@ -11,6 +11,7 @@ import { createStore, applyMiddleware } from 'redux'
 import reducers from './page_edit/reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
+import {editorStateFromRaw} from "megadraft";
 
 const pageData = document.getElementById("page-data").dataset.page_data
 
@@ -18,7 +19,8 @@ const initialState = {
   pageState: JSON.parse(pageData),
   activeTab: 'content',
   modalIsOpen: false,
-  loadedImages: []
+  loadedImages: [],
+  editorState: editorStateFromRaw(null)
 }
 
 const middlewares = [thunk];
