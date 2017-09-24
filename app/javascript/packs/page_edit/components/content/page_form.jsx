@@ -4,7 +4,7 @@ import Editor from "./editor.jsx";
 import { Formik } from 'formik';
 import Yup from 'yup';
 
-const PageForm = ({editorState, page, values, touched, errors, dirty, isSubmitting, handleChange, handleBlur, handleSubmit, handleReset}) => {
+const PageForm = ({editorState, page, actions, values, touched, errors, dirty, isSubmitting, handleChange, handleBlur, handleSubmit, handleReset}) => {
   return(
     <form onSubmit={handleSubmit}>
       <fieldset>
@@ -20,7 +20,7 @@ const PageForm = ({editorState, page, values, touched, errors, dirty, isSubmitti
           </li>
           <li className="input string">
             <label htmlFor="content">Page content</label>
-            <Editor editorState={editorState}/>
+            <Editor editorState={editorState} actions={actions}/>
             <p className='hint_text'></p>
           </li>
         </ol>

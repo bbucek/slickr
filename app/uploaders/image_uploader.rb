@@ -18,8 +18,18 @@ class ImageUploader < CarrierWave::Uploader::Base
     process :store_dimensions
   end
 
+  version :medium do
+    process resize_to_limit: [768, 768]
+    process :store_dimensions
+  end
+
+  version :small do
+    process resize_to_limit: [480, 480]
+    process :store_dimensions
+  end
+
   version :thumbnail do
-    process resize_to_limit: [500, 180]
+    process resize_to_limit: [480, 180]
     process :store_dimensions
   end
 
