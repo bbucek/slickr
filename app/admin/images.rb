@@ -1,7 +1,6 @@
 ActiveAdmin.register Image do
   actions :all, :except => [:new]
   config.filters = false
-  config.batch_actions = false
 
   permit_params :attachment, :crop_data, data: {}
 
@@ -11,12 +10,33 @@ ActiveAdmin.register Image do
 
   form :partial => "form"
 
+  batch_action :destroy do |selection|
+    Image.find(selection).each do |image|
+      image.destroy
+    end
+    render :json => Image.all.map { |image| JSON.parse(image.to_json(
+      methods: [:build_for_gallery, :admin_edit_path, :admin_update_path, :admin_batch_delete_path]
+    ))}
+  end
+
   controller do
+    def index
+      if params[:type] == 'page_edit'
+        index! do |format|
+          format.html { render :json => @images.to_json(
+            methods: [:build_for_gallery]
+          )}
+        end
+      else
+        index!
+      end
+    end
+
     def create
       create! do |format|
         format.html { redirect_to admin_images_path }
         format.json { render :json => @image.to_json(
-          methods: [:build_for_gallery, :admin_edit_path, :admin_update_path]
+          methods: [:build_for_gallery, :admin_edit_path, :admin_update_path, :admin_batch_delete_path]
         )}
       end
     end

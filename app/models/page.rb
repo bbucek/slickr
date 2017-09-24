@@ -84,6 +84,10 @@ class Page < ApplicationRecord
     Rails.application.routes.url_helpers.admin_page_path(self.id)
   end
 
+  def admin_image_index_path
+    Rails.application.routes.url_helpers.admin_images_path
+  end
+
   def content_areas
     JSON.parse(read_attribute(:content)).map {|v| ContentArea.new(v) }
   end

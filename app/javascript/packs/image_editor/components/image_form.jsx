@@ -10,6 +10,8 @@ const ImageForm = ({page, values, touched, errors, dirty, isSubmitting, handleCh
     <form onSubmit={handleSubmit}>
       <label htmlFor="alt_text">Alt Text</label>
       <input type="text" name="alt_text" value={values.alt_text} onChange={handleChange} />
+      <label htmlFor="img_title">Image Title</label>
+      <input type="text" name="img_title" value={values.img_title} onChange={handleChange} />
       <button type="submit" disabled={isSubmitting}>{buttonText}</button>
     </form>
   )
@@ -19,6 +21,7 @@ export default Formik({
   mapPropsToValues: (props) => ({
     id: props.image.id,
     alt_text: props.image.data['alt_text'],
+    img_title: props.image.data['img_title'],
     crop_data: props.image.crop_data
   }),
   handleSubmit: (values, { props, setErrors, setSubmitting }) => {
@@ -29,7 +32,7 @@ export default Formik({
 
     props.actions.updateImage({
       id: values.id,
-      data: {alt_text: values.alt_text}
+      data: {alt_text: values.alt_text, img_title: values.img_title}
     })
   }
 })(ImageForm)

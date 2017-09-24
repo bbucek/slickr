@@ -68,3 +68,46 @@ export const changeTab = (tab) => {
     })
   }
 }
+
+export const toggleImagePicker = () => {
+  return function(dispatch, getState) {
+    dispatch({
+      type: "TOGGLE_MODAL"
+    })
+  }
+}
+
+export const loadImages = selectedImageIds => {
+  return function(dispatch, getState) {
+    let params = {};
+    params[_csrf_param()] = _csrf_token()
+
+    request.get(getState().pageState.admin_image_index_path).set('Accept', 'text/html').query('type=page_edit').end(function(err,resp){
+      if(err) {
+        console.error(err)
+      } else {
+        dispatch({
+          type: 'LOAD_IMAGES',
+          payload: resp.body
+        })
+      }
+    })
+  }
+}
+
+export const addImageToEditorState = data => {
+  return function(dispatch, getState) {
+    dispatch({
+      type: "ADD_IMAGE_TO_EDITOR_STATE",
+      payload: getState().loadedImages[data.imageIndex]
+    })
+  }
+}
+
+export const removeImageFromEditorState = () => {
+  return function(dispatch, getState) {
+    dispatch({
+      type: "REMOVE_IMAGE_FROM_EDITOR_STATE"
+    })
+  }
+}

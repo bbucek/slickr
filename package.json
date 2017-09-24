@@ -43,6 +43,7 @@
     "react-dropzone": "^4.1.2",
     "react-grid-gallery": "^0.4.2",
     "react-image-crop": "^2.0.8",
+    "react-modal": "^2.3.2",
     "react-redux": "^5.0.6",
     "react-sortable-tree": "^1.2.0",
     "redux-logger": "^3.0.6",

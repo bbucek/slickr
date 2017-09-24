@@ -31,6 +31,37 @@ export const removeSelectedImage = selectedImageId => {
   }
 }
 
+export const clearAllSelected = selectedImageIds => {
+  return function(dispatch, getState) {
+    dispatch({
+      type: 'CLEAR_ALL_SELECTED',
+      payload: selectedImageIds
+    })
+  }
+}
+
+export const deleteSelectedImages = selectedImageIds => {
+  return function(dispatch, getState) {
+    let params = {};
+    params[_csrf_param()] = _csrf_token()
+    params["batch_action"] = "destroy"
+    params["batch_action_inputs"] = "{}"
+    params["collection_selection_toggle_all"] = "on"
+    params["collection_selection"] = selectedImageIds.map(String)
+
+    request.post(getState().loadedImages[0].admin_batch_delete_path).type('json').accept('json').send(params).end(function(err,resp){
+      if(err) {
+        console.error(err)
+      } else {
+        dispatch({
+          type: 'DELETE_SELECTED_IMAGES',
+          payload: resp.body
+        })
+      }
+    })
+  }
+}
+
 export const createImage = payload => {
   const random = Math.random().toString(36).substring(7);
   // const size = {width: 270, height: 180}
