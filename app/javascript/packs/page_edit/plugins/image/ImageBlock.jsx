@@ -10,19 +10,24 @@ export default class ImageBlock extends React.Component {
     super(props);
 
     this.actions = [
-      {"key": "delete", "icon": icons.DeleteIcon, "action": this.props.container.remove}
+      {"key": "delete", "icon": icons.DeleteIcon, "action": this.props.blockProps.plugin.customAction}
     ];
   }
 
   render(){
+    console.log('image block')
+    console.log(this.props)
     return (
       <CommonBlock {...this.props} actions={this.actions}>
         <BlockContent>
-          <img style={ImageBlockStyle.image} src={this.props.data.imageData.small.url} />
+          <img style={ImageBlockStyle.image}
+               src={this.props.data.imageData.attachment.small.url}
+               alt={this.props.data.imageData.data.alt_text}
+          />
         </BlockContent>
-        <BlockData>
+        {/* <BlockData>
           <BlockInput placeholder="Enter an image caption" />
-        </BlockData>
+        </BlockData>*/}
       </CommonBlock>
     );
   }

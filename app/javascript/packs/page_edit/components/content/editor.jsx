@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {MegadraftEditor, editorStateToJSON} from "megadraft";
 import ImagePlugin from "../../plugins/image/plugin.jsx"
+import icons from "megadraft/lib/icons";
 
 export default class Editor extends React.Component {
   constructor(props) {
@@ -11,13 +12,18 @@ export default class Editor extends React.Component {
   }
 
   onChange(editorState) {
-    console.log(editorStateToJSON(editorState))
+    console.log('changed')
     this.setState({editorState})
   }
 
   render() {
+    // megadraftOptions passed in as blockProps when set from plugin.jsx
     var megadraftOptions = {
-      editorState: this.props.editorState
+      customOptions: { customAction: this.props.actions.removeImageFromEditorState },
+      standardDisplayOptions: {
+        displayOptions: [],
+        defaultDisplay: null
+      }
     }
     var plugins = [ImagePlugin(megadraftOptions)]
     return (
@@ -25,7 +31,6 @@ export default class Editor extends React.Component {
           editorState={this.props.editorState}
           onChange={this.onChange}
           plugins={plugins}
-          action={this.props.actions}
         />
       );
     }

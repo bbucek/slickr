@@ -20,6 +20,23 @@ const editorState = (state = {}, action) => {
       };
       var updatedEditorState = editorStateFromRaw(updatedContent);
       return updatedEditorState
+    case 'REMOVE_IMAGE_FROM_EDITOR_STATE':
+      var updatedContent = {
+        "entityMap": {},
+        "blocks": [
+          {
+            "key": DraftJS.genKey(),
+            "text": "",
+            "type": "unstyled",
+            "depth": 0,
+            "inlineStyleRanges": [],
+            "entityRanges": [],
+            "data": {}
+          }
+        ]
+      };
+      var updatedEditorState = editorStateFromRaw(updatedContent);
+      return updatedEditorState
 
     default:
       return state
