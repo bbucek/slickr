@@ -3,15 +3,18 @@
  *
  * License: MIT
  */
-.media__message--error {
-  background-color: #e83f26;
-  color: #fff;
-}
 
-.media__message--warning {
-  background-color: #fff7d8;
-  color: #b59223;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+.media__message {
+  &--error {
+    background-color: #e83f26;
+    color: #fff;
+  }
+
+  &--warning {
+    background-color: #fff7d8;
+    color: #b59223;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
 }
 
 .media__message-text {

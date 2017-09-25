@@ -11,16 +11,44 @@ import { createStore, applyMiddleware } from 'redux'
 import reducers from './page_edit/reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import {editorStateFromRaw} from "megadraft";
+import {DraftJS, editorStateFromRaw, createTypeStrategy} from "megadraft";
+import Link from "megadraft/lib/components/Link"
+import bookLinkComponent from "./page_edit/decorators/book_link_component";
 
 const pageData = document.getElementById("page-data").dataset.page_data
+
+const updatedContent = {
+  "entityMap": {},
+  "blocks": [
+    {
+      "key": DraftJS.genKey(),
+      "text": "",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    }
+  ]
+};
+
+const myDecorator = new DraftJS.CompositeDecorator([
+  {
+    strategy: createTypeStrategy("LINK"),
+    component: Link
+  },
+  {
+    strategy: createTypeStrategy("INTERNAL_PAGE_LINK"),
+    component: bookLinkComponent,
+  }
+])
 
 const initialState = {
   pageState: JSON.parse(pageData),
   activeTab: 'content',
   modalIsOpen: false,
   loadedImages: [],
-  editorState: editorStateFromRaw(null)
+  editorState: editorStateFromRaw(updatedContent, myDecorator)
 }
 
 const middlewares = [thunk];
