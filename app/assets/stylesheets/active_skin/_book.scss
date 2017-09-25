@@ -1,0 +1,11 @@
+#edit_book, #new_book, #show_book {
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  grid-template-areas:
+    "image-preview form"
+    ". actions";
+  grid-column-gap: 2em;
+  .book_cover img {width: 100%;}
+  .form_inputs { grid-area: form }
+  .actions { grid-area: actions }
+}

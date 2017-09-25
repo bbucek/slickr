@@ -32,7 +32,7 @@ class Page < ApplicationRecord
   end
 
   def self.root_subtree_for_views
-    Page.subtree_of(Page.roots.first).map{|p| Array({"#{Array.new(p.depth, '-').join('')}#{p.title}".to_sym => p.id}).flatten }
+    Page.sort_by_ancestry(Page.subtree_of(Page.roots.first)).map{|p| Array({"#{Array.new(p.depth, '-').join('')}#{p.title}".to_sym => p.id}).flatten }
   end
 
   def published

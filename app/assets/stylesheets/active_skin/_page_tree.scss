@@ -51,11 +51,5 @@
 }
 
 .rst__row.unpublished .rst__rowContents {
-  background: repeating-linear-gradient(
-    -45deg,
-    rgba($grey_lightest, .2),
-    rgba($grey_lightest, .2) 10px,
-    white 10px,
-    white 20px
-  );
+  color: $grey;
 }

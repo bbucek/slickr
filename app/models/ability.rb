@@ -12,6 +12,9 @@ class Ability
       can :manage, Page
       cannot :publish, Page
       cannot :unpublish, Page
+      can :manage, ActiveAdmin::Comment
+      can :read, Author
+      can :read, Book
     end
 
     # NOTE: Everyone can read the page of Permission Deny

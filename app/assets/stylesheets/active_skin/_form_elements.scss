@@ -68,6 +68,9 @@
   }
 }
 %admin_form_basics {
+  legend {
+    @extend %label;
+  }
   fieldset {
     padding: 0; margin: 0;
     border: none;
@@ -92,7 +95,29 @@
         &.error { flex-wrap: wrap; }
         &.boolean label {}
         &.input_action input { @extend %button; }
-        &.password, &.email, &.string, &.select {
+        &.file_modified {
+          display: flex;
+          flex-direction: row;
+          input {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+            & + label {
+              @extend %button;
+              flex: 1 0 200px;
+              display: inline-block;
+            }
+          }
+        }
+        &.boolean {
+          label {
+            @extend %label;
+          }
+        }
+        &.password, &.email, &.string, &.select, &.text {
           & > label {
             width: 100%;
           }
@@ -108,10 +133,10 @@
           select {
             @extend %text_input_field;
           }
-        }
-        textarea {
-          @extend %text_input_field;
-          height: 10em;
+          textarea {
+            @extend %text_input_field;
+            height: 10em;
+          }
         }
         .field_with_errors {
           &:nth-child(1) {

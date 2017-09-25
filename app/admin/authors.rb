@@ -11,7 +11,7 @@ ActiveAdmin.register Author do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-  permit_params :name
+  permit_params :name, :image
   menu priority: 3
 
   filter :name
@@ -24,6 +24,26 @@ ActiveAdmin.register Author do
     column :languages
     column :local_authority
     actions
+  end
+
+  form do |f|
+    f.inputs 'Author photo' do
+      if resource.image.url.present?
+        div class: 'author_image' do
+          image_tag resource.image
+        end
+      end
+      f.input :image, as: :file_modified, label: 'Select author photo'
+    end
+    f.inputs class:'form_inputs' do
+      f.input :name
+      f.input :email
+      f.input :local_authority
+      f.input :ll_funded
+      f.input :bio
+    end
+    f.actions
+
   end
 
   show do
@@ -40,6 +60,22 @@ ActiveAdmin.register Author do
   action_item :new_author, only: :index do
     link_to new_admin_author_path do
       raw("<svg class='svg-icon'><use xlink:href='#svg-plus' /></svg>Add author")
+    end
+  end
+
+  controller do
+    def create
+      super do |format|
+        EventLog.create(action: :create, eventable: resource, admin_user: current_admin_user) if resource.valid?
+        redirect_to resource_url and return if resource.valid?
+      end
+    end
+
+    def update
+      super do |format|
+        EventLog.create(action: :update, eventable: resource, admin_user: current_admin_user) if resource.valid?
+        redirect_to resource_url and return if resource.valid?
+      end
     end
   end
 

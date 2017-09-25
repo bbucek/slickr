@@ -1,0 +1,20 @@
+en:
+  activerecord:
+    models:
+      event_log:
+        one: "Log item"
+        other: "Log items"
+        eventable:
+          author:
+            actions:
+              create: "%{user} created new author"
+              update: "%{user} updated author"
+          book:
+            actions:
+              create: "%{user} created new book"
+              update: "%{user} updated book"
+          page:
+            actions:
+              create: "%{user} created new page"
+              update: "%{user} updated page"
+

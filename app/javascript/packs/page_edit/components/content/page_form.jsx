@@ -15,7 +15,7 @@ const PageForm = ({editorState, page, actions, values, touched, errors, dirty, i
           </li>
           <li className="input string">
             <label htmlFor="intro">Page introduction</label>
-            <input type="text" name="intro" value="Sample" onChange={handleChange} />
+            <input type="text" name="page_intro" value={values.page_intro} onChange={handleChange} />
             <p className='hint_text'></p>
           </li>
           <li className="input string">
@@ -32,13 +32,14 @@ const PageForm = ({editorState, page, actions, values, touched, errors, dirty, i
 
 export default Formik({
   mapPropsToValues: (props) => ({
-    title: props.page.title
+    title: props.page.title,
+    page_intro: props.page.page_intro
   }),
   handleSubmit: (values, { props, setErrors, setSubmitting }) => {
     // do stuff with your payload
     // e.preventDefault(), setSubmitting, setError(undefined) are
     // called before handleSubmit is. So you don't have to do repeat this.
     // handleSubmit will only be executed if form values pass validation (if you specify it).
-    props.actions.setPageTitle(values.title)
+    props.actions.updatePageContent(values)
   }
 })(PageForm)

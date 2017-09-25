@@ -118,7 +118,7 @@
   }
   #index_footer {
     max-width: 60vw;
-    margin: 1em auto;
+    margin: 1em 0;
     @extend .para_small_style;
 
     .pagination_information, .download_links {

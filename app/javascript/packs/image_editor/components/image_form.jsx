@@ -4,14 +4,21 @@ import { Formik } from 'formik';
 import Yup from 'yup';
 
 const ImageForm = ({page, values, touched, errors, dirty, isSubmitting, handleChange, handleBlur, handleSubmit, handleReset}) => {
-  console.log(JSON.stringify(values.crop_data))
-  var buttonText = JSON.stringify(values.crop_data) === JSON.stringify({x: null, y: null, width: null, height: null}) ? "Submit" : "Crop & Submit"
+  var buttonText = JSON.stringify(values.crop_data) === JSON.stringify({x: null, y: null, width: null, height: null}) ? "Update image" : "Crop & Update Image"
   return(
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="alt_text">Alt Text</label>
-      <input type="text" name="alt_text" value={values.alt_text} onChange={handleChange} />
-      <label htmlFor="img_title">Image Title</label>
-      <input type="text" name="img_title" value={values.img_title} onChange={handleChange} />
+    <form id='image_editor_form' onSubmit={handleSubmit}>
+      <fieldset>
+        <ol>
+          <li className="input string">
+            <label htmlFor="img_title">Image Title</label>
+            <input type="text" name="img_title" value={values.img_title} onChange={handleChange} />
+          </li>
+          <li className="input string">
+            <label htmlFor="alt_text">Alt Text</label>
+            <input type="text" name="alt_text" value={values.alt_text} onChange={handleChange} />
+          </li>
+        </ol>
+      </fieldset>
       <button type="submit" disabled={isSubmitting}>{buttonText}</button>
     </form>
   )

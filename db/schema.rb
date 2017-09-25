@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919142741) do
+ActiveRecord::Schema.define(version: 20170925211448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20170919142741) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "books", force: :cascade do |t|
@@ -87,7 +88,19 @@ ActiveRecord::Schema.define(version: 20170919142741) do
     t.string "isbn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["author_id"], name: "index_books_on_author_id"
+  end
+
+  create_table "event_logs", force: :cascade do |t|
+    t.string "action"
+    t.string "eventable_type"
+    t.bigint "eventable_id"
+    t.bigint "admin_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_user_id"], name: "index_event_logs_on_admin_user_id"
+    t.index ["eventable_type", "eventable_id"], name: "index_event_logs_on_eventable_type_and_eventable_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -166,4 +179,5 @@ ActiveRecord::Schema.define(version: 20170919142741) do
   end
 
   add_foreign_key "books", "authors"
+  add_foreign_key "event_logs", "admin_users"
 end
