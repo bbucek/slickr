@@ -1,4 +1,4 @@
-// import {DraftJS, editorStateFromRaw} from "megadraft";
+// import {DraftJS, editorStateToJSON} from "megadraft";
 
 const editorState = (state = {}, action) => {
   switch(action.type) {

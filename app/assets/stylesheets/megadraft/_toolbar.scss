@@ -52,6 +52,7 @@
     }
 
     &__list {
+        display: flex;
         padding: 0 8px;
         margin: 0;
         white-space: nowrap;
@@ -74,6 +75,7 @@
 
     &__item {
         display: inline-block;
+        margin-bottom: 0 !important;
         color: #ccc;
 
         &:hover {
@@ -91,7 +93,13 @@
         &--separator {
             border-right: 1px solid #333;
             height: 20px;
-            margin: 0 8px
+            margin: 0 8px;
+        }
+
+        button {
+          svg {
+            width: 20px; height: 20px;
+          }
         }
     }
 

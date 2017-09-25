@@ -18,7 +18,7 @@ const PageForm = ({editorState, page, actions, values, touched, errors, dirty, i
             <input type="text" name="intro" value="Sample" onChange={handleChange} />
             <p className='hint_text'></p>
           </li>
-          <li className="input string">
+          <li className="input string megadraft">
             <label htmlFor="content">Page content</label>
             <Editor editorState={editorState} actions={actions}/>
             <p className='hint_text'></p>
