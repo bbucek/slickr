@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import PropTypes from 'prop-types';
 import Gallery from 'react-grid-gallery';
+import {insertDataBlock} from "megadraft";
 
 export default class Grid extends React.Component {
   constructor(props){
@@ -11,7 +12,10 @@ export default class Grid extends React.Component {
   }
 
   onClickThumbnail(index, event) {
-    this.props.actions.addImageToEditorState({imageIndex: index})
+    // this.props.actions.addImageToEditorState({imageIndex: index})
+    var data = {type: "image", image: this.props.images[index]};
+    this.props.actions.changeEditorState(insertDataBlock(this.props.editorState, data))
+    this.props.actions.toggleImagePicker()
   }
 
   render () {

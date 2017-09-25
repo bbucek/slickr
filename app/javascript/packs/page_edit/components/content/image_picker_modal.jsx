@@ -21,7 +21,11 @@ export default class ImagePickerModal extends React.Component {
         contentLabel="onRequestClose Example"
         onRequestClose={this.closeImagePicker}
       >
-        <Grid actions={this.props.actions} images={this.props.loadedImages} />
+        <Grid
+          actions={this.props.actions}
+          images={this.props.loadedImages}
+          editorState={this.props.editorState}
+        />
         <p>Modal text!</p>
         <button onClick={this.closeImagePicker}>Close Modal</button>
       </ReactModal>

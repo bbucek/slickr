@@ -95,19 +95,11 @@ export const loadImages = selectedImageIds => {
   }
 }
 
-export const addImageToEditorState = data => {
+export const changeEditorState = editorState => {
   return function(dispatch, getState) {
     dispatch({
-      type: "ADD_IMAGE_TO_EDITOR_STATE",
-      payload: getState().loadedImages[data.imageIndex]
-    })
-  }
-}
-
-export const removeImageFromEditorState = () => {
-  return function(dispatch, getState) {
-    dispatch({
-      type: "REMOVE_IMAGE_FROM_EDITOR_STATE"
+      type: "CHANGE_EDITOR_STATE",
+      payload: editorState
     })
   }
 }

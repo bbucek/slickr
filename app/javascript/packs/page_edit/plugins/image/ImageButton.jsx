@@ -31,6 +31,7 @@ export default class BlockButton extends React.Component {
           modalIsOpen={this.props.modalIsOpen}
           actions={this.props.actions}
           loadedImages={this.props.loadedImages}
+          editorState={this.props.editorState}
         />
       </div>
     );
