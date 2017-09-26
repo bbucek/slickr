@@ -28,6 +28,7 @@
 	}
 
 	&.is-searchable {
+    width: 300px;
 		&.is-open > .Select-control {
 			cursor: text;
 		}
@@ -123,7 +124,7 @@
 	color: $select-input-placeholder;
 	left: 0;
 	line-height: $select-input-internal-height;
-	padding-left: $select-padding-horizontal;
+	padding-left: 2*$select-padding-horizontal;
 	padding-right: $select-padding-horizontal;
 	position: absolute;
 	right: 0;
@@ -148,6 +149,8 @@
 
 	> input {
 		background: none transparent;
+    height: auto !important;
+    width: 90% !important;
 		border: 0 none;
 		box-shadow: none;
 		cursor: default;

@@ -40,8 +40,10 @@ export default Formik({
     // do stuff with your payload
     // e.preventDefault(), setSubmitting, setError(undefined) are
     // called before handleSubmit is. So you don't have to do repeat this.
-    // handleSubmit will only be executed if form values pass validation (if you specify it).
-    const content = editorStateToJSON(props.editorState)
-    props.actions.updatePageContent(Object.assign({}, {content: editorStateToJSON(props.editorState)}, values))
+    // handleSubmit will only be executed if form values pass validation (if you specify it).]
+
+    // props.actions.updatePageContent(values)
+    // const content = editorStateToJSON(props.editorState)
+    props.actions.updatePageContent({values: values, editorState: props.editorState})
   }
 })(PageForm)

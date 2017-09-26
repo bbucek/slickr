@@ -33,7 +33,7 @@ const initialState = {
   activeTab: 'content',
   modalIsOpen: false,
   loadedImages: [],
-  editorState: editorStateFromRaw(JSON.parse(JSON.parse(pageData).content), myDecorator)
+  editorState: editorStateFromRaw(JSON.parse(pageData).content, myDecorator)
 }
 
 const middlewares = [thunk];

@@ -10,7 +10,7 @@ class Page < ApplicationRecord
   has_many :drafts, dependent: :destroy
   has_one :active_draft, class_name: "Page::Draft"
   has_one :published_draft, class_name: "Page::Draft"
-  after_initialize :create_content_areas
+  before_create :create_content_areas
   after_create :create_draft, :activate_draft
   scope :not_draft, -> {where(type: nil)}
 
@@ -53,7 +53,20 @@ class Page < ApplicationRecord
   end
 
   def create_content_areas
-    content = []
+    self.content = {
+      "entityMap": {},
+      "blocks": [
+        {
+          "key": SecureRandom.hex(3),
+          "text": "",
+          "type": "unstyled",
+          "depth": 0,
+          "inlineStyleRanges": [],
+          "entityRanges": [],
+          "data": {}
+        }
+      ]
+    };
   end
 
   def create_draft

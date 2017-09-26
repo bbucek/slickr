@@ -8,7 +8,7 @@ ActiveAdmin.register Page do
   config.batch_actions = false
   decorate_with PageDecorator
   before_action :set_paper_trail_whodunnit
-  permit_params :title, :page_intro, :layout, :parent_id, :content, content_areas: [:content]
+  permit_params :title, :page_intro, :layout, :parent_id, :content, content: {}
   form :partial => "edit"
   config.clear_action_items!
 

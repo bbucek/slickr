@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925211448) do
+ActiveRecord::Schema.define(version: 20170926125547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20170925211448) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "aasm_state"
-    t.json "content", default: "[]"
+    t.jsonb "content", default: {}
     t.string "type"
     t.integer "page_id"
     t.integer "active_draft_id"
