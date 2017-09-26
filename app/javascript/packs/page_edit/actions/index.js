@@ -1,28 +1,29 @@
 import request from 'superagent';
-import {editorStateToJSON} from "megadraft";
+import {editorStateToJSON, DraftJS} from "megadraft";
 
 let _csrf_param = () => { return document.getElementsByName("csrf-param")[0].content }
 let _csrf_token = () => { return document.getElementsByName("csrf-token")[0].content }
 
-export const updatePageContent = info => {
+export const updatePageContent = values => {
   return function(dispatch, getState) {
     let params = {"page":{}};
     params[_csrf_param()] = _csrf_token()
-    for (var key in info.values) {
-      if (info.values.hasOwnProperty(key)) {
-        params["page"][key] = info.values[key];
+    for (var key in values) {
+      if (values.hasOwnProperty(key)) {
+        params["page"][key] = values[key];
       }
     }
-    params["page"]["content"] = JSON.parse(editorStateToJSON(info.editorState))
-    console.log('ddfdfdfdf')
-    console.log(editorStateToJSON(info.editorState))
-    console.log(params)
+    // console.log(getState().editorState.getCurrentContent())
+    // var content = getState().editorState.getCurrentContent();
+    // console.log(DraftJS.convertToRaw(content))
+    // var raw = DraftJS.convertToRaw(content)
+    // console.log(JSON.stringify(raw))
+    params["page"]["content"] = JSON.parse(editorStateToJSON(getState().editorState))
 
     request.put(getState().pageState.admin_page_path).type('json').accept('json').send(params).end(function(err,resp){
       if(err) {
         console.error(err)
       } else {
-        console.log(resp.body)
         dispatch({
           type: 'SET_PAGE_TITLE',
           title: resp.body.title

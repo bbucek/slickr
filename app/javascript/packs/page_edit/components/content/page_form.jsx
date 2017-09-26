@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Editor from "./editor.jsx";
-import {editorStateFromRaw, editorStateToJSON} from "megadraft";
 import { Formik } from 'formik';
 import Yup from 'yup';
 
@@ -42,8 +41,6 @@ export default Formik({
     // called before handleSubmit is. So you don't have to do repeat this.
     // handleSubmit will only be executed if form values pass validation (if you specify it).]
 
-    // props.actions.updatePageContent(values)
-    // const content = editorStateToJSON(props.editorState)
-    props.actions.updatePageContent({values: values, editorState: props.editorState})
+    props.actions.updatePageContent(values)
   }
 })(PageForm)

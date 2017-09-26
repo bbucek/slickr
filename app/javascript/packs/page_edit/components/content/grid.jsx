@@ -12,8 +12,13 @@ export default class Grid extends React.Component {
   }
 
   onClickThumbnail(index, event) {
-    // this.props.actions.addImageToEditorState({imageIndex: index})
-    var data = {type: "image", image: this.props.images[index]};
+    var data = {
+      type: "image",
+      image: {
+        "attachment": this.props.images[index].attachment,
+        "data": this.props.images[index].data
+      }
+    };
     this.props.actions.changeEditorState(insertDataBlock(this.props.editorState, data))
     this.props.actions.toggleImagePicker()
   }
