@@ -2,17 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Select from 'react-select';
 import icons from "megadraft/lib/icons";
+import store from '../../page_edit.jsx'
 
 export default class BookLinkInput extends React.Component {
   constructor(props) {
     super(props);
     this.onBookChange = this.onBookChange.bind(this);
-    // load pages from somewhere
-    this.books = [
-      { value: '/home', label: 'Home' },
-      { value: '/about', label: 'About' },
-      { value: '/my/subpage', label: 'Subpage' }
-    ]
+  }
+
+  componentWillMount() {
+    this.props.onChange('load_books')
   }
 
   onBookChange(selection) {
@@ -28,26 +27,19 @@ export default class BookLinkInput extends React.Component {
   }
 
   render() {
+    var books = store.getState().loadedBooks.map(
+      ({title}, index) => (
+        { value: `/a-link-${index}`, label: title }
+      )
+    )
     var value = this.props.url === null ? "" : this.props.url
     return (
       <Select
         name="form-field-name"
         value={this.props.url}
-        options={this.books}
+        options={books}
         onChange={this.onBookChange}
       />
-      // <span className="toolbar__item">
-      //   <button
-      //     onClick={this.props.removeEntity}
-      //     type="button"
-      //     className="toolbar__button toolbar__input-button">
-      //     {
-      //       this.props.entity ?
-      //         <icons.UnlinkIcon/> :
-      //         <icons.CloseIcon />
-      //     }
-      //   </button>
-      // </span>
     );
   }
 }

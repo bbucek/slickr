@@ -34,7 +34,10 @@ export default class Editor extends React.Component {
   }
 
   changeEditorState(editorState) {
-    this.props.actions.changeEditorState(editorState)
+    if(editorState === 'load_books')
+      this.props.actions.loadBooks()
+    else
+      this.props.actions.changeEditorState(editorState)
   }
 
   render() {

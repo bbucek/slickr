@@ -58,6 +58,17 @@ ActiveAdmin.register Book do
   end
 
   controller do
+    def index
+      if params[:type] == 'megadraft_books'
+        @books = Book.all
+        index! do |format|
+          format.html { render :json => @books.to_json }
+        end
+      else
+        index!
+      end
+    end
+
     def create
       super do |format|
         EventLog.create(action: :create, eventable: resource, admin_user: current_admin_user) if resource.valid?

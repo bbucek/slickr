@@ -33,6 +33,7 @@ const initialState = {
   activeTab: 'content',
   modalIsOpen: false,
   loadedImages: [],
+  loadedBooks: [],
   editorState: editorStateFromRaw(JSON.parse(pageData).content, myDecorator)
 }
 
