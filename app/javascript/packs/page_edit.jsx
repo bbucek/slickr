@@ -14,6 +14,7 @@ import logger from 'redux-logger';
 import {DraftJS, editorStateFromRaw, createTypeStrategy} from "megadraft";
 import Link from "megadraft/lib/components/Link"
 import bookLinkComponent from "./page_edit/decorators/book_link_component";
+import authorLinkComponent from "./page_edit/decorators/author_link_component";
 
 const pageData = document.getElementById("page-data").dataset.page_data
 
@@ -23,8 +24,12 @@ const myDecorator = new DraftJS.CompositeDecorator([
     component: Link
   },
   {
-    strategy: createTypeStrategy("INTERNAL_PAGE_LINK"),
+    strategy: createTypeStrategy("BOOK_LINK"),
     component: bookLinkComponent,
+  },
+  {
+    strategy: createTypeStrategy("AUTHOR_LINK"),
+    component: authorLinkComponent,
   }
 ])
 
@@ -34,6 +39,7 @@ const initialState = {
   modalIsOpen: false,
   loadedImages: [],
   loadedBooks: [],
+  loadedAuthors: [],
   editorState: editorStateFromRaw(JSON.parse(pageData).content, myDecorator)
 }
 

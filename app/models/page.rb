@@ -105,6 +105,10 @@ class Page < ApplicationRecord
     Rails.application.routes.url_helpers.admin_books_path
   end
 
+  def admin_author_index_path
+    Rails.application.routes.url_helpers.admin_authors_path
+  end
+
   # def content_areas
   #   JSON.parse(read_attribute(:content)).map {|v| ContentArea.new(v) }
   # end

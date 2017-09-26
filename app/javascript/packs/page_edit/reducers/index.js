@@ -4,6 +4,7 @@ import activeTab from './active_tab'
 import modalIsOpen from './modal_is_open'
 import loadedImages from './loaded_images'
 import loadedBooks from './loaded_books'
+import loadedAuthors from './loaded_authors'
 import editorState from './editor_state'
 
 const rootReducer = combineReducers ({
@@ -12,6 +13,7 @@ const rootReducer = combineReducers ({
   modalIsOpen,
   loadedImages,
   loadedBooks,
+  loadedAuthors,
   editorState
 })
 

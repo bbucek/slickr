@@ -5,11 +5,14 @@ import LinkInput from 'megadraft/lib/entity_inputs/LinkInput'
 import ImagePlugin from "../../plugins/image/plugin.jsx";
 import icons from "megadraft/lib/icons";
 import FaBook from 'react-icons/lib/fa/book';
-import PageLinkInput from "../../entity_inputs/book_link_input.jsx";
+import FaAuthor from 'react-icons/lib/fa/user';
+import BookLinkInput from "../../entity_inputs/book_link_input.jsx";
+import AuthorLinkInput from "../../entity_inputs/author_link_input.jsx";
 
 const entityInputs = {
   LINK: LinkInput,
-  INTERNAL_PAGE_LINK: PageLinkInput
+  BOOK_LINK: BookLinkInput,
+  AUTHOR_LINK: AuthorLinkInput
 }
 
 const actions = [
@@ -17,7 +20,8 @@ const actions = [
   {type: "inline", label: "I", style: "ITALIC", icon: icons.ItalicIcon},
   // these actions correspond with the entityInputs above
   {type: "entity", label: "Link", style: "link", entity: "LINK", icon: icons.LinkIcon},
-  {type: "entity", label: "Book Link", style: "link", entity: "INTERNAL_PAGE_LINK", icon: FaBook},
+  {type: "entity", label: "Book Link", style: "link", entity: "BOOK_LINK", icon: FaBook},
+  {type: "entity", label: "Author Link", style: "link", entity: "AUTHOR_LINK", icon: FaAuthor},
 
   {type: "separator"},
   {type: "block", label: "UL", style: "unordered-list-item", icon: icons.ULIcon},
@@ -36,6 +40,8 @@ export default class Editor extends React.Component {
   changeEditorState(editorState) {
     if(editorState === 'load_books')
       this.props.actions.loadBooks()
+    else if(editorState === 'load_authors')
+      this.props.actions.loadAuthors()
     else
       this.props.actions.changeEditorState(editorState)
   }

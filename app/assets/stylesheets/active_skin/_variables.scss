@@ -9,6 +9,8 @@ $grey_dark: #4D4D4D;
 $grey_darker: #333333;
 $grey_darkest: #1A1A1A;
 $alert: red;
+
+$orange: #FFBC46;
 @function url-friendly-colour($colour) {
   @return '%23' + str-slice('#{$colour}', 2, -1)
 }
