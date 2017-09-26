@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Editor from "./editor.jsx";
+import {editorStateFromRaw, editorStateToJSON} from "megadraft";
 import { Formik } from 'formik';
 import Yup from 'yup';
 
@@ -25,7 +26,7 @@ const PageForm = ({editorState, page, actions, values, touched, errors, dirty, i
           </li>
         </ol>
       </fieldset>
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Save page" />
     </form>
   )
 }
@@ -33,13 +34,14 @@ const PageForm = ({editorState, page, actions, values, touched, errors, dirty, i
 export default Formik({
   mapPropsToValues: (props) => ({
     title: props.page.title,
-    page_intro: props.page.page_intro
+    page_intro: props.page.page_intro,
   }),
   handleSubmit: (values, { props, setErrors, setSubmitting }) => {
     // do stuff with your payload
     // e.preventDefault(), setSubmitting, setError(undefined) are
     // called before handleSubmit is. So you don't have to do repeat this.
     // handleSubmit will only be executed if form values pass validation (if you specify it).
-    props.actions.updatePageContent(values)
+    const content = editorStateToJSON(props.editorState)
+    props.actions.updatePageContent(Object.assign({}, {content: editorStateToJSON(props.editorState)}, values))
   }
 })(PageForm)

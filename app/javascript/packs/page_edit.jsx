@@ -17,21 +17,6 @@ import bookLinkComponent from "./page_edit/decorators/book_link_component";
 
 const pageData = document.getElementById("page-data").dataset.page_data
 
-const updatedContent = {
-  "entityMap": {},
-  "blocks": [
-    {
-      "key": DraftJS.genKey(),
-      "text": "",
-      "type": "unstyled",
-      "depth": 0,
-      "inlineStyleRanges": [],
-      "entityRanges": [],
-      "data": {}
-    }
-  ]
-};
-
 const myDecorator = new DraftJS.CompositeDecorator([
   {
     strategy: createTypeStrategy("LINK"),
@@ -48,7 +33,7 @@ const initialState = {
   activeTab: 'content',
   modalIsOpen: false,
   loadedImages: [],
-  editorState: editorStateFromRaw(updatedContent, myDecorator)
+  editorState: editorStateFromRaw(JSON.parse(JSON.parse(pageData).content), myDecorator)
 }
 
 const middlewares = [thunk];

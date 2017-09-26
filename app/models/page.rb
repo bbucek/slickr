@@ -88,40 +88,40 @@ class Page < ApplicationRecord
     Rails.application.routes.url_helpers.admin_images_path
   end
 
-  def content_areas
-    JSON.parse(read_attribute(:content)).map {|v| ContentArea.new(v) }
-  end
+  # def content_areas
+  #   JSON.parse(read_attribute(:content)).map {|v| ContentArea.new(v) }
+  # end
 
-  def content_areas=(attributes)
-    content_areas = []
-    attributes.each do |attrs|
-      next if '1' == attrs.delete("_destroy")
-      attrs[:position] = attrs[:position].try(:to_i)
-      content_areas << attrs
-    end
-    write_attribute(:content, content_areas.to_json)
-  end
-
-  def build_content_area
-    v = JSON.parse(self.content.dup)
-    v << ContentArea.new({name: '', content: '', position: v.length + 1})
-    self.content = v.to_json
-  end
-
-  class ContentArea
-    attr_accessor :name, :content, :position
-
-    def initialize(hash)
-      @name          = hash['name']
-      @content      = hash['content']
-      @position      = hash['position'].to_i
-    end
-
-    def persisted?() false; end
-    def new_record?() false; end
-    def marked_for_destruction?() false; end
-    def _destroy() false; end
-
-  end
+  # def content_areas=(attributes)
+  #   content_areas = []
+  #   attributes.each do |attrs|
+  #     next if '1' == attrs.delete("_destroy")
+  #     attrs[:position] = attrs[:position].try(:to_i)
+  #     content_areas << attrs
+  #   end
+  #   write_attribute(:content, content_areas.to_json)
+  # end
+  #
+  # def build_content_area
+  #   v = JSON.parse(self.content.dup)
+  #   v << ContentArea.new({name: '', content: '', position: v.length + 1})
+  #   self.content = v.to_json
+  # end
+  #
+  # class ContentArea
+  #   attr_accessor :name, :content, :position
+  #
+  #   def initialize(hash)
+  #     @name          = hash['name']
+  #     @content      = hash['content']
+  #     @position      = hash['position'].to_i
+  #   end
+  #
+  #   def persisted?() false; end
+  #   def new_record?() false; end
+  #   def marked_for_destruction?() false; end
+  #   def _destroy() false; end
+  #
+  # end
 
 end

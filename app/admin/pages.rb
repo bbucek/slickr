@@ -8,7 +8,7 @@ ActiveAdmin.register Page do
   config.batch_actions = false
   decorate_with PageDecorator
   before_action :set_paper_trail_whodunnit
-  permit_params :title, :page_intro, :layout, :parent_id, content_areas: [:content]
+  permit_params :title, :page_intro, :layout, :parent_id, :content, content_areas: [:content]
   form :partial => "edit"
   config.clear_action_items!
 
@@ -106,7 +106,7 @@ ActiveAdmin.register Page do
 
     def edit
       super do |format|
-        resource.build_content_area if resource.content_areas.empty?
+        # resource.build_content_area if resource.content_areas.empty?
       end
     end
 
@@ -119,13 +119,5 @@ ActiveAdmin.register Page do
       { admin_id: current_admin_user.id } if current_admin_user
     end
   end
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if params[:action] == 'create' && current_user.admin?
-#   permitted
-# end
 
 end
