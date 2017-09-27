@@ -26,8 +26,9 @@ export default class ImagePickerModal extends React.Component {
           images={this.props.loadedImages}
           editorState={this.props.editorState}
         />
-        <p>Modal text!</p>
-        <button onClick={this.closeImagePicker}>Close Modal</button>
+      <div onClick={this.closeImagePicker} className="ReactModal__close_button"></div>
+      {/*<p>Modal text!</p>
+        <button onClick={this.closeImagePicker}>Close Modal</button> */}
       </ReactModal>
     )
   }
