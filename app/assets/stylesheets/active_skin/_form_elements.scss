@@ -137,6 +137,23 @@
             @extend %text_input_field;
             height: 10em;
           }
+          .hint-text {
+            @extend .para_small;
+            color: $grey;
+            margin: 0;
+            padding: 0 1em;
+          }
+        }
+        &.admin-subtitle {
+          input {
+            font-size: 1.4em;
+          }
+        }
+        &.admin-big-title {
+          input {
+            font-size: 2em;
+            font-weight: bolder;
+          }
         }
         .field_with_errors {
           &:nth-child(1) {
@@ -158,4 +175,9 @@
       }
     }
   }
+}
+.admin-subtitle {
+}
+.megadraft-editor {
+  padding: .5em;
 }

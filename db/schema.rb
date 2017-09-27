@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925211448) do
+ActiveRecord::Schema.define(version: 20170927123528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(version: 20170925211448) do
     t.text "og_description_2"
     t.text "og_image"
     t.text "og_image_2"
+    t.datetime "published_at"
+    t.datetime "publishing_scheduled_for"
     t.index ["ancestry"], name: "index_pages_on_ancestry"
     t.index ["slug"], name: "index_pages_on_slug", unique: true
   end

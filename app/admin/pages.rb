@@ -2,13 +2,13 @@ ActiveAdmin.register Page do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  menu priority: 2, label: 'Site map'
+  menu priority: 2, label: 'Pages'
 
   config.filters = false
   config.batch_actions = false
   decorate_with PageDecorator
   before_action :set_paper_trail_whodunnit
-  permit_params :title, :page_intro, :layout, :parent_id, :content, content_areas: [:content]
+  permit_params :meta_title, :meta_description, :title, :page_intro, :layout, :parent_id, :content, content_areas: [:content]
   form :partial => "edit"
   config.clear_action_items!
 
@@ -21,21 +21,6 @@ ActiveAdmin.register Page do
   action_item :preview_page, only: :edit do
     link_to preview_admin_page_path(resource), target: "_blank" do
       raw("<svg class='svg-icon'><use xlink:href='#svg-preview' /></svg>Preview")
-    end
-  end
-  action_item :draft_page, only: :edit do
-    link_to new_admin_page_path do
-      raw("<svg class='svg-icon'><use xlink:href='#svg-draft' /></svg>Save draft")
-    end
-  end
-  action_item :new_page, only: :edit do
-    link_to new_admin_page_path do
-      raw("<svg class='svg-icon'><use xlink:href='#svg-calendar' /></svg>Schedule")
-    end
-  end
-  action_item :new_page, only: :edit do
-    link_to new_admin_page_path do
-      raw("<svg class='svg-icon'><use xlink:href='#svg-publish' /></svg>Publish now")
     end
   end
 
@@ -93,7 +78,11 @@ ActiveAdmin.register Page do
   end
 
   member_action :preview, method: :get do
-    render layout: false, template: 'layouts/page_layouts/landing', locals: {page: resource}
+    render layout: false, template: 'layouts/page_layouts/landing', locals: {page: resource }
+  end
+
+  member_action :preview, method: :post do
+    render layout: false, template: 'layouts/page_layouts/landing', locals: {page: JSON.parse(params["page"])}
   end
 
   controller do

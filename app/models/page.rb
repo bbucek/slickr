@@ -80,6 +80,10 @@ class Page < ApplicationRecord
     Rails.application.routes.url_helpers.edit_admin_page_path(self.id)
   end
 
+  def admin_preview_page_path
+    Rails.application.routes.url_helpers.preview_admin_page_path(self.id)
+  end
+
   def admin_page_path
     Rails.application.routes.url_helpers.admin_page_path(self.id)
   end

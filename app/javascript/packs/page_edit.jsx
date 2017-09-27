@@ -43,6 +43,8 @@ if (process.env.NODE_ENV === `development`) {
 const store = createStore(reducers, initialState, applyMiddleware(...middlewares))
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('title_bar').remove()
+  document.getElementById('wrapper').id = 'custom-wrapper'
   render(
     <Provider store={store}>
       <PageEditor />

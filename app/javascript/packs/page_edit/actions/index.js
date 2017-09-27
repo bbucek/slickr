@@ -11,18 +11,37 @@ export const updatePageContent = values => {
         params["page"][key] = values[key];
       }
     }
-    console.log(params)
 
     request.put(getState().pageState.admin_page_path).type('json').accept('json').send(params).end(function(err,resp){
       if(err) {
         console.error(err)
       } else {
-        console.log(resp.body)
         dispatch({
           type: 'SET_PAGE_TITLE',
           title: resp.body.title
         })
       }
+    })
+  }
+}
+
+export const toggleScheduling = () => {
+  return function(dispatch, getState) {
+    dispatch({
+      type: getState().schedulingActive ? 'HIDE_SCHEDULING' : 'SHOW_SCHEDULING'
+    })
+  }
+
+}
+
+export const setNewPublishingSchedule = (date) => {
+  return function(dispatch, getState) {
+    dispatch({
+      type: "HIDE_SCHEDULING"
+    })
+    dispatch({
+      type: "SET_PUBLISHING_DATE",
+      date: date
     })
   }
 }
