@@ -1,6 +1,6 @@
 set :stage, :production
 set :branch, "react-version"
-set :deploy_to, '/var/www/production/chef_test'
+set :deploy_to, '/var/www/production/cms'
 
 role :app, %w{cms.canneroni.com}
 role :web, %w{cms.canneroni.com}

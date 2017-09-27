@@ -14,7 +14,7 @@ set :repo_url, "git@github.com:bbucek/slickr.git"
 # set :log_level, :debug
 
 set :linked_files, %w{config/database.yml config/secrets.yml}
-set :linked_dirs, %w{bin log tmp/archives tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads tmp/uploads}
+set :linked_dirs, %w{log tmp/archives tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads tmp/uploads}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
