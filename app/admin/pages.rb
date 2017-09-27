@@ -1,3 +1,5 @@
+require 'draftjs_exporter/entities/link'
+
 ActiveAdmin.register Page do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -93,7 +95,33 @@ ActiveAdmin.register Page do
   end
 
   member_action :preview, method: :get do
-    render layout: false, template: 'layouts/page_layouts/landing', locals: {page: resource}
+    config = {
+      entity_decorators: {
+        'LINK' => DraftjsExporter::Entities::Link.new(className: 'link'),
+        'BOOK_LINK' => DraftjsExporter::Entities::Link.new(className: 'book__link'),
+        'AUTHOR_LINK' => DraftjsExporter::Entities::Link.new(className: 'author__link')
+      },
+      block_map: {
+        'header-one' => { element: 'h1' },
+        'unordered-list-item' => {
+          element: 'li',
+          wrapper: ['ul', { className: 'public-DraftStyleDefault-ul' }]
+        },
+        'unstyled' => { element: 'div' },
+        'image' => { element: 'img' },
+        'atomic' => { element: 'div' }
+      },
+      style_map: {
+        'UNDERLINE' => { fontStyle: 'underline' },
+        'ITALIC'    => { fontStyle: 'italic' },
+        'BOLD'      => { fontStyle: 'bold' }
+      }
+    }
+
+    exporter = DraftjsExporter::HTML.new(config)
+
+    html_output = exporter.call(resource.content.deep_symbolize_keys)
+    render layout: false, template: 'layouts/page_layouts/landing', locals: {page: resource, content: html_output}
   end
 
   controller do
