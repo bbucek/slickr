@@ -24,7 +24,7 @@ const tabClasses = (tabName, active_tab) => {
 
 const PageForm = ({schedulingActive, active_tab, editorState, page, actions, values, touched, errors, dirty, isSubmitting, handleChange, handleBlur, handleSubmit, handleReset}) => {
   return(
-    <form id='page_content_form' onSubmit={handleSubmit}>
+    <div id='page_content_form' onSubmit={handleSubmit}>
       <div id="resource_tabs">
         <a href='#' onClick={changeTab.bind(this, 'content', actions)} className={tabClasses('content', active_tab)}>Page content</a>
         <a href='#' onClick={changeTab.bind(this, 'meta', actions)} className={tabClasses('meta', active_tab)}>SEO</a>
@@ -33,35 +33,20 @@ const PageForm = ({schedulingActive, active_tab, editorState, page, actions, val
       </div>
       <div className='page_editing_area' id='collection_selection'>
         { active_tab == 'content' ?
-          <ContentTab page={page} actions={actions} values={values} handleChange={handleChange.bind(this)} editorState={editorState} />
+          <ContentTab page={page} actions={actions} values={values} handleChange={handleChange} editorState={editorState} />
         : null }
         { active_tab == 'meta' ?
-          <MetaTab values={values} handleChange={handleChange.bind(this)} />
+          <MetaTab values={values} handleChange={handleChange} />
         : null}
         { active_tab == 'social' ?
-          <SocialTab values={values} handleChange={handleChange.bind(this)} />
+          <SocialTab values={values} handleChange={handleChange} />
         : null}
         { active_tab == 'publishing' ?
-          <PublishingTab page={page} actions={actions} values={values} schedulingActive={schedulingActive} handleChange={handleChange.bind(this)} />
+          <PublishingTab page={page} actions={actions} values={values} schedulingActive={schedulingActive} handleChange={handleChange} />
         : null}
       </div>
-    </form>
+    </div>
   )
 }
+export default PageForm;
 
-export default Formik({
-  mapPropsToValues: (props) => ({
-    title: props.page.title,
-    page_intro: props.page.page_intro,
-    meta_title: props.page.meta_title,
-    meta_description: props.page.meta_description
-  }),
-  handleSubmit: (values, { props, setErrors, setSubmitting }) => {
-    // do stuff with your payload
-    // e.preventDefault(), setSubmitting, setError(undefined) are
-    // called before handleSubmit is. So you don't have to do repeat this.
-    // handleSubmit will only be executed if form values pass validation (if you specify it).
-    const content = editorStateToJSON(props.editorState)
-    props.actions.updatePageContent(Object.assign({}, {content: editorStateToJSON(props.editorState)}, values))
-  }
-})(PageForm)
