@@ -5,8 +5,11 @@
   }
   .page_editing_area {
     display: grid;
-    grid-template-columns: 6fr 4fr;
+    grid-template-columns: 1fr;
     grid-column-gap: 2em;
+    .input {
+      margin-bottom: 3.5em;
+    }
   }
   .action_item {
     @extend %button;
@@ -28,11 +31,16 @@
     }
   }
   .schedule-calendar {
+    .info-text {
+      margin: 1em 0;
+    }
+    .action_item {
+      margin: 1em 0;
+    }
     a {color: $blue;}
     .m-input-moment {
       box-sizing: border-box;
       background: white;
-      width: 100%;
       .ion-ios-arrow-right {
         &:before {
           content: ' ';

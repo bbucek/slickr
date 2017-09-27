@@ -16,14 +16,14 @@ export default class PublishingTab extends React.Component {
     const values = this.props.values
     const schedulingActive = this.props.schedulingActive;
     const actions = this.props.actions
-    const infoText = this.props.page.aasm_state == "published" ? <h2 className='info-text'>The page is published</h2> : <h2 className='info-text'>The page is unpublished</h2>
+    const infoText = this.props.page.aasm_state == "published" ? <h2 >{this.props.page.title} is published</h2> : <h2>{this.props.page.title} is unpublished</h2>
 
     return (
       <div className='publishing-section'>
         <div className='schedule-calendar'>
           {infoText}
 
-          <p className='info-text'>Select publishing date: <br /> {this.state.m.format('llll')}; <button className='action_button' href='#'>Save changes</button></p>
+          <p className='info-text'>Set publishing date to: <br /> {this.state.m.format('llll')} <button className='action_item' href='#'>Save changes</button></p>
           <InputMoment
             moment={this.state.m}
             onChange={this.handleChange}

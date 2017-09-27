@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'draftjs_exporter'
 gem 'capistrano'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # OR if you prefer to use master
 gem 'webpacker', git: 'https://github.com/rails/webpacker.git'

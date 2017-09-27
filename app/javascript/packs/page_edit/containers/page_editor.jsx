@@ -4,8 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import PageForm from '../components/page_form.jsx'
-import TitleBarButtons from '../components/title_bar_buttons.jsx'
+import PageWrapper from '../components/page_wrapper.jsx'
 import * as PageActions from '../actions'
 
 let _csrf_param = () => { return document.getElementsByName("csrf-param")[0].content }
@@ -40,24 +39,7 @@ let _csrf_token = () => { return document.getElementsByName("csrf-token")[0].con
 
 const MyEditor = ({schedulingActive, store, page, active_tab, actions, modalIsOpen, editorState}) => {
   return(
-    <div id='page_edit_content_grid'>
-      <div className="title_bar" id="title_bar">
-        <div id="titlebar_left">
-          <span className="breadcrumb">
-            <a href="/admin">Admin</a>
-            <span className="breadcrumb_sep"> / </span>
-            <a href="/admin/pages">Pages</a>
-            <span className="breadcrumb_sep"> / </span>
-            <a href={page.admin_page_path}>{page.title}</a>
-          </span>
-          <h2 id="page_title">Edit Page</h2>
-        </div>
-        <div id="titlebar_right">
-          <TitleBarButtons page={page} editorState={editorState} actions={actions} />
-        </div>
-      </div>
-      <PageForm page={page} actions={actions} schedulingActive={schedulingActive} editorState={editorState} modalIsOpen={modalIsOpen} active_tab={active_tab} />
-    </div>
+    <PageWrapper page={page} actions={actions} schedulingActive={schedulingActive} editorState={editorState} modalIsOpen={modalIsOpen} active_tab={active_tab} />
   )
 }
 
