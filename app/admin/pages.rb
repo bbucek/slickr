@@ -95,30 +95,8 @@ ActiveAdmin.register Page do
   end
 
   member_action :preview, method: :get do
-    config = {
-      entity_decorators: {
-        'LINK' => DraftjsExporter::Entities::Link.new(className: 'link'),
-        'BOOK_LINK' => DraftjsExporter::Entities::Link.new(className: 'book__link'),
-        'AUTHOR_LINK' => DraftjsExporter::Entities::Link.new(className: 'author__link')
-      },
-      block_map: {
-        'header-one' => { element: 'h1' },
-        'unordered-list-item' => {
-          element: 'li',
-          wrapper: ['ul', { className: 'public-DraftStyleDefault-ul' }]
-        },
-        'unstyled' => { element: 'div' },
-        'image' => { element: 'img' },
-        'atomic' => { element: 'div' }
-      },
-      style_map: {
-        'UNDERLINE' => { fontStyle: 'underline' },
-        'ITALIC'    => { fontStyle: 'italic' },
-        'BOLD'      => { fontStyle: 'bold' }
-      }
-    }
-
-    exporter = DraftjsExporter::HTML.new(config)
+    exporter = DraftjsExporter::HTML.new(Page::DRAFTJS_CONFIG)
+    content = resource.restructure_content
 
     html_output = exporter.call(resource.content.deep_symbolize_keys)
     render layout: false, template: 'layouts/page_layouts/landing', locals: {page: resource, content: html_output}
