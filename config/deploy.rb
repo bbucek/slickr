@@ -1,16 +1,19 @@
 # config valid only for current version of Capistrano
 lock "3.8.2"
 
-set :scm, :git
-set :repo_url, "git@github.com:bbucek/slicker.git"
-set :format, :pretty
-set :pty, true
-set :keep_releases, 5
+# set :scm, :git
+# set :repo_url, "git@github.com:bbucek/slicker.git"
+# set :format, :pretty
+# set :pty, true
+# set :keep_releases, 5
+
+set :application, 'cms'
+set :repo_url, "git@github.com:bbucek/slickr.git"
 
 #SSHKit.config.command_map[:whenever] = "bundle exec whenever"
 # set :log_level, :debug
 
-set :linked_files, %w{.env config/database.yml config/secrets.yml config/initializers/wicked_pdf.rb}
+set :linked_files, %w{config/database.yml config/secrets.yml}
 set :linked_dirs, %w{bin log tmp/archives tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads tmp/uploads}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
