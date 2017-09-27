@@ -66,6 +66,8 @@ MyEditor.propTypes = {
   actions: PropTypes.object.isRequired,
   modalIsOpen: PropTypes.bool.isRequired,
   loadedImages: PropTypes.array.isRequired,
+  loadedBooks: PropTypes.array.isRequired,
+  loadedAuthors: PropTypes.array.isRequired,
   editorState: PropTypes.object.isRequired
 }
 
@@ -74,8 +76,10 @@ const mapStateToProps = state => ({
   active_tab: state.activeTab,
   modalIsOpen: state.modalIsOpen,
   loadedImages: state.loadedImages,
-  editorState: state.editorState,
-  schedulingActive: state.schedulingActive
+  schedulingActive: state.schedulingActive,
+  loadedBooks: state.loadedBooks,
+  loadedAuthors: state.loadedAuthors,
+  editorState: state.editorState
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -5,7 +5,7 @@ ActiveAdmin.register_page "Dashboard" do
     []
   end
 
-  content do
+  content title: "Good morning!" do
     render partial: 'dashboard'
   end
 

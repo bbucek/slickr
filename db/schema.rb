@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20170927123528) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "aasm_state"
-    t.json "content", default: "[]"
+    t.jsonb "content", default: {}
     t.string "type"
     t.integer "page_id"
     t.integer "active_draft_id"

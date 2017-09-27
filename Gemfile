@@ -50,6 +50,7 @@ gem 'esvg'
 gem 'rmagick'
 gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails'
+gem 'draftjs_exporter'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

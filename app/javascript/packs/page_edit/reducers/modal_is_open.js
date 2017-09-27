@@ -1,4 +1,4 @@
-const editorState = (state = false, action) => {
+const modalIsOpen = (state = false, action) => {
   switch(action.type) {
     case 'TOGGLE_MODAL':
       return  state === true ? false : true
@@ -9,4 +9,4 @@ const editorState = (state = false, action) => {
   }
 }
 
-export default editorState
+export default modalIsOpen

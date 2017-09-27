@@ -8,7 +8,7 @@ export default class MetaTab extends React.Component {
     return (
       <fieldset>
         <ol>
-          <li className="input string">
+          <li className="input string admin-subtitle">
             <label htmlFor="meta_title">Page meta title</label>
             <input type="text" name="meta_title" value={values.meta_title} onChange={handleChange} />
           </li>

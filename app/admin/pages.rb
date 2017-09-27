@@ -1,3 +1,5 @@
+require 'draftjs_exporter/entities/link'
+
 ActiveAdmin.register Page do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -78,11 +80,11 @@ ActiveAdmin.register Page do
   end
 
   member_action :preview, method: :get do
-    render layout: false, template: 'layouts/page_layouts/landing', locals: {page: resource }
-  end
+    # exporter = DraftjsExporter::HTML.new(Page::DRAFTJS_CONFIG)
+    content = resource.restructure_content
 
-  member_action :preview, method: :post do
-    render layout: false, template: 'layouts/page_layouts/landing', locals: {page: JSON.parse(params["page"])}
+    html_output = exporter.call(resource.content.deep_symbolize_keys)
+    render layout: false, template: 'layouts/page_layouts/landing', locals: {page: resource, content: html_output}
   end
 
   controller do

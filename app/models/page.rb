@@ -6,11 +6,43 @@ class Page < ApplicationRecord
   has_paper_trail only: [:title, :aasm_state, :content, :published_content, :drafts],
                   meta: { content_changed: :content_changed? }
   Layouts = ["standard", "contact", "landing"]
+  DRAFTJS_CONFIG = {
+    entity_decorators: {
+      'LINK' => DraftjsExporter::Entities::Link.new(className: 'link'),
+      'BOOK_LINK' => DraftjsExporter::Entities::Link.new(className: 'book__link'),
+      'AUTHOR_LINK' => DraftjsExporter::Entities::Link.new(className: 'author__link'),
+      'IMAGE' => ImageEntity.new,
+      'VIDEO' => VideoEntity.new
+    },
+    block_map: {
+      'header-one'          => { element: 'h1' },
+      'header-two'          => { element: "h2" },
+      'header-three'        => { element: "h3" },
+      'header-four'         => { element: "h4" },
+      'unordered-list-item' => {
+        element: 'li',
+        wrapper: ['ul', { className: 'public-DraftStyleDefault-ul' }]
+      },
+      'ordered-list-item'   => {
+        element: 'li',
+        wrapper: ['ol', { className: 'public-DraftStyleDefault-ol' }]
+      },
+      "blockquote"          => { element: "blockquote" },
+      "code-block"          => { element: "pre" },
+      'unstyled'            => { element: 'p' },
+      'atomic'              => { element: 'div' }
+    },
+    style_map: {
+      'UNDERLINE'           => { fontStyle: 'underline' },
+      'ITALIC'              => { fontStyle: 'italic' },
+      'BOLD'                => { fontStyle: 'bold' }
+    }
+  }
   friendly_id :title, use: [:slugged, :finders]
   has_many :drafts, dependent: :destroy
   has_one :active_draft, class_name: "Page::Draft"
   has_one :published_draft, class_name: "Page::Draft"
-  after_initialize :create_content_areas
+  before_create :create_content_areas
   after_create :create_draft, :activate_draft
   scope :not_draft, -> {where(type: nil)}
 
@@ -53,7 +85,56 @@ class Page < ApplicationRecord
   end
 
   def create_content_areas
-    content = []
+    self.content = {
+      "entityMap": {},
+      "blocks": [
+        {
+          "key": SecureRandom.hex(3),
+          "text": "",
+          "type": "unstyled",
+          "depth": 0,
+          "inlineStyleRanges": [],
+          "entityRanges": [],
+          "data": {}
+        }
+      ]
+    };
+  end
+
+  def restructure_content
+    atomic_blocks = []
+    content["blocks"].each_with_index { |block, index| atomic_blocks << {block: block, index: index} if block['type'] == 'atomic' }
+
+    atomic_blocks.each do |atomic_block|
+      entity_key = SecureRandom.hex(3)
+
+      content["entityMap"][entity_key] = {
+        data: atomic_block[:block]["data"],
+        type: atomic_block[:block]["data"]["type"].upcase,
+        mutability: "IMMUTABLE"
+      }
+
+      replacement_block = {
+        "key" => atomic_block[:block]["key"],
+        "data" => {},
+        "text" => " ",
+        "type" => "atomic",
+        "depth" => 0,
+        "entityRanges" => [
+          {
+            "key" => entity_key,
+            "length" => 1,
+            "offset" => 0
+          }
+        ],
+        "inlineStyleRanges" => []
+      }
+
+      content["blocks"][atomic_block[:index]] = replacement_block
+
+
+
+    end
   end
 
   def create_draft
@@ -90,6 +171,14 @@ class Page < ApplicationRecord
 
   def admin_image_index_path
     Rails.application.routes.url_helpers.admin_images_path
+  end
+
+  def admin_book_index_path
+    Rails.application.routes.url_helpers.admin_books_path
+  end
+
+  def admin_author_index_path
+    Rails.application.routes.url_helpers.admin_authors_path
   end
 
   # def content_areas
