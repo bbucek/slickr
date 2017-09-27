@@ -5,6 +5,10 @@ import Video from "megadraft/lib/plugins/video/plugin";
 import LinkInput from 'megadraft/lib/entity_inputs/LinkInput'
 import ImagePlugin from "../../plugins/image/plugin.jsx";
 import icons from "megadraft/lib/icons";
+import h1 from "../../text_editor_icons/h1.jsx"
+import h2 from "../../text_editor_icons/h2.jsx"
+import h3 from "../../text_editor_icons/h3.jsx"
+import h4 from "../../text_editor_icons/h4.jsx"
 import FaBook from 'react-icons/lib/fa/book';
 import FaAuthor from 'react-icons/lib/fa/user';
 import BookLinkInput from "../../entity_inputs/book_link_input.jsx";
@@ -27,7 +31,10 @@ const actions = [
   {type: "separator"},
   {type: "block", label: "UL", style: "unordered-list-item", icon: icons.ULIcon},
   {type: "block", label: "OL", style: "ordered-list-item", icon: icons.OLIcon},
-  {type: "block", label: "H2", style: "header-two", icon: icons.H2Icon},
+  {type: "block", label: "H1", style: "header-one", icon: h1},
+  {type: "block", label: "H2", style: "header-two", icon: h2},
+  {type: "block", label: "H3", style: "header-three", icon: h3},
+  {type: "block", label: "H4", style: "header-four", icon: h4},
   {type: "block", label: "QT", style: "blockquote", icon: icons.BlockQuoteIcon}
 ];
 
