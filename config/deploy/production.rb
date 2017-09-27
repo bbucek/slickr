@@ -1,6 +1,6 @@
 set :stage, :production
 
-domain = "http://cms.canneroni.com"
+domain = "https://cms.canneroni.com"
 
 role :web, domain
 role :app, domain
