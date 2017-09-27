@@ -11,7 +11,8 @@ class Page < ApplicationRecord
       'LINK' => DraftjsExporter::Entities::Link.new(className: 'link'),
       'BOOK_LINK' => DraftjsExporter::Entities::Link.new(className: 'book__link'),
       'AUTHOR_LINK' => DraftjsExporter::Entities::Link.new(className: 'author__link'),
-      'IMAGE' => ImageEntity.new
+      'IMAGE' => ImageEntity.new,
+      'VIDEO' => VideoEntity.new
     },
     block_map: {
       'header-one'          => { element: 'h1' },

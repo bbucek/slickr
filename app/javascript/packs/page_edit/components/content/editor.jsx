@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {MegadraftEditor} from "megadraft";
+import Video from "megadraft/lib/plugins/video/plugin";
 import LinkInput from 'megadraft/lib/entity_inputs/LinkInput'
 import ImagePlugin from "../../plugins/image/plugin.jsx";
 import icons from "megadraft/lib/icons";
@@ -57,7 +58,7 @@ export default class Editor extends React.Component {
         defaultDisplay: null
       }
     }
-    var plugins = [ImagePlugin(megadraftOptions)]
+    var plugins = [ImagePlugin(megadraftOptions), Video]
     return (
         <MegadraftEditor
           editorState={this.props.editorState}
