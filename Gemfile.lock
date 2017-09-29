@@ -16,13 +16,6 @@ GIT
       sprockets-es6 (>= 0.9.2)
 
 GIT
-  remote: https://github.com/knoxjeffrey/esvg.git
-  revision: 760ddfd344c6134d37dce923360b686a79bfa010
-  branch: alter_build_folder
-  specs:
-    esvg (4.3.9)
-
-GIT
   remote: https://github.com/rails/webpacker.git
   revision: 8744fb48255e81ce2bd4e39f238923ad2e44efc9
   specs:
@@ -343,7 +336,6 @@ DEPENDENCIES
   devise
   draftjs_exporter
   draper
-  esvg!
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
