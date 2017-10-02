@@ -8,7 +8,7 @@ module ActiveAdmin
         def build_active_admin_head
           original_build_head
           within @head do
-            text_node embed_svgs
+            render 'layouts/partials/svg-map'
           end
         end
 
