@@ -23,7 +23,8 @@ gem 'therubyracer', platforms: :ruby
 
 # OR if you prefer to use master
 gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
-gem 'ancestry'
+gem 'acts_as_tree'
+gem 'acts_as_list'
 gem 'friendly_id', '~> 5.1.0'
 gem 'aasm'
 gem 'paper_trail', '7.0.0'

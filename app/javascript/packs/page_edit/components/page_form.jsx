@@ -29,7 +29,6 @@ const PageForm = ({schedulingActive, active_tab, editorState, page, actions, val
         <a href='#' onClick={changeTab.bind(this, 'content', actions)} className={tabClasses('content', active_tab)}>Page content</a>
         <a href='#' onClick={changeTab.bind(this, 'meta', actions)} className={tabClasses('meta', active_tab)}>SEO</a>
         <a href='#' onClick={changeTab.bind(this, 'social', actions)} className={tabClasses('social', active_tab)}>Social media</a>
-        <a href='#' onClick={changeTab.bind(this, 'publishing', actions)} className={tabClasses('publishing', active_tab)}>Page publishing</a>
       </div>
       <div className='page_editing_area' id='collection_selection'>
         { active_tab == 'content' ?

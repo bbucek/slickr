@@ -1,4 +1,5 @@
 class AdminUser < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
@@ -8,7 +9,8 @@ class AdminUser < ApplicationRecord
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  ROLES = [:admin, :editor, :author]
+  has_many :event_logs
+  ROLES = [:admin, :editor, :author, :contributor]
 
   def display_name
     first_name || email

@@ -282,3 +282,44 @@
 .svg-icon {
   fill: $blue;
 }
+%styled_html_list-item {
+  padding: 1em .75em;
+  margin-bottom: .75em;
+  background: white;
+  border: 1px solid $grey_lighter;
+}
+%avatar_list {
+  list-style: none;
+  padding: 0; margin: 0;
+  li {
+    @extend %styled_html_list-item;
+  }
+  .dashboard__events-item__header {
+    @extend .h4;
+    margin-bottom: 1em;
+  }
+  .dashboard__events-item__header_type {
+    margin-right: .5em;
+    color: $blue;
+    font-size: .9em;
+  }
+
+  .dashboard__events-item__content {
+    display: flex;
+    align-items: center;
+    @extend .para_style;
+    color: $grey;
+    span {
+      display: inline-block; margin: 0 .5em;
+      font-weight: bolder;
+      color: black;
+    }
+  }
+  .dashboard__events-item__avatar {
+    @extend %display-avatar;
+    margin-right: 1em;
+  }
+}
+%display-avatar {
+  border-radius: 50%;
+}

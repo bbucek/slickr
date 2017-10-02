@@ -20,13 +20,16 @@ export default class ImagePickerModal extends React.Component {
         isOpen={this.props.modalIsOpen}
         contentLabel="onRequestClose Example"
         onRequestClose={this.closeImagePicker}
+        style={{content: {overflow: "visible"}}}
       >
-        <Grid
-          actions={this.props.actions}
-          images={this.props.loadedImages}
-          editorState={this.props.editorState}
-        />
-      <div onClick={this.closeImagePicker} className="ReactModal__close_button"></div>
+        <div style={{overflow: "auto", height: "100%"}}>
+          <Grid
+            actions={this.props.actions}
+            images={this.props.loadedImages}
+            editorState={this.props.editorState}
+          />
+        </div>
+      <div onClick={this.closeImagePicker} className="ReactModal__close_button"><svg className="svg-icon"><use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="#svg-cross"></use></svg><span>Close</span></div>
       {/*<p>Modal text!</p>
         <button onClick={this.closeImagePicker}>Close Modal</button> */}
       </ReactModal>

@@ -7,6 +7,10 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.editor?
+      can :manage, Page
+      can :read, AdminUser
+      can :manage, Author
+      can :manage, Book
       can :manage, AdminUser, id: user.id
     elsif user.author?
       can :manage, Page

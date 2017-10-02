@@ -7,14 +7,15 @@ en:
         eventable:
           author:
             actions:
-              create: "%{user} created new author"
-              update: "%{user} updated author"
+              create_html: "Added by <span class='author'> %{user} </span> %{date}"
+              update_html: "Updated by <span class='author'> %{user} </span> %{date}"
           book:
             actions:
-              create: "%{user} created new book"
-              update: "%{user} updated book"
+              create_html: "Added by <span class='author'> %{user} </span> %{date}"
+              update_html: "Updated by <span class='author'> %{user} </span> %{date}"
           page:
             actions:
-              create: "%{user} created new page"
-              update: "%{user} updated page"
+              create_html: "Added by <span class='author'> %{user} </span> %{date}"
+              update_html: "Updated by <span class='author'> %{user} </span> %{date}"
+              publish_html: "Published by <span class='author'> %{user} </span> %{date}"
 

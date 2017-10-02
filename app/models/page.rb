@@ -1,8 +1,9 @@
 class Page < ApplicationRecord
 
+  acts_as_tree order: "position"
+  acts_as_list scope: :parent_id
   extend FriendlyId
   include AASM
-  has_ancestry
   has_paper_trail only: [:title, :aasm_state, :content, :published_content, :drafts],
                   meta: { content_changed: :content_changed? }
   Layouts = ["standard", "contact", "landing"]
@@ -63,6 +64,10 @@ class Page < ApplicationRecord
     root?
   end
 
+  def display_title
+    title
+  end
+
   def self.root_subtree_for_views
     Page.sort_by_ancestry(Page.subtree_of(Page.roots.first)).map{|p| Array({"#{Array.new(p.depth, '-').join('')}#{p.title}".to_sym => p.id}).flatten }
   end
@@ -72,14 +77,16 @@ class Page < ApplicationRecord
   end
 
   def tree_children
-    children.decorate.map do |p|
+    children.not_draft.decorate.map do |p|
       { id: p.id,
         title: p.title,
         add_child_path: p.add_child_path,
         edit_page_path: p.edit_page_path,
+        change_position_admin_page: p.change_position_admin_page,
         published: p.published?,
         subtitle: p.subtitle,
-        children: p.tree_children
+        children: p.tree_children,
+        position: p.position
       }
     end
   end
@@ -163,6 +170,10 @@ class Page < ApplicationRecord
 
   def admin_preview_page_path
     Rails.application.routes.url_helpers.preview_admin_page_path(self.id)
+  end
+
+  def change_position_admin_page
+    Rails.application.routes.url_helpers.change_position_admin_page_path(self.id)
   end
 
   def admin_page_path

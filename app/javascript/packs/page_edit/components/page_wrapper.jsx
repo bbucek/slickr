@@ -6,6 +6,7 @@ import ContentTab from "./content/content_tab.jsx";
 import MetaTab from "./meta/meta_tab.jsx";
 import SocialTab from "./social/social_tab.jsx";
 import PublishingTab from "./publishing/publishing_tab.jsx";
+import SchedulingModal from "./scheduling_modal.jsx";
 import {editorStateFromRaw, editorStateToJSON} from "megadraft";
 import { Formik } from 'formik';
 import Yup from 'yup';
@@ -23,6 +24,18 @@ const tabClasses = (tabName, active_tab) => {
   return cx(tab)
 }
 
+const unpublishPage = function(actions) {
+  actions.pageUnpublish()
+}
+const publishPage = function(actions) {
+  actions.pagePublish()
+}
+const startScheduling = function(actions) {
+  actions.startScheduling()
+}
+const unschedule = function(actions) {
+  actions.unschedule()
+}
 
 const PageWrapper = ({schedulingActive, active_tab, editorState, page, actions, values, touched, errors, dirty, isSubmitting, handleChange, handleBlur, handleSubmit, handleReset}) => {
   return(
@@ -40,8 +53,9 @@ const PageWrapper = ({schedulingActive, active_tab, editorState, page, actions, 
             <h2 id="page_title">Edit Page</h2>
           </div>
           <div id="titlebar_right">
-          <TitleBarButtons savePage={handleSubmit.bind(this)} page={page} editorState={editorState} actions={actions} />
+          <TitleBarButtons publishing_scheduled_for={page.publishing_scheduled_for} unpublishPage={unpublishPage.bind(this, actions)} publishPage={publishPage.bind(this, actions)} unschedule={unschedule.bind(this, actions)} startScheduling={startScheduling.bind(this, actions)} savePage={handleSubmit.bind(this)} page={page} editorState={editorState} actions={actions} />
           </div>
+          <SchedulingModal actions={actions} modalIsOpen={schedulingActive} />
         </div>
         <PageForm actions={actions} handleChange={handleChange.bind(this)} active_tab={active_tab} editorState={editorState} page={page} values={values} />
       </form>

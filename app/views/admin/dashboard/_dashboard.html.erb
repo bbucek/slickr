@@ -1,6 +1,14 @@
-<ul>
-<!-- <% EventLog.includes(:eventable, :admin_user).order(created_at: :desc).all.each do |e| %>
-  <li><%= t(e.action.to_sym, scope: [:activerecord, :models, :event_log, :eventable, e.eventable.class.name.downcase.to_sym, :actions], user: e.admin_user.display_name) %></li>
-<% end %> -->
-<%= image_tag "aa_dashboard.png", class: "dashboard__image" %>
+<h3>Recent activity</h3>
+<ul id="dashboard__events_list">
+<% EventLog.includes(:eventable, :admin_user).order(created_at: :desc).all.each do |e| %>
+  <li>
+    <header class='dashboard__events-item__header'>
+      <span class='dashboard__events-item__header_type'><%= e.eventable.class.name %> / </span><%= e.eventable.display_title %>
+    </header>
+    <section class='dashboard__events-item__content'>
+      <%= image_tag e.admin_user.avatar.thumbnail, class: 'dashboard__events-item__avatar display_avatar' %>
+      <%= t("#{e.action}_html".to_sym, scope: [:activerecord, :models, :event_log, :eventable, e.eventable.class.name.downcase.to_sym, :actions], user: e.admin_user.display_name, date: e.created_at.strftime("%d %b %Y")) %>
+    </section>
+  </li>
+<% end %>
 </ul>

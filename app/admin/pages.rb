@@ -20,13 +20,13 @@ ActiveAdmin.register Page do
     end
   end
 
-  action_item :preview_page, only: :edit do
-    link_to preview_admin_page_path(resource), target: "_blank" do
-      raw("<svg class='svg-icon'><use xlink:href='#svg-preview' /></svg>Preview")
-    end
-  end
+  # action_item :preview_page, only: :edit do
+  #   link_to preview_admin_page_path(resource), target: "_blank" do
+  #     raw("<svg class='svg-icon'><use xlink:href='#svg-preview' /></svg>Preview")
+  #   end
+  # end
 
-  index title: 'Site map', download_links: false do |page|
+  index title: 'Pages', download_links: false do |page|
     render partial: 'dashboard'
   end
 
@@ -47,6 +47,16 @@ ActiveAdmin.register Page do
         EventLog.create(action: :update, eventable: resource, admin_user: current_admin_user) if resource.valid?
         redirect_to edit_resource_url and return if resource.valid?
       end
+    end
+  end
+
+  member_action :change_position, method: :put do
+    resource.update_attribute(:parent_id, params[:parent_id])
+    if params[:previous_id].present?
+      previous = Page.find(params[:previous_id])
+      resource.insert_at(previous.position.to_i  + 1)
+    else
+      resource.move_to_top
     end
   end
 

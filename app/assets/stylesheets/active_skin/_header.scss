@@ -2,6 +2,69 @@
   display: flex;
   .action_item {
     margin-left: 1em;
+    &.fixed {
+      width: 7em;
+    }
   }
 }
 
+#title_bar .action_items span.action_item.positive_item {
+
+    a {
+      color: white;
+      background: $blue;
+    }
+    svg { fill: white; }
+}
+
+#title_bar .action_items span.action_item.warning_item {
+
+    a {
+      color: white;
+      background: $alert;
+      border-color: $alert;
+    }
+    svg { fill: white; }
+}
+.dropdown_item {
+  width: 17em;
+  justify-content: space-between;
+  .arrow svg {}
+  &.active {
+    color: white;
+    background: $blue;
+    svg { fill: white; }
+
+   }
+}
+.dropdown_container {
+
+  position: relative;
+  a { display: flex; align-items: center; }
+  .action_item_dropdown {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    left: -1em;
+    top: 2em;
+    color: $blue;
+    width: calc(17em - 4px);
+  border-left: 2px solid $blue;
+  border-right: 2px solid $blue;
+  border-bottom: 2px solid $blue;
+  border-radius: 2px;
+    span {
+      padding: 8px 12px;
+      display: flex;
+      svg {fill: $blue;}
+      &:hover svg {
+        fill: white;
+      }
+    }
+
+    span:hover { background: $blue; color: white; }
+    svg { width: 20px; height: 20px; fill: $blue; }
+  }
+
+}

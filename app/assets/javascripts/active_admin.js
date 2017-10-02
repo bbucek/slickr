@@ -9,7 +9,6 @@ $(document).ready(function(){
   Array.prototype.forEach.call(inputs, function(input) {
     var label = input.nextElementSibling,
     labelVal  = label.innerHTML;
-    console.log(label)
     input.addEventListener('change', function(e) {
       var fileName = '';
       if( this.files && this.files.length > 1 )
@@ -17,7 +16,7 @@ $(document).ready(function(){
       else
         fileName = e.target.value.split( '\\' ).pop();
       if(fileName)
-        label.nextSibling.innerHTML = fileName;
+        label.nextSibling.innerHTML = "New file name: "+fileName;
       else
         label.innerHTML = labelVal;
     });

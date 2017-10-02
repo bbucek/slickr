@@ -11,7 +11,7 @@ ActiveAdmin.register Book do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-  permit_params :title, :author_id, :isbn, :publisher, :publishing_year, :image
+  permit_params :title, :author_id, :isbn, :publisher, :publishing_year, :image, :synopsis
   menu priority: 4
   filter :title
 
@@ -27,6 +27,7 @@ ActiveAdmin.register Book do
     f.inputs class:'form_inputs' do
       f.input :title
       f.input :author
+      f.input :synopsis, as: :text
       f.input :publisher
       f.input :publishing_year
       f.input :isbn
@@ -40,9 +41,10 @@ ActiveAdmin.register Book do
     selectable_column
     column :author
     column :title
-    column :isbn
     column :publisher
-    column :publishing_year
+    column "Year" do |book|
+      book.publishing_year
+    end
     actions
   end
 
@@ -53,7 +55,15 @@ ActiveAdmin.register Book do
 
   action_item :new_book, only: :index do
     link_to new_admin_book_path do
-      raw("<svg class='svg-icon'><use xlink:href='#svg-plus' /></svg>Add book")
+      raw("<svg class='svg-icon'><use xlink:href='#svg-plus' /></svg>New book")
+    end
+  end
+
+  action_item :edit_book, only: :show do |book|
+    if authorized?(:manage, book)
+      link_to edit_admin_book_path do
+        raw("<svg class='svg-icon'><use xlink:href='#svg-edit' /></svg>Edit book")
+      end
     end
   end
 

@@ -1,4 +1,4 @@
-class CoverUploader < CarrierWave::Uploader::Base
+class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -24,7 +24,7 @@ class CoverUploader < CarrierWave::Uploader::Base
   end
 
   version :thumbnail do
-    process resize_to_limit: [80, 80]
+    process resize_to_fill: [40, 40]
   end
 
   def extension_white_list

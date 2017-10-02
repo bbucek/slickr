@@ -34,7 +34,42 @@ export const toggleScheduling = () => {
       type: getState().schedulingActive ? 'HIDE_SCHEDULING' : 'SHOW_SCHEDULING'
     })
   }
+}
 
+export const startScheduling = () => {
+  return function(dispatch, getState) {
+    dispatch({
+      type: "SHOW_SCHEDULING"
+    })
+  }
+}
+
+export const unschedule = () => {
+  return function(dispatch, getState) {
+    dispatch({
+      type: "UNSCHEDULE"
+    })
+  }
+}
+
+export const cancelScheduling = () => {
+  return function(dispatch, getState) {
+    dispatch({
+      type: "HIDE_SCHEDULING"
+    })
+  }
+}
+
+export const saveSchedule = (date) => {
+  return function(dispatch, getState) {
+    dispatch({
+      type: "SAVE_SCHEDULE",
+      payload: date
+    })
+    dispatch({
+      type: "HIDE_SCHEDULING"
+    })
+  }
 }
 
 export const setNewPublishingSchedule = (date) => {

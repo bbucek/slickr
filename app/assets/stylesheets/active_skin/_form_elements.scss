@@ -96,8 +96,10 @@
         &.boolean label {}
         &.input_action input { @extend %button; }
         &.file_modified {
+          margin-top: 1em;
           display: flex;
           flex-direction: row;
+          align-items: center;
           input {
             width: 0.1px;
             height: 0.1px;
@@ -109,7 +111,13 @@
               @extend %button;
               flex: 1 0 200px;
               display: inline-block;
+              width: 45%;
             }
+          }
+          .file_name {
+            width: 45%;
+            padding-left: .5em;
+            color: $blue;
           }
         }
         &.boolean {

@@ -18,11 +18,16 @@
 @import "./header";
 @import "./input-moment";
 @import "./dashboard";
+@import "./comments";
 
 @import "../megadraft/megadraft";
 @import "../cropperjs/cropper";
 @import "../react_select/default";
 @import "../react_modal/main";
+
+.m-calendar .current-day {
+  background: $blue; color: white;
+}
 
 
 $brand-alt: #333333;
@@ -141,13 +146,22 @@ li#current_user {
   grid-column: footer;
   grid-row: footer;
 }
-#title_bar .action_items span.action_item > a {
+#title_bar .action_items span.action_item > a, #title_bar .action_items div.action_item {
   @extend %button;
   display: flex;
   align-items: center;
   svg { transition: .2s;  fill: $blue;}
   &:hover svg { fill: white;}
 }
+#title_bar .action_items div.action_item.active {
+  background: $blue; color: white;
+  svg { fill: white; }
+}
+#title_bar .action_items div.action_item:hover > svg { fill: white }
+#title_bar .action_items div.action_item:hover .arrow svg { fill: white; transform: rotate(180deg) }
+#title_bar .action_items div.action_item:hover .arrow:hover svg { fill: white }
+#title_bar .action_items div.action_item:hover span svg { fill: $blue }
+#title_bar .action_items div.action_item:hover span:hover svg { fill: white }
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //
