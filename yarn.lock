@@ -9,6 +9,37 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
+"@rails/webpacker@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-3.0.1.tgz#54da0c2a0d2b7c482cd4eb2eca73beb28150c45d"
+  dependencies:
+    babel-core "^6.26.0"
+    babel-loader "^7.1.2"
+    babel-plugin-syntax-dynamic-import "^6.18.0"
+    babel-plugin-transform-class-properties "^6.24.1"
+    babel-plugin-transform-object-rest-spread "^6.26.0"
+    babel-polyfill "^6.26.0"
+    babel-preset-env "^1.6.0"
+    coffee-loader "^0.8.0"
+    coffeescript "^1.12.7"
+    compression-webpack-plugin "^1.0.0"
+    css-loader "^0.28.5"
+    extract-text-webpack-plugin "^3.0.0"
+    file-loader "^0.11.2"
+    glob "^7.1.2"
+    js-yaml "^3.9.1"
+    node-sass "^4.5.3"
+    path-complete-extname "^0.1.0"
+    postcss-cssnext "^3.0.2"
+    postcss-loader "^2.0.6"
+    postcss-smart-import "^0.7.5"
+    rails-erb-loader "^5.2.1"
+    resolve-url-loader "^2.1.0"
+    sass-loader "^6.0.6"
+    style-loader "^0.18.2"
+    webpack "^3.5.5"
+    webpack-manifest-plugin "^1.3.1"
+
 abbrev@1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.0.tgz#d0554c2256636e2f56e7c2e5ad183f859428d81f"
@@ -446,7 +477,7 @@ babel-helpers@^6.24.1:
     babel-runtime "^6.22.0"
     babel-template "^6.24.1"
 
-babel-loader@7.x:
+babel-loader@7.x, babel-loader@^7.1.2:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-7.1.2.tgz#f6cbe122710f1aa2af4d881c6d5b54358ca24126"
   dependencies:
@@ -1347,9 +1378,19 @@ coffee-loader@^0.7.3:
   dependencies:
     loader-utils "^1.0.2"
 
+coffee-loader@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/coffee-loader/-/coffee-loader-0.8.0.tgz#ec48e7327da8e3a99047a99d9bdcfcac12df3694"
+  dependencies:
+    loader-utils "^1.0.2"
+
 coffee-script@^1.12.7:
   version "1.12.7"
   resolved "https://registry.yarnpkg.com/coffee-script/-/coffee-script-1.12.7.tgz#c05dae0cb79591d05b3070a8433a98c9a89ccc53"
+
+coffeescript@^1.12.7:
+  version "1.12.7"
+  resolved "https://registry.yarnpkg.com/coffeescript/-/coffeescript-1.12.7.tgz#e57ee4c4867cf7f606bfc4a0f2d550c0981ddd27"
 
 color-convert@^1.3.0, color-convert@^1.8.2, color-convert@^1.9.0:
   version "1.9.0"
@@ -5259,6 +5300,13 @@ raf@^3.2.0:
 rails-erb-loader@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/rails-erb-loader/-/rails-erb-loader-5.1.0.tgz#8043c175e88d600c6f3d7730172c7885a5d24827"
+  dependencies:
+    loader-utils "^1.1.0"
+    lodash.defaults "^4.2.0"
+
+rails-erb-loader@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/rails-erb-loader/-/rails-erb-loader-5.2.1.tgz#399b7781b88c129bc621a8256329ed2f855398e9"
   dependencies:
     loader-utils "^1.1.0"
     lodash.defaults "^4.2.0"
