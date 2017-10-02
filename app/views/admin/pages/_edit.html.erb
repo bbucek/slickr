@@ -1,8 +1,13 @@
+<% tree = [] %>
+<% Page.walk_tree do |page, level| %>
+  <% tree << Array({"#{Array.new(level, '-').join('')}#{page.title}".to_sym => page.id}).flatten if page.type == nil %>
+<% end %>
+
 <% if @page.new_record? %>
   <%= semantic_form_for [:admin, @page], builder: ActiveAdmin::FormBuilder do |f| %>
     <%= f.inputs do %>
       <%= f.input :title %>
-      <%= f.input :parent_id, collection: options_for_select(Page.root_subtree_for_views, params[:parent]) %>
+      <%= f.input :parent_id, collection: options_for_select(tree, params[:parent]), as: :select %>
       <%= f.input :layout, collection: options_for_select(Page::Layouts.map{|l| [l.capitalize, l]}) %>
     <% end %>
     <%= f.actions %>

@@ -1,5 +1,6 @@
 class Page < ApplicationRecord
 
+  extend ActsAsTree::TreeWalker
   acts_as_tree order: "position"
   acts_as_list scope: :parent_id
   extend FriendlyId
@@ -69,7 +70,6 @@ class Page < ApplicationRecord
   end
 
   def self.root_subtree_for_views
-    Page.sort_by_ancestry(Page.subtree_of(Page.roots.first)).map{|p| Array({"#{Array.new(p.depth, '-').join('')}#{p.title}".to_sym => p.id}).flatten }
   end
 
   def published
