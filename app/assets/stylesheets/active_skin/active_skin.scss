@@ -107,7 +107,7 @@ li#current_user {
 }
 #title_bar {
   grid-column: main-content;
-  grid-row: header/content;
+  grid-row: header/flash;
   align-self: center;
   padding: 0 2em;
   display: grid;
@@ -134,9 +134,15 @@ li#current_user {
   @extend .h1;
   margin: 0;
 }
-.flashes {
+.flash {
   grid-column: main-content;
-  grid-row: content/footer;
+  grid-row: flash/content;
+  padding: 1em 2em;
+
+  &_notice {
+    background-color: $notice;
+    color: white;
+  }
 }
 
 #main_content_wrapper {

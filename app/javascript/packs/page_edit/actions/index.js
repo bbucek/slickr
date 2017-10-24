@@ -19,6 +19,15 @@ export const updatePageContent = values => {
       if(err) {
         console.error(err)
       } else {
+        let flash = document.getElementsByClassName('flashes')[0]
+        flash.insertAdjacentHTML( 'beforeend', '<div id="save_message" class="flash flash_notice">Saved</div>' );
+        // document.getElementById('save_message').className += " hide";
+        setTimeout(function() {
+          document.getElementById('save_message').className += " hide";
+        }, 1000);
+        setTimeout(function() {
+          document.getElementById('save_message').remove();
+        }, 1500);
         dispatch({
           type: 'SET_PAGE_TITLE',
           title: resp.body.title

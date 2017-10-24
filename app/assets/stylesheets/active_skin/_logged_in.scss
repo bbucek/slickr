@@ -18,7 +18,7 @@
   }
   #active_admin_content {
     grid-area: content;
-    grid-template-rows: none;
+    grid-template-rows: [flash] auto;
   }
   #main_content_wrapper {
     grid-row: auto;
@@ -34,7 +34,26 @@
     background: white;
     align-self: stretch;
   }
-
+  .flashes {
+    display: grid;
+    grid-area: content;
+    .flash {
+      grid-area: flash;
+      z-index: 999;
+      grid-column: auto;
+      grid-row: auto;
+      display: grid;
+      height: 1.5em;
+      transition: 500ms;
+      opacity: 1;
+      &.hide {
+        opacity: 0;
+      }
+      &.remove {
+        display: none;
+      }
+    }
+  }
 }
 .logged_in {
   .blank_slate_container {
@@ -45,9 +64,10 @@
     display: grid;
     align-content: stretch;
     grid-template-columns: [sidebar] 14em [main-content] 100fr;
-    grid-template-rows: [header] 8em [content] 100fr [footer] 50px;
+    grid-template-rows: [header] 8em [flash] auto [content] 100fr [footer] 50px;
     grid-template-areas:
       "sidebar content-header"
+      "sidebar content-flash"
       "sidebar content-main"
       "sidebar footer"
   }
