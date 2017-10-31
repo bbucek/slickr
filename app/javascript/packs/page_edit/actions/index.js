@@ -21,7 +21,6 @@ export const updatePageContent = values => {
       } else {
         let flash = document.getElementsByClassName('flashes')[0]
         flash.insertAdjacentHTML( 'beforeend', '<div id="save_message" class="flash flash_notice">Saved</div>' );
-        // document.getElementById('save_message').className += " hide";
         setTimeout(function() {
           document.getElementById('save_message').className += " hide";
         }, 1000);
