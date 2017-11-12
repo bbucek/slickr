@@ -43,7 +43,6 @@ ActiveAdmin.register Author do
       f.input :bio
     end
     f.actions
-
   end
 
   show do

@@ -1,4 +1,5 @@
 //= require active_admin/base
+//= require active_admin_slickr
 //= require_self
 
 $(document).ready(function(){
@@ -22,4 +23,3 @@ $(document).ready(function(){
     });
   });
 })
-

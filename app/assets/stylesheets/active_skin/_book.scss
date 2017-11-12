@@ -1,10 +1,10 @@
 #edit_book, #new_book, #show_book {
   display: grid;
-  grid-template-columns: 4fr 6fr;
+  grid-template-columns: 6fr 4fr;
   grid-template-areas:
-    "image-preview form"
-    ". actions";
-  grid-column-gap: 2em;
+    "form image-preview"
+    "actions .";
+  grid-column-gap: 0;
   .book_cover img {width: 100%;}
   .form_inputs { grid-area: form }
   .actions { grid-area: actions }

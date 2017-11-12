@@ -49,6 +49,7 @@ const PageWrapper = ({schedulingActive, active_tab, editorState, page, actions, 
               <a href="/admin/pages">Pages</a>
               <span className="breadcrumb_sep"> / </span>
               <a href={page.admin_page_path}>{page.title}</a>
+              <span className="breadcrumb_sep"> / </span>
             </span>
             <h2 id="page_title">Edit Page</h2>
           </div>

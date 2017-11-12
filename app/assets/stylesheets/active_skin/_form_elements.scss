@@ -1,191 +1,80 @@
-%login_form_basics {
-  fieldset {
-    padding: 0; margin: 0;
-    border: none;
-    &.actions {
-      margin-top: 1em;
-      ol {
-        display: flex;
-        .input_action {
-          margin-right: 1em;
-        }
-      }
-    }
+.logged_in #wrapper .formtastic {
+  padding: 0;
+
+  fieldset.inputs {
+    margin-top: 2em !important; padding: 2em !important;
+    border-bottom: 1px solid $grey_lightest !important;
+
     ol {
-      list-style-type: none;
-      padding: 0; margin: 0;
-      li {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-bottom:.5em;
-        &.error { flex-wrap: wrap; }
-        &.boolean label {}
-        &.input_action input { @extend %button; }
-        &.password, &.email, &.string, &.select {
-          & > label {
-            flex: 1 0 120px;
-            max-width: 150px;
-          }
-          label {
-            @extend .para_style;
-            margin-right: 1em;
-            abbr {
-              text-decoration: none;
-            }
-          }
-          & > input {
-            flex: 1 0 150px;
-            min-height: 30px;
-          }
-          input, select {
-            @extend %text_input_field;
-          }
-        }
-        textarea {
-          @extend %text_input_field;
-          height: 10em;
-        }
-        .field_with_errors {
-          &:nth-child(1) {
-            flex: 1 0 120px;
-            max-width: 150px;
-            margin-right: 1em;
-          }
-          &:nth-child(2) {
-            flex: 1 0 150px;
-          }
-          label { color: $alert; }
-          input { border-color: $alert; width: 100%;}
-        }
-        .inline-errors {
-          flex-basis: 100%;
-          color: $alert;
-          margin: 0;
-        }
+      img {
+        max-width: 30em;
       }
     }
   }
-}
-%admin_form_basics {
-  legend {
-    @extend %label;
+
+  fieldset.actions {
+    padding-left: 2em !important;
   }
-  fieldset {
-    padding: 0; margin: 0;
-    border: none;
-    &.actions {
-      margin-top: 1em;
-      ol {
-        display: flex;
-        align-items: center;
-        .input_action {
-          margin-right: 1em;
-        }
-      }
-    }
+
+  fieldset.form_inputs {
     ol {
-      list-style-type: none;
-      padding: 0; margin: 0;
       li {
-        display: flex;
-        justify-content: flex-start;
-        flex-flow: column;
-        margin-bottom: 1.5em;
-        &.error { flex-wrap: wrap; }
-        &.boolean label {}
-        &.input_action input { @extend %button; }
-        &.file_modified {
-          margin-top: 1em;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          input {
-            width: 0.1px;
-            height: 0.1px;
-            opacity: 0;
-            overflow: hidden;
-            position: absolute;
-            z-index: -1;
-            & + label {
-              @extend %button;
-              flex: 1 0 200px;
-              display: inline-block;
-              width: 45%;
-            }
-          }
-          .file_name {
-            width: 45%;
-            padding-left: .5em;
-            color: $blue;
-          }
+        border-bottom: 1px solid $grey_lightest; border-right: 1px solid $grey_lightest; border-left: 1px solid $grey_lightest;
+        &.input {
+          padding: 2em 0; margin-bottom: 0!important;
         }
-        &.boolean {
-          label {
-            @extend %label;
-          }
+        input, textarea {
+          width: auto !important;
+          background: none !important;
+          border-bottom: none !important;
         }
-        &.password, &.email, &.string, &.select, &.text {
-          & > label {
-            width: 100%;
-          }
-          label {
-            @extend %label;
-          }
-          & > input {
-            width: 100%;
-          }
-          input {
-            @extend %admin_text_input_field;
-          }
-          select {
-            @extend %text_input_field;
-          }
-          textarea {
-            @extend %text_input_field;
-            height: 10em;
-          }
+        &.password, &.email, &.string, &.select, &.text, &.number {
           .hint-text {
             @extend .para_small;
+            margin: 0; padding: 0 0.5em;
             color: $grey;
-            margin: 0;
-            padding: 0 1em;
           }
         }
-        &.admin-subtitle {
-          input {
-            font-size: 1.4em;
+        .edit-wrapper {
+          input, textarea {
+            background: none !important;
+            border-bottom: none !important;
           }
         }
-        &.admin-big-title {
-          input {
-            font-size: 2em;
-            font-weight: bolder;
-          }
+        .megadraft-editor {
+          padding: .5em;
         }
-        .field_with_errors {
-          &:nth-child(1) {
-            flex: 1 0 120px;
-            max-width: 150px;
-            margin-right: 1em;
-          }
-          &:nth-child(2) {
-            flex: 1 0 150px;
-          }
-          label { color: $alert; }
-          input { border-color: $alert; width: 100%;}
-        }
-        .inline-errors {
-          flex-basis: 100%;
-          color: $alert;
-          margin: 0;
-        }
+      }
+      li > * {
+        margin: 0 2em !important;
       }
     }
   }
 }
-.admin-subtitle {
-}
-.megadraft-editor {
-  padding: .5em;
+
+#custom-wrapper {
+  .page_editing_area {
+    fieldset {
+      ol {
+        li {
+          &.password, &.email, &.string, &.select, &.text, &.number {
+            .hint-text {
+              @extend .para_small;
+              margin: 0; padding: 0 0.5em;
+              color: $grey;
+            }
+          }
+          .edit-wrapper {
+            input, textarea {
+              background: none !important;
+              border-bottom: none !important;
+            }
+          }
+          .megadraft-editor {
+            padding: .5em;
+          }
+        }
+      }
+    }
+  }
 }

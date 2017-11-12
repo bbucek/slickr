@@ -24,6 +24,11 @@ GIT
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
 
+PATH
+  remote: /Users/primate/Documents/gems/active_admin_slickr
+  specs:
+    active_admin_slickr (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -325,6 +330,7 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  active_admin_slickr!
   activeadmin!
   acts-as-taggable-on (~> 4.0)
   acts_as_list

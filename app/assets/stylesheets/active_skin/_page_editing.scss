@@ -7,8 +7,17 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-column-gap: 2em;
-    .input {
-      margin-bottom: 3.5em;
+
+    li.input {
+      margin-bottom: 0 !important;
+      padding: 2em 0;
+      border-bottom: 1px solid $grey_lightest;
+      .edit-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: column;
+        padding: 0 10em;
+      }
     }
   }
   .action_item {

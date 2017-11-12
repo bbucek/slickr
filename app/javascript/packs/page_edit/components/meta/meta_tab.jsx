@@ -9,17 +9,20 @@ export default class MetaTab extends React.Component {
       <fieldset>
         <ol>
           <li className="input string admin-subtitle">
-            <label htmlFor="meta_title">Page meta title</label>
-            <input type="text" name="meta_title" value={values.meta_title} onChange={handleChange} />
+            <div className="edit-wrapper">
+              <label htmlFor="meta_title">Page meta title</label>
+              <input type="text" name="meta_title" value={values.meta_title} onChange={handleChange} />
+            </div>
           </li>
           <li className="input string">
-            <label htmlFor="page_intro">Page meta description</label>
-            <input type="text" name="meta_description" value={values.meta_description} onChange={handleChange} />
-            <p className='hint_text'></p>
+            <div className="edit-wrapper">
+              <label htmlFor="page_intro">Page meta description</label>
+              <input type="text" name="meta_description" value={values.meta_description} onChange={handleChange} />
+              <p className='hint_text'></p>
+            </div>
           </li>
         </ol>
       </fieldset>
     );
   }
 }
-

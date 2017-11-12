@@ -54,6 +54,8 @@ gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails'
 gem 'capistrano-passenger', group: :development
 gem 'draftjs_exporter'
+# gem 'active_admin_slickr', :git => 'https://github.com/primate-inc/active_admin_slickr.git', :branch => 'master'
+gem 'active_admin_slickr', :path => '/Users/primate/Documents/gems/active_admin_slickr'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
