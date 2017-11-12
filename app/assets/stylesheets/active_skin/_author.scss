@@ -6,6 +6,6 @@
     "actions .";
   grid-column-gap: 0;
   .author_image img, .user_avatar img {width: 100%;}
-  .form_inputs { grid-area: form }
+  .form_inputs, .attributes_list { grid-area: form }
   .actions { grid-area: actions }
 }
