@@ -19,7 +19,7 @@ ActiveAdmin.register Book do
 
   form html: { id: 'split_display_with_image' } do |f|
     f.inputs 'Book cover' do
-      div class: 'book_cover' do
+      div class: 'image' do
         image_tag resource.image
       end
       f.input :image, as: :file_modified, label: 'Select book cover image'
