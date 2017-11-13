@@ -5,7 +5,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import PropTypes from 'prop-types'
-import PageEditor from './page_edit/containers/page_editor'
+import PageEditor from '../page_edit/containers/page_editor'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import reducers from './page_edit/reducers';
@@ -13,8 +13,8 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import {DraftJS, editorStateFromRaw, createTypeStrategy} from "megadraft";
 import Link from "megadraft/lib/components/Link"
-import bookLinkComponent from "./page_edit/decorators/book_link_component";
-import authorLinkComponent from "./page_edit/decorators/author_link_component";
+import bookLinkComponent from "../page_edit/decorators/book_link_component";
+import authorLinkComponent from "../page_edit/decorators/author_link_component";
 
 const pageData = document.getElementById("page-data").dataset.page_data
 

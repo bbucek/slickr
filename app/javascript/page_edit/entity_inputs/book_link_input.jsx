@@ -2,19 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Select from 'react-select';
 import icons from "megadraft/lib/icons";
-import store from '../../page_edit.jsx'
+import store from '../../packs/page_edit.jsx'
 
-export default class AuthorLinkInput extends React.Component {
+export default class BookLinkInput extends React.Component {
   constructor(props) {
     super(props);
-    this.onAuthorChange = this.onAuthorChange.bind(this);
+    this.onBookChange = this.onBookChange.bind(this);
   }
 
   componentWillMount() {
-    this.props.onChange('load_authors')
+    this.props.onChange('load_books')
   }
 
-  onAuthorChange(selection) {
+  onBookChange(selection) {
     var url = selection === null ? "" : selection.value
     if(selection !== null) {
       this.props.setEntity({url});
@@ -27,9 +27,9 @@ export default class AuthorLinkInput extends React.Component {
   }
 
   render() {
-    var authors = store.getState().loadedAuthors.map(
-      ({name}, index) => (
-        { value: `/a-link-${index}`, label: name }
+    var books = store.getState().loadedBooks.map(
+      ({title}, index) => (
+        { value: `/a-link-${index}`, label: title }
       )
     )
     var value = this.props.url === null ? "" : this.props.url
@@ -37,8 +37,8 @@ export default class AuthorLinkInput extends React.Component {
       <Select
         name="form-field-name"
         value={this.props.url}
-        options={authors}
-        onChange={this.onAuthorChange}
+        options={books}
+        onChange={this.onBookChange}
       />
     );
   }

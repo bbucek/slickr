@@ -5,10 +5,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import Tree from './page_tree/containers/tree_component'
+import Tree from '../page_tree/containers/tree_component'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
-import reducers from './page_tree/reducers';
+import reducers from '../page_tree/reducers';
 import thunk from 'redux-thunk';
 
 const treeData = document.getElementById("page_tree_content").dataset.pages
