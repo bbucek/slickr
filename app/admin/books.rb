@@ -17,7 +17,7 @@ ActiveAdmin.register Book do
 
   config.clear_action_items!
 
-  form do |f|
+  form html: { id: 'split_display_with_image' } do |f|
     f.inputs 'Book cover' do
       div class: 'book_cover' do
         image_tag resource.image

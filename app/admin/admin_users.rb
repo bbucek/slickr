@@ -29,10 +29,10 @@ ActiveAdmin.register AdminUser, as: "Users" do
 
   filter :email
 
-  form do |f|
+  form html: { id: 'split_display_with_image' } do |f|
     f.inputs 'User avatar' do
       if resource.avatar.url.present?
-        div class: 'user_avatar' do
+        div class: 'image' do
           image_tag resource.avatar
         end
       end

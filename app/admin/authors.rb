@@ -26,10 +26,10 @@ ActiveAdmin.register Author do
     actions
   end
 
-  form do |f|
+  form html: { id: 'split_display_with_image' } do |f|
     f.inputs 'Author photo' do
       if resource.image.url.present?
-        div class: 'author_image' do
+        div class: 'image' do
           image_tag resource.image
         end
       end
