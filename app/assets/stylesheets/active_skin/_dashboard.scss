@@ -1,6 +1,17 @@
-.admin_dashboard {
-  #main_content {
-    @extend %main_content_container;
+.admin_dashboard.logged_in {
+  #wrapper {
+    grid-template-rows: [header] 8em [content] 100fr [footer] 50px;
+
+    #title_bar {
+      background-color: $blue;
+      #page_title {
+        font-size: 2em;
+        color: $white;
+      }
+    }
+    #main_content {
+      @extend %main_content_container;
+    }
   }
 }
 .dashboard {

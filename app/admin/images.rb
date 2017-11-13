@@ -1,5 +1,5 @@
 ActiveAdmin.register Image do
-  actions :all, :except => [:new]
+  actions :all, :except => [:new, :show]
   config.filters = false
 
   permit_params :attachment, :crop_data, data: {}
