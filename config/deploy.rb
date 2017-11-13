@@ -18,9 +18,45 @@ set :linked_dirs, %w{log tmp/archives tmp/pids tmp/cache tmp/sockets vendor/bund
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
+Rake::Task['deploy:assets:precompile'].clear
+
 after 'deploy:publishing', 'deploy:restart'
 
 namespace :deploy do
+  namespace :assets do
+    desc 'Compile assets'
+    task :precompile => [:set_rails_env] do
+      # invoke 'deploy:assets:precompile'
+      invoke 'deploy:assets:precompile_local'
+      invoke 'deploy:assets:backup_manifest'
+    end
+
+    desc "Precompile assets locally and then rsync to web servers"
+    task :precompile_local do
+      # compile assets locally
+      run_locally do
+        execute "RAILS_ENV=#{fetch(:stage)} bundle exec rake assets:precompile"
+      end
+
+      # rsync to each server
+      dirs = {
+        './public/assets/' => 'public/assets/',
+        './public/packs/' => 'public/packs/'
+      }
+      on roles( fetch(:assets_roles, [:web]) ) do
+        # this needs to be done outside run_locally in order for host to exist
+        dirs.each do |local, remote|
+          remote_dir = "#{host.user}@#{host.hostname}:#{release_path}/#{remote}"
+
+          run_locally { execute "rsync -av -e 'ssh -p 30000' --delete #{local} #{remote_dir}" }
+        end
+      end
+
+      # clean up
+      run_locally { execute "rm -rf #{dirs.keys.first}" }
+      run_locally { execute "rm -rf ./public/packs" }
+    end
+  end
 
   desc 'Restart application'
   task :restart do
