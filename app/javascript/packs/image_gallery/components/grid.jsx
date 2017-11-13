@@ -36,7 +36,7 @@ export default class Grid extends React.Component {
       }
       i.build_for_gallery.customOverlay = (
         <div>
-          <div style={captionStyle}>
+          <div style={captionStyle} >
             <div>{i.build_for_gallery.caption}</div>
             { i.build_for_gallery.hasOwnProperty('tags') && this.setCustomTags(i.build_for_gallery) }
           </div>
@@ -52,13 +52,7 @@ export default class Grid extends React.Component {
     });
 
     return (
-      <div style={{
-        display: "block",
-        minHeight: "1px",
-        maxWidth: "60vw",
-        margin: "0 auto",
-        overflow: "auto"
-      }}>
+      <div id='image_gallery_wrapper'>
         <Gallery
           images={images.map(function(a) {return a.build_for_gallery})}
           onSelectImage={this.onSelectImage}

@@ -1,12 +1,16 @@
 #image_editor {
-  @extend %main_content_container;
+  padding: 2em;
   display: grid;
   grid-template-columns: 6fr 4fr;
   grid-column-gap: 2em;
-}
-#image_editor_form {
-  @extend %admin_form_basics;
-  button {
-    @extend %button;
+
+  .ReactCrop {
+    width: max-content;
+  }
+  #image_editor_form {
+    @extend %admin_form_basics;
+    button {
+      @extend %button;
+    }
   }
 }
