@@ -33,6 +33,8 @@ namespace :deploy do
 
     desc "Precompile assets locally and then rsync to web servers"
     task :precompile_local do
+      # remove existing packs directory
+      run_locally { execute "rm -rf ./public/packs" }
       # compile assets locally
       run_locally do
         execute "RAILS_ENV=#{fetch(:stage)} bundle exec rake assets:precompile"
