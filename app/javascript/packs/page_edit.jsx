@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 import PageEditor from '../page_edit/containers/page_editor'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
-import reducers from './page_edit/reducers';
+import reducers from '../page_edit/reducers';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import {DraftJS, editorStateFromRaw, createTypeStrategy} from "megadraft";
