@@ -5,7 +5,7 @@ ActiveAdmin.register_page "Dashboard" do
     []
   end
 
-  content title: Proc.new { "Good morning, #{current_admin_user.first_name}!" } do
+  content do
     render partial: 'dashboard'
   end
 end

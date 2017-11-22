@@ -1,16 +1,34 @@
 .admin_dashboard.logged_in {
   #wrapper {
-    grid-template-rows: [header] 8em [content] 100fr [footer] 50px;
+    grid-template-rows: [header] 0 [content] 100fr [footer] 50px;
 
     #title_bar {
-      background-color: $blue;
-      #page_title {
-        font-size: 2em;
-        color: $white;
-      }
+      display: none;
     }
+
     #main_content {
       @extend %main_content_container;
+
+      #dashboard_title_bar {
+        display: grid;
+        padding: 0 0 0 2em; height: 12em;
+        background-color: $blue;
+        &__greeting {
+          @extend .h2;
+          margin-bottom: 0;
+          color: $white;
+        }
+        &__last-visit {
+          @extend .para_style;
+          margin-top: -1em; margin-bottom: 0;
+          color: $blue_dark; font-weight: 600;
+        }
+        &__activity {
+          @extend .para_style;
+          margin-bottom: 0; height: 0.5em;
+          color: $white;
+        }
+      }
     }
   }
 }

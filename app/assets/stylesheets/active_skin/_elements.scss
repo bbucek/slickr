@@ -15,28 +15,30 @@
     @extend %styled_html_list-item;
   }
   .dashboard__events_list-item {
+    display: flex;
     padding: 0 2em;
   }
-  .dashboard__events-item__header {
-    @extend .h4;
-    margin-bottom: 1em;
+  .dashboard__events-item__date {
+    @extend .para_small_style;
+    display: flex; flex: 0 0 20%;
+    align-items: center;
+    color: $grey; font-size: 0.8em;
   }
-  .dashboard__events-item__header_type {
-    margin-right: .5em;
-    color: $blue;
-    font-size: .9em;
-  }
-
   .dashboard__events-item__content {
-    display: flex;
+    display: flex; flex: 0 0 70%;
     align-items: center;
     @extend .para_style;
     color: $grey;
     span {
       display: inline-block; margin: 0 .5em;
       font-weight: bolder;
-      color: black;
+      color: $blue;
     }
+  }
+  .dashboard__events-item__alert {
+    @extend .h4;
+    display: flex; flex: 1;
+    align-items: center;
   }
   .dashboard__events-item__avatar {
     @extend %display-avatar;
